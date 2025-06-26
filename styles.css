@@ -712,14 +712,104 @@ strong {
     transform: scale(1.05);
 }
 
-/* Responsive Design for Partners */
-@media (max-width: 768px) {
-    .partners-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+/* Teaser Sections - Partners & Clients Preview */
+.partners-preview,
+.clients-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+    align-items: center;
+    justify-items: center;
+}
+
+.partner-featured,
+.client-featured {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 120px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(44, 44, 44, 0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.partner-featured:hover,
+.client-featured:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    border-color: rgba(44, 44, 44, 0.12);
+}
+
+.partner-featured img,
+.client-featured img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(30%) opacity(0.8);
+    transition: all 0.4s ease;
+}
+
+.partner-featured:hover img,
+.client-featured:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+}
+
+.partners-cta,
+.clients-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2c2c2c;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(44, 44, 44, 0.2);
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    background-color: transparent;
+}
+
+.view-all-btn:hover {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(44, 44, 44, 0.2);
+}
+
+/* Responsive Design for Teasers */
+@media (max-width: 1024px) {
+    .partners-preview,
+    .clients-preview {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
+}
+
+@media (max-width: 768px) {
+    .partners-preview,
+    .clients-preview {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
     
-    .partner-logo {
+    .partner-featured,
+    .client-featured {
         width: 160px;
         height: 100px;
         padding: 1rem;
@@ -727,15 +817,16 @@ strong {
 }
 
 @media (max-width: 480px) {
-    .partners-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .partners-preview,
+    .clients-preview {
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
     
-    .partner-logo {
-        width: 140px;
-        height: 80px;
-        padding: 0.8rem;
+    .partner-featured,
+    .client-featured {
+        width: 200px;
+        height: 100px;
     }
 }
 
@@ -1289,5 +1380,750 @@ strong {
     
     .client-overlay p {
         font-size: 0.7rem;
+    }
+}
+
+/* =================================================================
+   THEMED SUBPAGES - BASALTE INSPIRED DESIGNS
+   ================================================================= */
+
+/* Page Theme System */
+body.services-page {
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+body.clients-page {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.partners-page {
+    background-color: #f5f5f5;
+    color: #2c2c2c;
+}
+
+body.about-page {
+    background-color: #fafafa;
+    color: #2c2c2c;
+}
+
+/* Dark Theme Navigation */
+body.services-page .navbar,
+body.clients-page .navbar {
+    background-color: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.services-page .nav-logo a,
+body.clients-page .nav-logo a,
+body.services-page .nav-link,
+body.clients-page .nav-link {
+    color: #ffffff;
+}
+
+body.services-page .nav-link:hover,
+body.clients-page .nav-link:hover {
+    opacity: 0.6;
+}
+
+body.services-page .menu-toggle span,
+body.clients-page .menu-toggle span {
+    background-color: #ffffff;
+}
+
+/* Services Page - Dark Dramatic Theme */
+.services-page-hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-hero-content {
+    text-align: center;
+    max-width: 800px;
+    z-index: 2;
+    position: relative;
+}
+
+.services-hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
+    text-transform: lowercase;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+.services-hero-subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    font-weight: 300;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+/* Basalte-Style Services Page */
+.services-hero {
+    padding: 120px 0 80px;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.services-hero .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services-hero .hero-title {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+}
+
+.services-hero .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Services Navigation */
+.services-navigation {
+    padding: 60px 0;
+    background-color: #fafafa;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.08);
+}
+
+.services-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.service-nav-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.service-nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #2c2c2c;
+    transition: width 0.4s ease;
+}
+
+.service-nav-btn:hover,
+.service-nav-btn.active {
+    color: #2c2c2c;
+}
+
+.service-nav-btn.active::after,
+.service-nav-btn:hover::after {
+    width: 100%;
+}
+
+/* Services Showcase - Basalte Grid Style */
+.services-showcase {
+    padding: 80px 0;
+    background-color: #fafafa;
+}
+
+.services-showcase .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.service-item {
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-item.scroll-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-image {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-link:hover .service-image img {
+    transform: scale(1.05);
+}
+
+.service-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    padding: 3rem 2rem 2rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.service-link:hover .service-info {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.service-info .service-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+}
+
+.service-info .service-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+    .services-showcase .container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .service-image {
+        height: 60vh;
+    }
+    
+    .service-info .service-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-showcase .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-image {
+        height: 50vh;
+    }
+    
+    .service-info {
+        position: static;
+        background: rgba(0,0,0,0.8);
+        transform: none;
+        opacity: 1;
+        padding: 2rem;
+    }
+    
+    .service-info .service-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Remove old styles that are no longer needed */
+.service-content {
+    display: none;
+}
+
+.service-item.alternate .service-content {
+    display: none;
+}
+
+.service-item.alternate .service-image {
+    order: unset;
+}
+
+/* Responsive Design for Services */
+@media (max-width: 1024px) {
+    .services-nav {
+        gap: 2rem;
+    }
+    
+    .service-content {
+        gap: 4rem;
+    }
+    
+    .service-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .services-nav {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+    
+    .service-nav-btn {
+        font-size: 0.8rem;
+    }
+    
+    .service-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .service-item.alternate .service-image {
+        order: 0;
+    }
+    
+    .service-title {
+        font-size: 2.2rem;
+    }
+    
+    .service-image {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .services-hero .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .services-navigation {
+        padding: 40px 0;
+    }
+    
+    .services-nav {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .service-nav-btn {
+        font-size: 0.9rem;
+        padding: 0.8rem 0;
+    }
+    
+    .service-item {
+        margin-bottom: 5rem;
+    }
+    
+    .service-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .service-image {
+        height: 280px;
+    }
+}
+
+/* Service Detail Pages */
+.service-detail-page {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.service-detail-page .navbar {
+    background-color: rgba(26, 26, 26, 0.95);
+}
+
+.service-detail-page .nav-link {
+    color: #ffffff;
+}
+
+.service-detail-page .nav-logo a {
+    color: #ffffff;
+}
+
+/* Service Detail Hero */
+.service-detail-hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: 1;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 20s ease;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.service-detail-hero .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.service-detail-hero .hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    letter-spacing: -2px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.2s ease 0.5s forwards;
+}
+
+.service-detail-hero .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s ease 0.8s forwards;
+}
+
+/* Service Overview */
+.service-overview {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+}
+
+.overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.service-overview .section-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+}
+
+.overview-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Feature Showcase */
+.feature-showcase {
+    background-color: #1a1a1a;
+}
+
+.feature-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    min-height: 80vh;
+    padding: 0 5%;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.feature-item.scroll-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-item.alternate {
+    background-color: #2c2c2c;
+}
+
+.feature-item.alternate .feature-content {
+    order: 2;
+}
+
+.feature-item.alternate .feature-image {
+    order: 1;
+}
+
+.feature-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: #ffffff;
+}
+
+.feature-description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 0.8rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.feature-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.feature-image {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.feature-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Service CTA */
+.service-cta {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.2rem 2.5rem;
+    background-color: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Parallax Background */
+.parallax-bg {
+    transform: scale(1.1) translateY(0);
+    animation: parallaxMove 20s ease-in-out infinite;
+}
+
+@keyframes parallaxMove {
+    0%, 100% {
+        transform: scale(1.1) translateY(0);
+    }
+    50% {
+        transform: scale(1.1) translateY(-30px);
+    }
+}
+
+/* Responsive Design for Service Details */
+@media (max-width: 1024px) {
+    .feature-item {
+        gap: 4rem;
+    }
+    
+    .service-detail-hero .hero-title {
+        font-size: 3rem;
+    }
+    
+    .feature-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-detail-hero .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .feature-item {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        padding: 3rem 5%;
+    }
+    
+    .feature-item.alternate .feature-content {
+        order: 1;
+    }
+    
+    .feature-item.alternate .feature-image {
+        order: 2;
+    }
+    
+    .feature-image {
+        height: 350px;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-detail-hero .hero-title {
+        font-size: 2rem;
+    }
+    
+    .service-overview {
+        padding: 80px 0;
+    }
+    
+    .service-overview .section-title {
+        font-size: 2rem;
+    }
+    
+    .feature-item {
+        padding: 2rem 5%;
+    }
+    
+    .feature-title {
+        font-size: 1.8rem;
     }
 }
