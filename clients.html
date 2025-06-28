@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Clients - SSS Security Solutions</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css-base.css">
+    <link rel="stylesheet" href="css-clients.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="clients-page">
@@ -52,101 +53,137 @@
     </section>
 
     <!-- Client Showcase -->
-    <section class="clients-showcase-grid">
-        <!-- Government Client -->
-        <div class="client-showcase-item scroll-animate">
-            <div class="client-showcase-content">
-                <h2 class="client-showcase-title">government institutions</h2>
-                <p class="client-showcase-description">
-                    Securing critical government facilities with advanced surveillance, 
-                    access control, and emergency response systems. Trusted to protect 
-                    sensitive areas with the highest security standards.
-                </p>
-                <span class="client-showcase-tag">government</span>
-            </div>
-            <div class="client-showcase-logo">
-                <img src="public/clients/government-1.png" alt="Government Institution">
+    <section class="clients-gallery">
+        <div class="container">
+            <div class="clients-gallery-grid">
+                <!-- Government Client -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/ministry-of-environment-water-agriculture-logo-png_seeklogo-335808.png" alt="Ministry of Environment">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">government</span>
+                        <h3 class="client-name">ministry of environment</h3>
+                        <p class="client-description">
+                            Advanced security infrastructure for critical government facilities with integrated surveillance and access control systems.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Corporate Client -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/STC-01.svg" alt="Saudi Telecom Company">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">telecommunications</span>
+                        <h3 class="client-name">saudi telecom company</h3>
+                        <p class="client-description">
+                            Enterprise-grade security solutions for telecommunications infrastructure and corporate facilities nationwide.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hospitality Client -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/Ascott.jpg" alt="Ascott Hotels">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">hospitality</span>
+                        <h3 class="client-name">ascott residence</h3>
+                        <p class="client-description">
+                            Luxury hospitality security with integrated guest management, surveillance, and smart building automation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Retail Client -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/Carrefour Saudi Arabia.png" alt="Carrefour">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">retail</span>
+                        <h3 class="client-name">carrefour saudi arabia</h3>
+                        <p class="client-description">
+                            Comprehensive retail security with loss prevention analytics, customer flow monitoring, and POS protection.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Healthcare Client -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/Nahdi.png" alt="Nahdi Medical Company">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">healthcare</span>
+                        <h3 class="client-name">nahdi medical company</h3>
+                        <p class="client-description">
+                            Healthcare-focused security systems with patient privacy protection and specialized access control protocols.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Workspace Client -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/Spaces.png" alt="Spaces">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">workspace</span>
+                        <h3 class="client-name">spaces coworking</h3>
+                        <p class="client-description">
+                            Flexible workspace security with smart access control, visitor management, and adaptive environment systems.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Municipal Client -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/riyad municipilit.png" alt="Riyadh Municipality">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">municipal</span>
+                        <h3 class="client-name">riyadh municipality</h3>
+                        <p class="client-description">
+                            Municipal facility security with public safety integration, emergency response systems, and smart city infrastructure.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Commercial Client -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/Arabian-Centres.png" alt="Arabian Centres">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">commercial</span>
+                        <h3 class="client-name">arabian centres</h3>
+                        <p class="client-description">
+                            Large-scale commercial complex security with crowd management, emergency systems, and integrated mall operations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Corporate Office -->
+                <div class="client-card scroll-animate">
+                    <div class="client-logo-container">
+                        <img class="client-logo" src="public/clients/Regus.png" alt="Regus">
+                    </div>
+                    <div class="client-info">
+                        <span class="client-category">office solutions</span>
+                        <h3 class="client-name">regus business centers</h3>
+                        <p class="client-description">
+                            Professional office security solutions with flexible access control and comprehensive business center management.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Corporate Client -->
-        <div class="client-showcase-item scroll-animate">
-            <div class="client-showcase-content">
-                <h2 class="client-showcase-title">multinational corporations</h2>
-                <p class="client-showcase-description">
-                    Enterprise-grade security solutions for corporate headquarters, 
-                    manufacturing facilities, and office complexes. Integrated systems 
-                    that scale with business growth and operational demands.
-                </p>
-                <span class="client-showcase-tag">corporate</span>
-            </div>
-            <div class="client-showcase-logo">
-                <img src="public/clients/aramco.png" alt="Saudi Aramco">
-            </div>
-        </div>
-
-        <!-- Hospitality Client -->
-        <div class="client-showcase-item scroll-animate">
-            <div class="client-showcase-content">
-                <h2 class="client-showcase-title">luxury hospitality</h2>
-                <p class="client-showcase-description">
-                    Premium security and automation solutions for five-star hotels 
-                    and resorts. Seamless guest experiences combined with comprehensive 
-                    property protection and intelligent building management.
-                </p>
-                <span class="client-showcase-tag">hospitality</span>
-            </div>
-            <div class="client-showcase-logo">
-                <img src="public/clients/ascott.png" alt="Ascott Hotels">
-            </div>
-        </div>
-
-        <!-- Retail Client -->
-        <div class="client-showcase-item scroll-animate">
-            <div class="client-showcase-content">
-                <h2 class="client-showcase-title">retail & commercial</h2>
-                <p class="client-showcase-description">
-                    Advanced retail security systems with loss prevention analytics, 
-                    customer flow monitoring, and integrated point-of-sale protection. 
-                    Protecting assets while enhancing the shopping experience.
-                </p>
-                <span class="client-showcase-tag">retail</span>
-            </div>
-            <div class="client-showcase-logo">
-                <img src="public/clients/retail-1.png" alt="Retail Client">
-            </div>
-        </div>
-
-        <!-- Healthcare Client -->
-        <div class="client-showcase-item scroll-animate">
-            <div class="client-showcase-content">
-                <h2 class="client-showcase-title">healthcare facilities</h2>
-                <p class="client-showcase-description">
-                    Specialized security solutions for hospitals and medical centers. 
-                    Patient privacy protection, restricted area access control, and 
-                    emergency response systems designed for healthcare environments.
-                </p>
-                <span class="client-showcase-tag">healthcare</span>
-            </div>
-            <div class="client-showcase-logo">
-                <img src="public/clients/healthcare-1.png" alt="Healthcare Client">
-            </div>
-        </div>
-
-        <!-- Educational Client -->
-        <div class="client-showcase-item scroll-animate">
-            <div class="client-showcase-content">
-                <h2 class="client-showcase-title">educational institutions</h2>
-                <p class="client-showcase-description">
-                    Campus-wide security systems with student safety protocols, 
-                    visitor management, and emergency notification systems. Creating 
-                    secure learning environments for students and faculty.
-                </p>
-                <span class="client-showcase-tag">education</span>
-            </div>
-            <div class="client-showcase-logo">
-                <img src="public/clients/education-1.png" alt="Educational Institution">
-            </div>
+    </section>
         </div>
 
         <!-- Residential Client -->
