@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Page 2 - SSS Security Systems</title>
+    <link rel="stylesheet" href="css-base.css">
+    <link rel="stylesheet" href="css-projects.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="public/logos/sss-logo.png" alt="SSS Security Systems" />
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">home</a>
+                <a href="services.html" class="nav-link">services</a>
+                <a href="projects.html" class="nav-link active">projects</a>
+                <a href="clients.html" class="nav-link">clients</a>
+                <a href="partners.html" class="nav-link">partners</a>
+                <a href="#contact" class="nav-link">contact</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Projects Hero -->
+        <section class="projects-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">some of our projects</h1>
+                <p class="hero-subtitle">showcasing our expertise in security system installations across various sectors and environments</p>
+            </div>
+        </section>
+
+        <!-- Projects Showcase -->
+        <section class="projects-showcase">
+            <div class="projects-masonry-grid">
+                <!-- Project 7: Citadines Hotel -->
+                <div class="project-item large" data-project="citadines">
+                    <div class="project-image">
+                        <img src="public/projects/citadines-hotel.jpg" alt="Citadines Hotel Security Installation">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">citadines hotel</h3>
+                        <p class="project-subtitle">hospitality complex</p>
+                    </div>
+                </div>
+
+                <!-- Project 8: Dalla Hospital -->
+                <div class="project-item wide" data-project="dalla">
+                    <div class="project-image">
+                        <img src="public/projects/dalla-hospital.jpg" alt="Dalla Hospital Security Installation">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">dalla hospital</h3>
+                        <p class="project-subtitle">healthcare facility</p>
+                    </div>
+                </div>
+
+                <!-- Project 9: Signature 1 -->
+                <div class="project-item tall" data-project="signature1">
+                    <div class="project-image">
+                        <img src="public/projects/signature1.jpg" alt="Signature 1 Security Installation">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">signature 1</h3>
+                        <p class="project-subtitle">commercial complex</p>
+                    </div>
+                </div>
+
+                <!-- Project 10: Signature 2 -->
+                <div class="project-item medium" data-project="signature2">
+                    <div class="project-image">
+                        <img src="public/projects/signature2.jpg" alt="Signature 2 Security Installation">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">signature 2</h3>
+                        <p class="project-subtitle">business center</p>
+                    </div>
+                </div>
+
+                <!-- Project 11: Signature 3 -->
+                <div class="project-item medium" data-project="signature3">
+                    <div class="project-image">
+                        <img src="public/projects/signature3.jpg" alt="Signature 3 Security Installation">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">signature 3</h3>
+                        <p class="project-subtitle">retail complex</p>
+                    </div>
+                </div>
+
+                <!-- Project 12: Salam Mall -->
+                <div class="project-item wide" data-project="salam-mall">
+                    <div class="project-image">
+                        <img src="public/projects/salam-mall.jpg" alt="Salam Mall Security Installation">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">salam mall - jeddah</h3>
+                        <p class="project-subtitle">shopping center</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="projects-pagination">
+                <div class="pagination-container">
+                    <a href="projects.html" class="pagination-link" id="prev-page">←</a>
+                    <a href="projects.html" class="pagination-link">1</a>
+                    <a href="projects-2.html" class="pagination-link active">2</a>
+                    <a href="projects-3.html" class="pagination-link">3</a>
+                    <a href="projects-3.html" class="pagination-link" id="next-page">→</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Lightbox -->
+        <div class="gallery-lightbox" id="gallery-lightbox">
+            <div class="lightbox-overlay" id="lightbox-overlay"></div>
+            <div class="lightbox-container">
+                <button class="lightbox-close" id="lightbox-close">&times;</button>
+                <div class="lightbox-content">
+                    <div class="lightbox-image-container">
+                        <img src="" alt="" id="lightbox-image">
+                        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+                        <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+                    </div>
+                    <div class="lightbox-info">
+                        <h3 class="lightbox-title" id="lightbox-title"></h3>
+                        <p class="lightbox-description" id="lightbox-description"></p>
+                        <div class="lightbox-details" id="lightbox-details"></div>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SSS Security Systems</h3>
+                    <p>Professional security solutions for residential and commercial properties.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="service-cctv.html">CCTV Systems</a></li>
+                        <li><a href="service-access.html">Access Control</a></li>
+                        <li><a href="service-alarm.html">Alarm Systems</a></li>
+                        <li><a href="service-intercom.html">Intercom Systems</a></li>
+                        <li><a href="service-networking.html">Networking</a></li>
+                        <li><a href="service-maintenance.html">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@sss-security.com</p>
+                    <p>Phone: +966 XX XXX XXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SSS Security Systems. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="js/projects-gallery.js"></script>
+</body>
+</html>
