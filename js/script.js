@@ -188,7 +188,7 @@ const navTemplates = {
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="index.html">SSS</a>
+                    <a href="../index.html">SSS</a>
                 </div>
                 <div class="menu-toggle" id="mobile-menu">
                     <span></span>
@@ -197,25 +197,25 @@ const navTemplates = {
                 </div>
                 <ul class="nav-menu" id="nav-menu">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link" data-page="index">home</a>
+                        <a href="../index.html" class="nav-link" data-page="index">home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="services.html" class="nav-link" data-page="services">services</a>
+                        <a href="../services/services.html" class="nav-link" data-page="services">services</a>
                     </li>
                     <li class="nav-item">
-                        <a href="projects.html" class="nav-link" data-page="projects">projects</a>
+                        <a href="../projects/projects.html" class="nav-link" data-page="projects">projects</a>
                     </li>
                     <li class="nav-item">
-                        <a href="clients.html" class="nav-link" data-page="clients">clients</a>
+                        <a href="../clients/clients.html" class="nav-link" data-page="clients">clients</a>
                     </li>
                     <li class="nav-item">
-                        <a href="partners.html" class="nav-link" data-page="partners">partners</a>
+                        <a href="../partners/partners.html" class="nav-link" data-page="partners">partners</a>
                     </li>
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link" data-page="about">about</a>
+                        <a href="../about/about.html" class="nav-link" data-page="about">about</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.html#contact" class="nav-link">contact</a>
+                        <a href="../contact/contact.html" class="nav-link">contact</a>
                     </li>
                 </ul>
             </div>
@@ -226,7 +226,7 @@ const navTemplates = {
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="#home">SSS</a>
+                    <a href="../index.html">SSS</a>
                 </div>
                 <div class="menu-toggle" id="mobile-menu">
                     <span></span>
@@ -235,25 +235,25 @@ const navTemplates = {
                 </div>
                 <ul class="nav-menu" id="nav-menu">
                     <li class="nav-item">
-                        <a href="#home" class="nav-link" data-page="index">home</a>
+                        <a href="../index.html" class="nav-link" data-page="index">home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="services.html" class="nav-link" data-page="services">services</a>
+                        <a href="../services/services.html" class="nav-link" data-page="services">services</a>
                     </li>
                     <li class="nav-item">
-                        <a href="projects.html" class="nav-link" data-page="projects">projects</a>
+                        <a href="../projects/projects.html" class="nav-link" data-page="projects">projects</a>
                     </li>
                     <li class="nav-item">
-                        <a href="clients.html" class="nav-link" data-page="clients">clients</a>
+                        <a href="../clients/clients.html" class="nav-link" data-page="clients">clients</a>
                     </li>
                     <li class="nav-item">
-                        <a href="partners.html" class="nav-link" data-page="partners">partners</a>
+                        <a href="../partners/partners.html" class="nav-link" data-page="partners">partners</a>
                     </li>
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link" data-page="about">about</a>
+                        <a href="../about/about.html" class="nav-link" data-page="about">about</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contact" class="nav-link">contact</a>
+                        <a href="../contact/contact.html" class="nav-link">contact</a>
                     </li>
                 </ul>
             </div>
