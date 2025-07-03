@@ -461,8 +461,8 @@ class ProjectsGallery {
     }
     
     init() {
-        // Add click handlers to project items
-        document.querySelectorAll('.project-item').forEach(item => {
+        // Add click handlers to project items (excluding worktype cards)
+        document.querySelectorAll('.project-item:not(.worktype)').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 const projectId = item.getAttribute('data-project');

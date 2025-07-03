@@ -98,6 +98,23 @@ body {
     width: 100%;
 }
 
+/* Active navigation states */
+.nav-link.active {
+    color: #3498db !important;
+    font-weight: 600;
+}
+
+.navbar .nav-link.active {
+    color: #3498db !important;
+    border-bottom: 2px solid #3498db;
+}
+
+.nav .nav-link.active {
+    color: #3498db !important;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 4px;
+}
+
 /* Mobile menu toggle */
 .menu-toggle {
     display: none;

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS Company Structure - Security System Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 30px 0;
+            border-bottom: 3px solid #ecf0f1;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Top Level - External Entities */
+        .top-level {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .entity-box {
+            flex: 1;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 3px solid;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .entity-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .entity-box.customer { border-color: #3498db; }
+        .entity-box.suppliers { border-color: #e74c3c; }
+        .entity-box.sss { border-color: #27ae60; }
+
+        .entity-box h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .entity-box p {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        /* Arrow from top level to division manager */
+        .arrow-down {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #3498db;
+        }
+
+        /* Division Manager */
+        .division-manager {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .manager-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .manager-box h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .manager-box ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .manager-box li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .manager-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Department Grid */
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .department-box {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .department-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: #3498db;
+        }
+
+        .department-header {
+            padding: 25px;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .department-content {
+            padding: 30px;
+        }
+
+        .department-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .department-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .department-content li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #5d6d7e;
+            font-size: 0.95rem;
+        }
+
+        .department-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Department Colors */
+        .sales .department-header { background: linear-gradient(135deg, #ff6b6b, #ee5a52); }
+        .pre-sales .department-header { background: linear-gradient(135deg, #4ecdc4, #44a08d); }
+        .draftsman .department-header { background: linear-gradient(135deg, #45b7d1, #96c93d); }
+        .accounting .department-header { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .project-impl .department-header { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .it .department-header { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+        /* Helper Section */
+        .helper-section {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .helper-box {
+            max-width: 500px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 3px solid #f39c12;
+        }
+
+        .helper-box .department-header {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        /* Connection Lines */
+        .connection-lines {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .horizontal-line {
+            height: 3px;
+            background: #bdc3c7;
+            width: 100%;
+            position: relative;
+        }
+
+        .vertical-connectors {
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            top: -20px;
+        }
+
+        .vertical-line {
+            width: 3px;
+            height: 40px;
+            background: #bdc3c7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .departments-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .top-level {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .departments-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .manager-box {
+                padding: 25px;
+                max-width: none;
+            }
+
+            .entity-box {
+                padding: 20px;
+            }
+
+            .department-content {
+                padding: 20px;
+            }
+
+            .arrow-down,
+            .connection-lines {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 24px;
+            }
+
+            .department-header {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+
+            .department-content li {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Collapsible for mobile */
+        @media (max-width: 768px) {
+            .department-content {
+                max-height: 300px;
+                overflow-y: auto;
+            }
+        }
+
+        /* Sticky header for larger screens */
+        @media (min-width: 769px) {
+            .header {
+                position: sticky;
+                top: 0;
+                background: white;
+                z-index: 100;
+                margin-bottom: 40px;
+                border-radius: 15px 15px 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">SSS</div>
+            <h1>Company Structure</h1>
+            <p>Security System Solution – For the installation of security systems</p>
+        </div>
+
+        <!-- Top Level - External Entities -->
+        <div class="top-level">
+            <div class="entity-box customer">
+                <h3>Customer / Client</h3>
+                <p>End users requiring comprehensive security solutions and professional installation services</p>
+                <div class="arrow-down"></div>
+            </div>
+            <div class="entity-box suppliers">
+                <h3>Suppliers</h3>
+                <p>Equipment vendors, technology partners, and component manufacturers providing quality materials</p>
+                <div class="arrow-down"></div>
+            </div>
+            <div class="entity-box sss">
+                <h3>Security System Solution Co.</h3>
+                <p>Core business entity delivering integrated security solutions and professional installation services</p>
+                <div class="arrow-down"></div>
+            </div>
+        </div>
+
+        <!-- Division Manager -->
+        <div class="division-manager">
+            <div class="manager-box">
+                <h3>Division Manager</h3>
+                <ul>
+                    <li>Strategic planning and oversight</li>
+                    <li>Team coordination and management</li>
+                    <li>Client relationship management</li>
+                    <li>Business development initiatives</li>
+                    <li>Quality assurance and compliance</li>
+                    <li>Resource allocation and optimization</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Connection Lines -->
+        <div class="connection-lines">
+            <div class="horizontal-line"></div>
+            <div class="vertical-connectors">
+                <div class="vertical-line"></div>
+                <div class="vertical-line"></div>
+                <div class="vertical-line"></div>
+                <div class="vertical-line"></div>
+                <div class="vertical-line"></div>
+                <div class="vertical-line"></div>
+            </div>
+        </div>
+
+        <!-- Department Structure -->
+        <div class="departments-grid">
+            <div class="department-box sales">
+                <div class="department-header">Sales Team</div>
+                <div class="department-content">
+                    <div class="department-title">Sales Engineer</div>
+                    <ul>
+                        <li>Problem solving</li>
+                        <li>Product knowledge</li>
+                        <li>Selling to customer needs</li>
+                        <li>Software requirements</li>
+                        <li>Product development</li>
+                        <li>Presentation skills</li>
+                        <li>Technical understanding</li>
+                        <li>Verbal communication</li>
+                        <li>Requirements analysis</li>
+                        <li>Innovation</li>
+                        <li>Meets assigned sales targets</li>
+                        <li>Business development</li>
+                        <li>Due diligence of unsuccessful sales pitch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="department-box pre-sales">
+                <div class="department-header">Pre-Sales Team</div>
+                <div class="department-content">
+                    <div class="department-title">Pre-sales Engineer</div>
+                    <ul>
+                        <li>Supports assigned deals</li>
+                        <li>Prioritizing effort on team productivity and profit</li>
+                        <li>Technical solution required</li>
+                        <li>Address customer requirements</li>
+                        <li>Assess customers' needs</li>
+                        <li>Recommend solutions</li>
+                        <li>Optimize value</li>
+                        <li>Sales support</li>
+                        <li>Product knowledge</li>
+                        <li>Enhancement</li>
+                        <li>Site surveys</li>
+                        <li>Creates technical proposals</li>
+                        <li>Prepares commercial proposals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="department-box draftsman">
+                <div class="department-header">Draftsman</div>
+                <div class="department-content">
+                    <div class="department-title">Draftsman</div>
+                    <ul>
+                        <li>Liaise with Sales and Pre-sales team</li>
+                        <li>Quantity takeoff</li>
+                        <li>Prepare and review rough sketches and review with Sales and Pre-sales team</li>
+                        <li>Create detailed designs</li>
+                        <li>Identify potential operational issues</li>
+                        <li>Ensure final designs comply with regulations and quality standards</li>
+                        <li>Create as-built drawings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="department-box accounting">
+                <div class="department-header">Accounting</div>
+                <div class="department-content">
+                    <div class="department-title">Accountant</div>
+                    <ul>
+                        <li>Weekly Report</li>
+                        <li>Payment follow-up with Clients</li>
+                        <li>Create POs</li>
+                        <li>Create Invoices</li>
+                        <li>Prepare SOA</li>
+                        <li>Create supplier payment transfers</li>
+                        <li>Follow-up on delivery</li>
+                        <li>Follow-ups on payment refunds</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="department-box project-impl">
+                <div class="department-header">Project Implementation Team</div>
+                <div class="department-content">
+                    <div class="department-title">Site Engineer</div>
+                    <ul>
+                        <li>Service & Maintenance</li>
+                        <li>Repair faulty equipment units</li>
+                        <li>Develop and implement preventive maintenance</li>
+                        <li>Ensure proper installation of equipment/devices</li>
+                        <li>Works with a variety of tools and equipment</li>
+                        <li>Climbs ladders, squats, bends, & stands on working hours</li>
+                        <li>Completing installation; performing acceptance tests</li>
+                        <li>Suggesting improved methods and techniques</li>
+                        <li>Maintains rapport with customers</li>
+                        <li>Completing forms, reports, logs, & records</li>
+                        <li>Knowledge transfer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="department-box it">
+                <div class="department-header">IT</div>
+                <div class="department-content">
+                    <div class="department-title">IT</div>
+                    <ul>
+                        <li>Customer Training</li>
+                        <li>Meeting with Clients</li>
+                        <li>Project Site Survey</li>
+                        <li>Plan and implement projects</li>
+                        <li>Help define project scope, goals and deliverables</li>
+                        <li>Define tasks and required resources</li>
+                        <li>Project and project team Consultation</li>
+                        <li>Send emails to Client after task completion</li>
+                        <li>Knowledge transfer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Helper/Laborer Section -->
+        <div class="helper-section">
+            <div class="department-box helper-box">
+                <div class="department-header">Helper / Laborer</div>
+                <div class="department-content">
+                    <div class="department-title">Helper / Laborer</div>
+                    <ul>
+                        <li>Assists technicians</li>
+                        <li>Cleans and prepares installation sites</li>
+                        <li>Removes debris and possible hazards</li>
+                        <li>Loads and unloads materials</li>
+                        <li>Takes apart and sets up scaffolding</li>
+                        <li>Structures construction sites</li>
+                        <li>Digging trenches</li>
+                        <li>Operating hand tools, including hoists, saws, drills, steel saws, & welding equipment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

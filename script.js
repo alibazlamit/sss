@@ -1,23 +1,3 @@
-// Mobile menu toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const navMenu = document.getElementById('nav-menu');
-
-if (mobileMenu && navMenu) {
-    mobileMenu.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-}
-
 // Scroll animations
 const observerOptions = {
     threshold: 0.1,
@@ -201,3 +181,153 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     `;
     document.head.appendChild(style);
 }
+
+// Navigation Templates
+const navTemplates = {
+    standard: `
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">SSS</a>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link" data-page="index">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link" data-page="services">services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="nav-link" data-page="projects">projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="clients.html" class="nav-link" data-page="clients">clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="partners.html" class="nav-link" data-page="partners">partners</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link" data-page="about">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contact" class="nav-link">contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    `,
+    
+    index: `
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="#home">SSS</a>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link" data-page="index">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link" data-page="services">services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="nav-link" data-page="projects">projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="clients.html" class="nav-link" data-page="clients">clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="partners.html" class="nav-link" data-page="partners">partners</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link" data-page="about">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    `
+};
+
+// Navigation loading and active page highlighting
+function loadNavigation() {
+    const navContainer = document.getElementById('nav-container');
+    
+    if (navContainer) {
+        // Check if this is the index page
+        const currentPage = getCurrentPage();
+        let template;
+        
+        if (currentPage === 'index') {
+            template = navTemplates.index;
+        } else {
+            template = navTemplates.standard;
+        }
+        
+        navContainer.innerHTML = template;
+        setActiveNavigation();
+        initializeMobileMenu();
+    }
+}
+
+function setActiveNavigation() {
+    const currentPage = getCurrentPage();
+    const navLinks = document.querySelectorAll('.nav-link[data-page]');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('data-page');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+function getCurrentPage() {
+    const path = window.location.pathname;
+    const page = path.split('/').pop();
+    
+    if (page === 'index.html' || page === '') {
+        return 'index';
+    }
+    
+    // Remove .html extension and return page name
+    return page.replace('.html', '');
+}
+
+function initializeMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (mobileMenu && navMenu) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+}
+
+// Initialize navigation when DOM is loaded
+document.addEventListener('DOMContentLoaded', loadNavigation);

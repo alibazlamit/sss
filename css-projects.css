@@ -406,6 +406,112 @@
     object-fit: cover;
 }
 
+/* Projects Sub-Navigation */
+.projects-subnav {
+    padding: 20px 0;
+    background: white;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.08);
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+}
+
+.subnav-link {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 0 10px;
+    color: #666;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.subnav-link:hover,
+.subnav-link.active {
+    background: #2c2c2c;
+    color: #fff;
+}
+
+/* Work Type Details */
+.worktype-details {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #2c2c2c;
+}
+
+.worktype-details h3 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: #2c2c2c;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.worktype-section {
+    margin-bottom: 2.5rem;
+}
+
+.worktype-section h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #2c2c2c;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+}
+
+.worktype-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.worktype-section li {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+}
+
+.worktype-section li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+.worktype-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.worktype-gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.worktype-gallery img:hover {
+    transform: scale(1.05);
+}
+
 /* Responsive Design */
 @media (max-width: 1400px) {
     .projects-masonry-grid {
