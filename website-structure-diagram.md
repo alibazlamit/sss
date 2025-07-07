@@ -70,103 +70,21 @@
 
 ---
 
-## Missing or Placeholder Images
+## Website Structure Diagram
 
-- **Projects**:
-  - `public/projects/meeting-scheduling.jpg`
-  - `public/projects/facade-lighting.jpg`
-  - `public/projects/healthcare-auditorium.jpg`
-  - `public/projects/kkia-fire-1.jpg`
-  - `public/projects/kkia-fire-2.jpg`
-  - `public/projects/kkia-fire-3.jpg`
-  - `public/projects/kkia-fire-4.jpg`
-  - `public/projects/datacenter1.jpg`
-  - `public/projects/datacenter2.jpg`
-  - `public/projects/datacenter3.jpg`
-  - `public/projects/network1.jpg`
-  - `public/projects/network2.jpg`
-  - `public/projects/network3.jpg`
-  - `public/projects/facade-1.jpg`
-  - `public/projects/facade-2.jpg`
-  - `public/projects/facade-3.jpg`
-  - `public/projects/facade-4.jpg`
-  - `public/projects/facade-5.jpg`
-  - `public/projects/facade-6.jpg`
-  - `public/projects/facade-7.jpg`
-  - `public/projects/facade-8.jpg`
-  - `public/projects/learning_oasis_int_schools_cover.jpg`
-  - `public/projects/learning_oasis_2.jpg`
-  - `public/projects/learning_oasis_3.jpg`
-  - `public/projects/nadra.png`
-  - `public/projects/najdarah_2.jpg`
-  - `public/projects/najdarah_3.jpg`
-  - `public/projects/moj.png`
-  - `public/projects/moj_2.jpg`
-  - `public/projects/moj_3.jpg`
-  - `public/projects/marble.webp`
-  - `public/projects/marble_2.jpg`
-  - `public/projects/marble_3.jpg`
-  - `public/projects/signature1.jpg`
-  - `public/projects/signature1_2.jpg`
-  - `public/projects/signature1_3.jpg`
-  - `public/projects/signature2.jpg`
-  - `public/projects/signature3.jpg`
-  - `public/projects/signature3_2.jpg`
-  - `public/projects/signature3_3.jpg`
-  - `public/projects/salam-mall.jpg`
-  - `public/projects/salam-mall_2.jpg`
-  - `public/projects/salam-mall_3.jpg`
-  - `public/projects/arab-mall.jpg`
-  - `public/projects/arab-mall_2.jpg`
-  - `public/projects/arab-mall_3.jpg`
-  - `public/projects/hayat-mall.jpg`
-  - `public/projects/aziz-mall.jpg`
-  - `public/projects/tech-park.jpg`
-  - `public/projects/tech-park_2.jpg`
-  - `public/projects/tech-park_3.jpg`
-  - `public/projects/medical-center.jpg`
-  - `public/projects/medical-center_2.jpg`
-  - `public/projects/medical-center_3.jpg`
-  - `public/projects/banking-center.jpg`
-  - `public/projects/banking-center_2.jpg`
-  - `public/projects/banking-center_3.jpg`
-- **Clients**:
-  - `public/clients/Arabian-Centres.png`
-  - `public/clients/Regus.png`
-- **Partners**:
-  - `public/logos/crestron-logo.svg`
-  - `public/logos/bosch.svg`
+```plaintext
+Home
+├── Services
+├── Projects
+│   ├── Projects Page 1
+│   ├── Projects Page 2
+│   └── Projects Page 3
+├── Clients
+├── Partners
+├── About
+└── Contact
+    ├── Company Structure
+    └── Company Structure Detailed
+```
 
----
-
-## Request for Missing Images
-
-Dear Client,
-
-To complete the website, we kindly request you to provide the following images:
-
-### Projects
-- **KKIA Fire Works**:
-  - `public/projects/kkia-fire-1.jpg`
-  - `public/projects/kkia-fire-2.jpg`
-  - `public/projects/kkia-fire-3.jpg`
-  - `public/projects/kkia-fire-4.jpg`
-
-- **Network Projects**:
-  - `public/projects/network1.jpg`
-  - `public/projects/network2.jpg`
-  - `public/projects/network3.jpg`
-
-- **Facade Lighting**:
-  - `public/projects/facade-1.jpg`
-  - `public/projects/facade-2.jpg`
-  - `public/projects/facade-3.jpg`
-  - `public/projects/facade-4.jpg`
-  - `public/projects/facade-5.jpg`
-  - `public/projects/facade-6.jpg`
-  - `public/projects/facade-7.jpg`
-  - `public/projects/facade-8.jpg`
-
-We appreciate your assistance in providing these assets to ensure the website is complete and visually appealing.
-
-Thank you!
+This diagram represents the hierarchical structure of the website, showing the main navigation pages and their subpages.
