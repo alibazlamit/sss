@@ -32,7 +32,7 @@ function updateScrollEffects() {
     });
     
     // Image rotation on scroll
-    const rotateElements = document.querySelectorAll('.rotate-on-scroll');
+    const rotateElements = document.querySelectorAll('.zoom-on-scroll');
     rotateElements.forEach((element, index) => {
         const elementTop = element.getBoundingClientRect().top;
         const elementVisible = elementTop < window.innerHeight && elementTop > -element.offsetHeight;
@@ -331,3 +331,20 @@ function initializeMobileMenu() {
 
 // Initialize navigation when DOM is loaded
 document.addEventListener('DOMContentLoaded', loadNavigation);
+
+// Add zoom-on-scroll effect (ensure this runs after DOM is loaded)
+document.addEventListener('DOMContentLoaded', function() {
+    const zoomElements = document.querySelectorAll('.zoom-on-scroll');
+    if (zoomElements.length > 0 && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+        zoomElements.forEach(el => observer.observe(el));
+    }
+});

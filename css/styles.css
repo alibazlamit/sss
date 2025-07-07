@@ -2127,3 +2127,13 @@ body.clients-page .menu-toggle span {
         font-size: 1.8rem;
     }
 }
+
+/* Zoom-on-scroll effect */
+.zoom-on-scroll {
+    transform: scale(1);
+    transition: transform 2s ease-in-out !important;
+}
+
+.zoom-on-scroll.in-view {
+    transform: scale(1.1);
+}
