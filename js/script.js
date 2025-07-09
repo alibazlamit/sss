@@ -152,18 +152,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Navbar background change on scroll
+// Navbar background and text color change on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (!navbar) return;
     if (window.scrollY > 50) {
         navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.98)';
+        navLinks.forEach(link => {
+            link.style.color = '#222'; // dark text for white bg
+        });
         if (document.body.classList.contains('services-page') || document.body.classList.contains('clients-page')) {
             navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+            navLinks.forEach(link => {
+                link.style.color = '#fff'; // white text for dark bg
+            });
         }
     } else {
         navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.95)';
+        navLinks.forEach(link => {
+            link.style.color = '#222'; // default dark text
+        });
         if (document.body.classList.contains('services-page') || document.body.classList.contains('clients-page')) {
             navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+            navLinks.forEach(link => {
+                link.style.color = '#fff';
+            });
         }
     }
 });
