@@ -182,6 +182,44 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Navbar adaptive color/text logic based on section theme
+function getSectionThemeUnderNavbar() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return null;
+    const navbarRect = navbar.getBoundingClientRect();
+    const sections = document.querySelectorAll('section[data-nav-theme]');
+    let theme = null;
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        // Check if section is under the navbar (top of section within navbar height)
+        if (rect.top <= navbarRect.height && rect.bottom > navbarRect.height) {
+            theme = section.getAttribute('data-nav-theme');
+        }
+    });
+    return theme;
+}
+
+function updateNavbarTheme() {
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (!navbar) return;
+    const theme = getSectionThemeUnderNavbar();
+    if (theme === 'dark') {
+        navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+        navLinks.forEach(link => link.style.color = '#fff');
+    } else if (theme === 'light') {
+        navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.98)';
+        navLinks.forEach(link => link.style.color = '#222');
+    } else {
+        // Default fallback
+        navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.95)';
+        navLinks.forEach(link => link.style.color = '#222');
+    }
+}
+
+window.addEventListener('scroll', updateNavbarTheme);
+document.addEventListener('DOMContentLoaded', updateNavbarTheme);
+
 // Disable animations for users who prefer reduced motion
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     // Disable all animations
@@ -362,3 +400,48 @@ document.addEventListener('DOMContentLoaded', function() {
         zoomElements.forEach(el => observer.observe(el));
     }
 });
+
+// Why Choose SSS Slideshow Animation
+(function() {
+    const slides = document.querySelectorAll('.why-choose-slide');
+    let current = 0;
+    const interval = 3500; // ms
+
+    function showSlide(idx) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === idx);
+        });
+    }
+
+    function nextSlide() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    }
+
+    if (slides.length > 1) {
+        setInterval(nextSlide, interval);
+    }
+
+    // Show the first slide initially
+    showSlide(current);
+})();
+
+// Client Logo Carousel Animation
+(function() {
+    document.querySelectorAll('.client-logo-carousel').forEach(function(carousel) {
+        const imgs = carousel.querySelectorAll('img');
+        let idx = 0;
+        if (imgs.length < 2) {
+            if (imgs[0]) imgs[0].classList.add('active');
+            return;
+        }
+        function show(i) {
+            imgs.forEach((img, j) => img.classList.toggle('active', j === i));
+        }
+        show(idx);
+        setInterval(function() {
+            idx = (idx + 1) % imgs.length;
+            show(idx);
+        }, 2200);
+    });
+})();
