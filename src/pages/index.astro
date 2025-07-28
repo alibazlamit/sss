@@ -1,0 +1,1088 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="SSS Security System Solution - Professional Security Services">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">security system solutions</h1>
+        <p class="hero-subtitle">
+          Professional security installations across Saudi Arabia. From CCTV
+          surveillance to access control systems - we protect what matters most
+          to you.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Trusted Clients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Support Available</span>
+          </div>
+        </div>
+        <div class="hero-buttons">
+          <a href={`${base}contact`} class="btn btn-primary">Get Free Quote</a>
+          <a href={`${base}projects`} class="btn btn-secondary">View Our Work</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- Services Preview Section -->
+  <section class="services-preview">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">
+        Comprehensive security solutions tailored to your specific needs
+      </p>
+      <div class="services-grid">
+        <div class="service-card zoom-on-scroll">
+          <div class="service-icon">
+            <img
+              src={`${base}images/central.png`}
+              alt="Centralization Control"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <h3 class="service-title">Centralization Control</h3>
+          <p class="service-description">
+            Unified control systems that integrate all your security components
+            into one seamless platform.
+          </p>
+          <a href={`${base}services/centralization`} class="service-link"
+            >Learn More</a
+          >
+        </div>
+        <div class="service-card zoom-on-scroll">
+          <div class="service-icon">
+            <img
+              src={`${base}images/cctv.jpg`}
+              alt="CCTV Systems"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <h3 class="service-title">CCTV Systems</h3>
+          <p class="service-description">
+            Advanced surveillance systems with high-definition cameras and
+            intelligent monitoring capabilities.
+          </p>
+          <a href={`${base}services/cctv`} class="service-link">Learn More</a>
+        </div>
+        <div class="service-card zoom-on-scroll">
+          <div class="service-icon">
+            <img
+              src={`${base}images/locks.jpg`}
+              alt="Electronic Locks"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <h3 class="service-title">Electronic Locks</h3>
+          <p class="service-description">
+            Smart locking solutions with keyless entry, biometric access, and
+            remote control capabilities.
+          </p>
+          <a href={`${base}services/electronic-locks`} class="service-link"
+            >Learn More</a
+          >
+        </div>
+        <div class="service-card zoom-on-scroll">
+          <div class="service-icon">
+            <img
+              src={`${base}images/automaticdoor.jpg`}
+              alt="Automatic Doors"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <h3 class="service-title">Automatic Doors</h3>
+          <p class="service-description">
+            Automated door systems with motion sensors, safety features, and
+            seamless integration.
+          </p>
+          <a href={`${base}services/automatic-doors`} class="service-link"
+            >Learn More</a
+          >
+        </div>
+        <div class="service-card zoom-on-scroll">
+          <div class="service-icon">
+            <img
+              src={`${base}images/wireless.jpg`}
+              alt="Wireless Networks"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <h3 class="service-title">Wireless Networks</h3>
+          <p class="service-description">
+            Secure wireless infrastructure for reliable connectivity and
+            seamless system communication.
+          </p>
+          <a href={`${base}services/wireless-networks`} class="service-link"
+            >Learn More</a
+          >
+        </div>
+        <div class="service-card zoom-on-scroll">
+          <div class="service-icon">
+            <img
+              src={`${base}images/smart home.jpg`}
+              alt="Home Automation"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <h3 class="service-title">Home Automation</h3>
+          <p class="service-description">
+            Smart home solutions that integrate security, lighting, climate, and
+            entertainment systems.
+          </p>
+          <a href={`${base}services/home-automation`} class="service-link"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section class="featured-projects">
+    <div class="container">
+      <h2 class="section-title">Recent Projects</h2>
+      <p class="section-subtitle">
+        Explore some of our latest security installations and discover how we've
+        helped businesses and homes stay secure.
+      </p>
+      <div class="projects-grid">
+        <div class="project-card zoom-on-scroll">
+          <div class="project-image">
+            <img
+              src={`${base}images/projects/learning_oasis_int_schools_cover.jpg`}
+              alt="Corporate Office Security System"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Corporate Office Complex</h3>
+            <p class="project-description">
+              Complete security overhaul with CCTV surveillance, access control,
+              and centralized monitoring for a 15-story office building.
+            </p>
+            <div class="project-tags">
+              <span class="tag">CCTV</span>
+              <span class="tag">Access Control</span>
+              <span class="tag">Centralization</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card zoom-on-scroll">
+          <div class="project-image">
+            <img
+              src={`${base}images/projects/elsalam-mall.jpg`}
+              alt="Retail Store Security"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Retail Chain Security</h3>
+            <p class="project-description">
+              Multi-location security deployment with wireless networks, smart
+              locks, and real-time monitoring across 20+ stores.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Wireless Networks</span>
+              <span class="tag">Electronic Locks</span>
+              <span class="tag">Multi-location</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card zoom-on-scroll">
+          <div class="project-image">
+            <img
+              src={`${base}images/smart home.jpg`}
+              alt="Smart Home Integration"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Luxury Smart Home</h3>
+            <p class="project-description">
+              Full home automation with integrated security, climate control,
+              lighting, and entertainment systems.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Home Automation</span>
+              <span class="tag">Smart Integration</span>
+              <span class="tag">Luxury</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="projects-cta">
+        <a href={`${base}projects`} class="btn btn-secondary"
+          >View All Projects</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-text">
+          <h2 class="section-title">Why Choose SSS?</h2>
+          <div class="features-list">
+            <div class="feature-item">
+              <div class="feature-icon">🔒</div>
+              <div class="feature-content">
+                <h3>Advanced Security</h3>
+                <p>
+                  State-of-the-art technology ensuring maximum protection for
+                  your property.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <div class="feature-content">
+                <h3>Quick Installation</h3>
+                <p>
+                  Professional installation with minimal disruption to your
+                  daily operations.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🛠️</div>
+              <div class="feature-content">
+                <h3>24/7 Support</h3>
+                <p>
+                  Round-the-clock technical support and maintenance services.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">💡</div>
+              <div class="feature-content">
+                <h3>Smart Integration</h3>
+                <p>
+                  Seamless integration with existing systems and smart home
+                  platforms.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-image">
+          <img
+            src={`${base}images/security.jpg`}
+            alt="Security Control Room"
+            class="zoom-on-scroll"
+            onerror="this.style.display='none'"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="clients">
+    <div class="container">
+      <h2 class="section-title">Trusted by Industry Leaders</h2>
+      <p class="section-subtitle">
+        We're proud to serve businesses and organizations across various
+        industries with our cutting-edge security solutions.
+      </p>
+      <div class="clients-logos">
+        <div class="client-logo-item">
+          <img
+            src={`${base}images/clients/Arabian-Centres.png`}
+            alt="Arabian Centres"
+            onerror="this.style.display='none'"
+          />
+        </div>
+        <div class="client-logo-item">
+          <img
+            src={`${base}images/clients/Carrefour Saudi Arabia.png`}
+            alt="Carrefour Saudi Arabia"
+            onerror="this.style.display='none'"
+          />
+        </div>
+        <div class="client-logo-item">
+          <img
+            src={`${base}images/clients/Ascott.jpg`}
+            alt="Ascott"
+            onerror="this.style.display='none'"
+          />
+        </div>
+        <div class="client-logo-item">
+          <img
+            src={`${base}images/clients/Arabian-Centres.png`}
+            alt="Tech Corporation"
+            onerror="this.style.display='none'"
+          />
+        </div>
+        <div class="client-logo-item">
+          <img
+            src={`${base}images/clients/Carrefour Saudi Arabia.png`}
+            alt="Retail Partners"
+            onerror="this.style.display='none'"
+          />
+        </div>
+        <div class="client-logo-item">
+          <img
+            src={`${base}images/clients/Ascott.jpg`}
+            alt="Hospitality Group"
+            onerror="this.style.display='none'"
+          />
+        </div>
+      </div>
+      <div class="clients-cta">
+        <a href={`${base}clients`} class="btn btn-outline"
+          >See All Testimonials</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">
+        Ready to secure your property? Contact us for a free consultation and
+        custom quote.
+      </p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h3>Email Us</h3>
+              <p>info@sss-security.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div class="contact-details">
+              <h3>Call Us</h3>
+              <p>+1 (555) 123-4567</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Visit Us</h3>
+              <p>123 Security Street, Tech City, TC 12345</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form class="form">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Your Phone" />
+            </div>
+            <div class="form-group">
+              <select required>
+                <option value="">Select Service</option>
+                <option value="centralization">Centralization Control</option>
+                <option value="cctv">CCTV Systems</option>
+                <option value="electronic-locks">Electronic Locks</option>
+                <option value="automatic-doors">Automatic Doors</option>
+                <option value="wireless-networks">Wireless Networks</option>
+                <option value="home-automation">Home Automation</option>
+                <option value="consultation">General Consultation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Your Message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+      linear-gradient(rgba(20, 20, 20, 0.65), rgba(20, 20, 20, 0.65)),
+      url("/images/hero2.jpg") center/cover no-repeat;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #1a1a1a 100%);
+    background-image: radial-gradient(
+        circle at 20% 50%,
+        rgba(255, 215, 0, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 215, 0, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(255, 215, 0, 0.05) 0%,
+        transparent 50%
+      );
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(20, 20, 20, 0.65), rgba(20, 20, 20, 0.65));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #f3f3f3;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: #2c2c2c;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: lowercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 13px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: lowercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background: #fff;
+    color: #2c2c2c;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ffd700;
+  }
+
+  .btn-secondary:hover {
+    background: #ffd700;
+    color: #333;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid #ffd700;
+    border-bottom: 2px solid #ffd700;
+    transform: rotate(45deg);
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+
+  /* Services Preview Section */
+  .services-preview {
+    padding: 5rem 0;
+    background: #f8f9fa;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: #fff;
+    padding: 0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e8e8e8;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-icon {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgba(102, 126, 234, 0.1),
+      rgba(118, 75, 162, 0.1)
+    );
+  }
+
+  .service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .service-icon img {
+    transform: scale(1.05);
+  }
+
+  .service-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+    padding: 0 1.5rem;
+  }
+
+  .service-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .service-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0 1.5rem 1.5rem;
+    display: inline-block;
+  }
+
+  .service-link:hover {
+    color: #764ba2;
+  }
+
+  /* Featured Projects Section */
+  .featured-projects {
+    padding: 5rem 0;
+    background: #2c2c2c;
+    color: #fff;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .project-card {
+    background: #3a3a3a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .project-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #fff;
+  }
+
+  .project-description {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: #ffd700;
+    color: #333;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .projects-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    padding: 13px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: lowercase;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    background: #ffd700;
+    color: #333;
+    transform: translateY(-2px);
+  }
+
+  /* Why Choose Us Section */
+  .why-choose-us {
+    padding: 5rem 0;
+    background: #fff;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .feature-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  .feature-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .feature-content p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .content-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Clients Section */
+  .clients {
+    padding: 5rem 0;
+    background: #f8f9fa;
+  }
+
+  .clients-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    align-items: center;
+  }
+
+  .client-logo-item {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e8e8e8;
+  }
+
+  .client-logo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  }
+
+  .client-logo-item img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.7);
+    transition: filter 0.3s ease;
+  }
+
+  .client-logo-item:hover img {
+    filter: grayscale(0%) opacity(1);
+  }
+
+  .clients-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #333;
+    border: 2px solid #333;
+    padding: 13px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: lowercase;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    background: #333;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* Contact Section */
+  .contact {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: #fff;
+  }
+
+  .contact .section-title,
+  .contact .section-subtitle {
+    color: #fff;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  .contact-details h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #667eea;
+  }
+
+  .contact-details p {
+    color: #ccc;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form input,
+  .form select,
+  .form textarea {
+    padding: 0.75rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .form input::placeholder,
+  .form textarea::placeholder {
+    color: #999;
+  }
+
+  .form input:focus,
+  .form select:focus,
+  .form textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+  }
+
+  /* Zoom on Scroll Animation */
+  .zoom-on-scroll {
+    transition: transform 0.3s ease;
+  }
+
+  .zoom-on-scroll:hover {
+    transform: scale(1.05);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .content-grid,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-buttons .btn {
+      width: 200px;
+    }
+  }
+</style>
+
+<script>
+  // Zoom on scroll effect
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const element = entry.target as HTMLElement;
+      if (entry.isIntersecting) {
+        element.style.transform = "scale(1.02)";
+        element.style.transition = "transform 0.6s ease";
+      } else {
+        element.style.transform = "scale(1)";
+      }
+    });
+  }, observerOptions);
+
+  // Observe all zoom-on-scroll elements
+  document.addEventListener("DOMContentLoaded", () => {
+    const zoomElements = document.querySelectorAll(".zoom-on-scroll");
+    zoomElements.forEach((el) => observer.observe(el));
+
+    // Form submission
+    const form = document.querySelector(".form");
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Thank you for your message! We will contact you soon.");
+    });
+  });
+</script>

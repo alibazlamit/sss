@@ -1,0 +1,629 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="Our Projects - SSS Security Solutions">
+  <!-- Projects Hero -->
+  <section class="projects-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">our portfolio</h1>
+      <p class="hero-subtitle">
+        showcasing our expertise in security system installations across various
+        sectors and environments
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Filter Navigation -->
+  <nav class="projects-filter">
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">all projects</button
+        >
+        <button class="filter-btn" data-filter="worktype">by work type</button>
+        <button class="filter-btn" data-filter="sector">by sector</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Projects Showcase -->
+  <section class="projects-showcase">
+    <div class="container">
+      <div class="projects-masonry-grid">
+        <!-- Work Type Projects -->
+
+        <!-- Fire Alarm & Safety Systems -->
+        <div class="project-item large worktype" data-worktype="firealarm">
+          <div class="project-image">
+            <img
+              src={`${base}images/kkia-fire-alarm.jpg`}
+              alt="Fire Alarm & Safety Systems"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">fire alarm & safety systems</h3>
+            <p class="project-subtitle">kkia - t1 renovation project</p>
+            <span class="project-category">fire safety</span>
+          </div>
+        </div>
+
+        <!-- Structured Cabling for Data Centers -->
+        <div class="project-item medium worktype" data-worktype="datacenters">
+          <div class="project-image">
+            <img
+              src={`${base}images/datacenter.jpg`}
+              alt="Structured Cabling for Data Centers"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">structured cabling for data centers</h3>
+            <p class="project-subtitle">infrastructure & installation</p>
+            <span class="project-category">data centers</span>
+          </div>
+        </div>
+
+        <!-- Network Design -->
+        <div class="project-item tall worktype" data-worktype="networkdesign">
+          <div class="project-image">
+            <img
+              src={`${base}images/networkdesign.jpg`}
+              alt="Structured Cabling - Network Design"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">structured cabling – network design</h3>
+            <p class="project-subtitle">networking & cctv</p>
+            <span class="project-category">networking</span>
+          </div>
+        </div>
+
+        <!-- Theatre/Auditorium for Schools -->
+        <div class="project-item medium worktype" data-worktype="theatre">
+          <div class="project-image">
+            <img
+              src={`${base}images/theatre-auditorium.jpg`}
+              alt="Theatre/Auditorium for Schools"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">theatre/auditorium for schools</h3>
+            <p class="project-subtitle">educational facility design</p>
+            <span class="project-category">education</span>
+          </div>
+        </div>
+
+        <!-- Healthcare Auditorium -->
+        <div class="project-item medium worktype" data-worktype="healthcare">
+          <div class="project-image">
+            <img
+              src={`${base}images/healthcare-auditorium.jpg`}
+              alt="Auditorium/Lecture Hall for Healthcare"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">
+              auditorium/lecture hall for healthcare
+            </h3>
+            <p class="project-subtitle">medical facility design</p>
+            <span class="project-category">healthcare</span>
+          </div>
+        </div>
+
+        <!-- Facade Lighting -->
+        <div class="project-item large worktype" data-worktype="facadelighting">
+          <div class="project-image">
+            <img
+              src={`${base}images/facade-lighting.jpg`}
+              alt="Facade Lighting for Commercial Buildings"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">
+              facade lighting for commercial buildings
+            </h3>
+            <p class="project-subtitle">architectural lighting design</p>
+            <span class="project-category">lighting</span>
+          </div>
+        </div>
+
+        <!-- Meeting Scheduling Solution -->
+        <div
+          class="project-item wide worktype"
+          data-worktype="meetingscheduling"
+        >
+          <div class="project-image">
+            <img
+              src={`${base}images/meeting-scheduling.jpg`}
+              alt="Meeting Scheduling Solution"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">meeting scheduling solution</h3>
+            <p class="project-subtitle">smart room booking systems</p>
+            <span class="project-category">smart systems</span>
+          </div>
+        </div>
+
+        <!-- Point-to-Point Wireless -->
+        <div class="project-item medium worktype" data-worktype="p2pwireless">
+          <div class="project-image">
+            <img
+              src={`${base}images/p2p-wireless.jpg`}
+              alt="Point-to-Point Wireless Connection"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">point-to-point wireless connection</h3>
+            <p class="project-subtitle">long-distance network bridging</p>
+            <span class="project-category">wireless</span>
+          </div>
+        </div>
+
+        <!-- Sector Projects -->
+
+        <!-- Learning Oasis School -->
+        <div class="project-item large sector" data-sector="education">
+          <div class="project-image">
+            <img
+              src={`${base}images/learning_oasis_int_schools_cover.jpg`}
+              alt="Learning Oasis School Security Installation"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">learning oasis school</h3>
+            <p class="project-subtitle">comprehensive security system</p>
+            <span class="project-category">education</span>
+          </div>
+        </div>
+
+        <!-- Najdarah -->
+        <div class="project-item medium sector" data-sector="residential">
+          <div class="project-image">
+            <img
+              src={`${base}images/nadra.png`}
+              alt="Najdarah Security Installation"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">najdarah</h3>
+            <p class="project-subtitle">residential complex</p>
+            <span class="project-category">residential</span>
+          </div>
+        </div>
+
+        <!-- MOJ -->
+        <div class="project-item tall sector" data-sector="government">
+          <div class="project-image">
+            <img
+              src={`${base}images/moj.png`}
+              alt="MOJ Security Installation"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">ministry of justice</h3>
+            <p class="project-subtitle">government facility</p>
+            <span class="project-category">government</span>
+          </div>
+        </div>
+
+        <!-- Marble Restaurant -->
+        <div class="project-item medium sector" data-sector="hospitality">
+          <div class="project-image">
+            <img
+              src={`${base}images/marble.webp`}
+              alt="Marble Restaurant Security Installation"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">marble restaurant</h3>
+            <p class="project-subtitle">hospitality sector</p>
+            <span class="project-category">hospitality</span>
+          </div>
+        </div>
+
+        <!-- Alon Coffee -->
+        <div class="project-item wide sector" data-sector="retail">
+          <div class="project-image">
+            <img
+              src={`${base}images/falla.png`}
+              alt="Alon Coffee Security Installation"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">alon coffee</h3>
+            <p class="project-subtitle">retail establishment</p>
+            <span class="project-category">retail</span>
+          </div>
+        </div>
+
+        <!-- Citadines Hotel -->
+        <div class="project-item large sector" data-sector="hospitality">
+          <div class="project-image">
+            <img
+              src={`${base}images/citadines-hotel.jpg`}
+              alt="Citadines Hotel Security Installation"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">citadines hotel</h3>
+            <p class="project-subtitle">hospitality complex</p>
+            <span class="project-category">hospitality</span>
+          </div>
+        </div>
+
+        <!-- Dalla Hospital -->
+        <div class="project-item wide sector" data-sector="healthcare">
+          <div class="project-image">
+            <img
+              src={`${base}images/dalla-hospital.jpg`}
+              alt="Dalla Hospital Security Installation"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">dalla hospital</h3>
+            <p class="project-subtitle">healthcare facility</p>
+            <span class="project-category">healthcare</span>
+          </div>
+        </div>
+
+        <!-- Corporate Office -->
+        <div class="project-item medium sector" data-sector="corporate">
+          <div class="project-image">
+            <img
+              src={`${base}images/corporate-office.jpg`}
+              alt="Corporate Office Security Installation"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">corporate headquarters</h3>
+            <p class="project-subtitle">business complex</p>
+            <span class="project-category">corporate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="projects-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">ready to start your project?</h2>
+        <p class="cta-subtitle">
+          let us bring our expertise to your security requirements
+        </p>
+        <div class="cta-buttons">
+          <a href="/contact" class="btn btn-primary">get quote</a>
+          <a href="/services" class="btn btn-secondary">our services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Projects Hero */
+  .projects-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    color: #fff;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Projects Filter */
+  .projects-filter {
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    color: #555;
+    border: 2px solid #e1e5e9;
+    border-radius: 25px;
+    font-weight: 500;
+    text-transform: lowercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  /* Projects Showcase */
+  .projects-showcase {
+    padding: 4rem 0;
+    background: #f8f9fa;
+  }
+
+  .projects-masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 280px;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .project-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .project-item.large {
+    grid-row: span 2;
+  }
+
+  .project-item.tall {
+    grid-row: span 2;
+  }
+
+  .project-item.wide {
+    grid-column: span 2;
+  }
+
+  .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .project-image {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-item:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.9)
+    );
+    color: white;
+    padding: 3rem 2rem 2rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .project-item:hover .project-info {
+    transform: translateY(0);
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+  }
+
+  .project-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+
+  .project-category {
+    display: inline-block;
+    background: rgba(102, 126, 234, 0.8);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  /* Filter States */
+  .project-item.hidden {
+    display: none;
+  }
+
+  /* CTA Section */
+  .projects-cta {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-transform: lowercase;
+  }
+
+  .cta-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: lowercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: white;
+    color: #667eea;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .projects-masonry-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .project-item.wide {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .projects-masonry-grid {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 250px;
+    }
+
+    .project-item.large,
+    .project-item.tall {
+      grid-row: span 1;
+    }
+
+    .project-info {
+      transform: translateY(0);
+      background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.95)
+      );
+    }
+
+    .filter-buttons {
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
+<script>
+  // Project filtering functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const projectItems = document.querySelectorAll(".project-item");
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Remove active class from all buttons
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        // Add active class to clicked button
+        btn.classList.add("active");
+
+        const filter = btn.getAttribute("data-filter");
+
+        projectItems.forEach((item) => {
+          if (filter === "all") {
+            item.classList.remove("hidden");
+          } else if (filter === "worktype") {
+            if (item.classList.contains("worktype")) {
+              item.classList.remove("hidden");
+            } else {
+              item.classList.add("hidden");
+            }
+          } else if (filter === "sector") {
+            if (item.classList.contains("sector")) {
+              item.classList.remove("hidden");
+            } else {
+              item.classList.add("hidden");
+            }
+          }
+        });
+      });
+    });
+  });
+</script>

@@ -1,0 +1,450 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="Wireless Networks - SSS Security Solutions">
+  <!-- Hero Section -->
+  <section class="service-detail-hero">
+    <div class="hero-background">
+      <img
+        src={`${base}images/wireless.jpg`}
+        alt="Wireless Network Systems"
+        class="hero-bg-image"
+      />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">wireless networks</h1>
+      <p class="hero-subtitle">seamless connectivity solutions</p>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="service-overview">
+    <div class="container">
+      <div class="overview-content">
+        <h2 class="section-title">enterprise-grade wireless</h2>
+        <p class="overview-text">
+          High-performance wireless network infrastructure designed for
+          reliability, security, and scalability. Our wireless solutions provide
+          seamless connectivity across commercial and residential environments
+          with enterprise-grade security and management capabilities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Showcase -->
+  <section class="feature-showcase">
+    <!-- High-Speed Coverage -->
+    <div class="feature-item">
+      <div class="feature-content">
+        <h3 class="feature-title">high-speed coverage</h3>
+        <p class="feature-description">
+          Advanced wireless access points with Wi-Fi 6 technology delivering
+          exceptional speed and coverage. Strategic placement and
+          enterprise-grade equipment ensure consistent performance across large
+          areas with seamless roaming between access points.
+        </p>
+        <ul class="feature-list">
+          <li>Wi-Fi 6 technology</li>
+          <li>Strategic AP placement</li>
+          <li>Seamless roaming</li>
+          <li>High-density support</li>
+        </ul>
+      </div>
+      <div class="feature-image">
+        <img
+          src={`${base}images/wireless.jpg`}
+          alt="High-Speed Coverage"
+          class="zoom-on-scroll"
+        />
+      </div>
+    </div>
+
+    <!-- Security & Management -->
+    <div class="feature-item alternate">
+      <div class="feature-content">
+        <h3 class="feature-title">advanced security protocols</h3>
+        <p class="feature-description">
+          Enterprise-grade security with WPA3 encryption, guest network
+          isolation, and advanced threat protection. Centralized management
+          allows for real-time monitoring, access control, and security policy
+          enforcement across the entire wireless infrastructure.
+        </p>
+        <ul class="feature-list">
+          <li>WPA3 encryption</li>
+          <li>Guest network isolation</li>
+          <li>Threat protection</li>
+          <li>Centralized management</li>
+        </ul>
+      </div>
+      <div class="feature-image">
+        <img
+          src={`${base}images/central;ization.jpg`}
+          alt="Security Protocols"
+          class="zoom-on-scroll"
+        />
+      </div>
+    </div>
+
+    <!-- Smart Optimization -->
+    <div class="feature-item">
+      <div class="feature-content">
+        <h3 class="feature-title">intelligent optimization</h3>
+        <p class="feature-description">
+          Smart network optimization with automatic channel selection, load
+          balancing, and bandwidth management. AI-driven analytics provide
+          insights into usage patterns and performance metrics for continuous
+          network optimization.
+        </p>
+        <ul class="feature-list">
+          <li>Automatic optimization</li>
+          <li>Load balancing</li>
+          <li>Bandwidth management</li>
+          <li>AI-driven analytics</li>
+        </ul>
+      </div>
+      <div class="feature-image">
+        <img
+          src={`${base}images/smart home.jpg`}
+          alt="Smart Optimization"
+          class="zoom-on-scroll"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">upgrade your wireless today</h2>
+        <p class="cta-text">
+          Experience enterprise-grade wireless performance with our advanced
+          network solutions designed for speed, security, and reliability.
+        </p>
+        <a href={`${base}contact`} class="cta-button">
+          get wireless consultation →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Service Detail Hero */
+  .service-detail-hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: 1;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 20s ease;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+  }
+
+  .service-detail-hero .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 2rem;
+    color: #fff;
+  }
+
+  .service-detail-hero .hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    letter-spacing: -2px;
+    color: #fff;
+  }
+
+  .service-detail-hero .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: lowercase;
+    letter-spacing: 1px;
+  }
+
+  /* Service Overview */
+  .service-overview {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  }
+
+  .overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .service-overview .section-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .overview-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Feature Showcase */
+  .feature-showcase {
+    background-color: #1a1a1a;
+  }
+
+  .feature-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    min-height: 80vh;
+    padding: 0 5%;
+  }
+
+  .feature-item.alternate {
+    background-color: #2c2c2c;
+  }
+
+  .feature-item.alternate .feature-content {
+    order: 2;
+  }
+
+  .feature-item.alternate .feature-image {
+    order: 1;
+  }
+
+  .feature-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: #ffffff;
+  }
+
+  .feature-description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.8rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .feature-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .feature-image {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .feature-image:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Service CTA */
+  .service-cta {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .cta-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: #fff;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .feature-item {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 4rem 2rem;
+      min-height: auto;
+    }
+
+    .feature-item.alternate .feature-content {
+      order: 1;
+    }
+
+    .feature-item.alternate .feature-image {
+      order: 2;
+    }
+
+    .feature-image {
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-detail-hero .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .service-detail-hero .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .service-overview {
+      padding: 80px 0;
+    }
+
+    .service-overview .section-title {
+      font-size: 2rem;
+    }
+
+    .overview-text {
+      font-size: 1rem;
+    }
+
+    .feature-title {
+      font-size: 2rem;
+    }
+
+    .feature-description {
+      font-size: 1rem;
+    }
+
+    .service-cta {
+      padding: 80px 0;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+    }
+
+    .cta-text {
+      font-size: 1rem;
+    }
+
+    .feature-item {
+      padding: 3rem 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-detail-hero .hero-title {
+      font-size: 2rem;
+    }
+
+    .service-overview .section-title {
+      font-size: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+    }
+
+    .cta-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

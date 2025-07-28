@@ -1,0 +1,856 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="Our Services - SSS Security Solutions">
+  <!-- Services Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">discover our services</h1>
+        <p class="hero-subtitle">
+          Our services are designed to keep things simple, intuitive and
+          elegant, both in its form and in its function, because to its essence
+          and improving the comfort of the modern environment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Categories Navigation -->
+  <section class="services-navigation" id="services-nav">
+    <div class="container">
+      <div class="services-nav">
+        <a
+          href={`${base}services/centralization`}
+          class="service-nav-link active"
+          data-service="centralization">centralization</a
+        >
+        <a
+          href={`${base}services/cctv`}
+          class="service-nav-link"
+          data-service="cctv">cctv systems</a
+        >
+        <a
+          href={`${base}services/electronic-locks`}
+          class="service-nav-link"
+          data-service="locks">electronic locks</a
+        >
+        <a
+          href={`${base}services/automatic-doors`}
+          class="service-nav-link"
+          data-service="doors">automatic doors</a
+        >
+        <a
+          href={`${base}services/wireless-networks`}
+          class="service-nav-link"
+          data-service="wireless">wireless networks</a
+        >
+        <a
+          href={`${base}services/home-automation`}
+          class="service-nav-link"
+          data-service="automation">home automation</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Showcase -->
+  <section class="services-showcase">
+    <div class="container">
+      <div class="services-grid">
+        <!-- Centralization Control - Large Featured -->
+        <div class="service-item" data-service="centralization">
+          <a href={`${base}services/centralization`} class="service-link">
+            <div class="service-image">
+              <img
+                src={`${base}images/central;ization.jpg`}
+                alt="Centralization Control System"
+                onerror="this.style.display='none'"
+              />
+              <div class="service-overlay">
+                <div class="service-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
+                  </svg>
+                </div>
+                <h2 class="service-title">Centralization Control</h2>
+                <p class="service-description">
+                  Unified control systems that integrate all your security
+                  components into one seamless platform.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag">Real-time Monitoring</span>
+                  <span class="feature-tag">Unified Interface</span>
+                  <span class="feature-tag">Remote Access</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- CCTV Systems - Medium -->
+        <div class="service-item" data-service="cctv">
+          <a href={`${base}services/cctv`} class="service-link">
+            <div class="service-image">
+              <img
+                src={`${base}images/cctv.jpg`}
+                alt="CCTV Security System"
+                onerror="this.style.display='none'"
+              />
+              <div class="service-overlay">
+                <div class="service-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                    ></path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                  </svg>
+                </div>
+                <h2 class="service-title">CCTV Systems</h2>
+                <p class="service-description">
+                  Advanced surveillance with HD cameras and intelligent
+                  monitoring.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag">HD Recording</span>
+                  <span class="feature-tag">Night Vision</span>
+                  <span class="feature-tag">Motion Detection</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Electronic Locks - Medium -->
+        <div class="service-item" data-service="locks">
+          <a href={`${base}services/electronic-locks`} class="service-link">
+            <div class="service-image">
+              <img
+                src={`${base}images/locks.jpg`}
+                alt="Electronic Lock System"
+                onerror="this.style.display='none'"
+              />
+              <div class="service-overlay">
+                <div class="service-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"
+                    ></rect>
+                    <circle cx="12" cy="16" r="1"></circle>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <h2 class="service-title">Electronic Locks</h2>
+                <p class="service-description">
+                  Smart locking solutions with keyless entry and biometric
+                  access.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag">Keyless Entry</span>
+                  <span class="feature-tag">Biometric Access</span>
+                  <span class="feature-tag">Remote Control</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Home Automation - Large -->
+        <div class="service-item" data-service="automation">
+          <a href={`${base}services/home-automation`} class="service-link">
+            <div class="service-image">
+              <img
+                src={`${base}images/smart home.jpg`}
+                alt="Home Automation System"
+                onerror="this.style.display='none'"
+              />
+              <div class="service-overlay">
+                <div class="service-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M9 12l2 2 4-4"></path>
+                    <path
+                      d="M21 12c.552 0 1-.449 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .551.448 1 1 1"
+                    ></path>
+                    <path d="M21 6v6"></path>
+                    <path d="M3 6v6"></path>
+                    <path d="M12 3v6"></path>
+                    <path d="M12 15v6"></path>
+                    <path d="M3 21h18"></path>
+                  </svg>
+                </div>
+                <h2 class="service-title">Home Automation</h2>
+                <p class="service-description">
+                  Smart home solutions integrating security, lighting, climate,
+                  and entertainment systems.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag">Smart Integration</span>
+                  <span class="feature-tag">Voice Control</span>
+                  <span class="feature-tag">Energy Efficient</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Automatic Doors - Small -->
+        <div class="service-item" data-service="doors">
+          <a href={`${base}services/automatic-doors`} class="service-link">
+            <div class="service-image">
+              <img
+                src={`${base}images/automaticdoor.jpg`}
+                alt="Automatic Door System"
+                onerror="this.style.display='none'"
+              />
+              <div class="service-overlay">
+                <div class="service-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    ></path>
+                    <polyline points="14,2 14,8 20,8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10,9 9,9 8,9"></polyline>
+                  </svg>
+                </div>
+                <h2 class="service-title">Automatic Doors</h2>
+                <p class="service-description">
+                  Automated door systems with motion sensors and safety
+                  features.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag">Motion Sensors</span>
+                  <span class="feature-tag">Safety Features</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Wireless Networks - Small -->
+        <div class="service-item" data-service="wireless">
+          <a href={`${base}services/wireless-networks`} class="service-link">
+            <div class="service-image">
+              <img
+                src={`${base}images/wireless.jpg`}
+                alt="Wireless Network Infrastructure"
+                onerror="this.style.display='none'"
+              />
+              <div class="service-overlay">
+                <div class="service-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                    <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                  </svg>
+                </div>
+                <h2 class="service-title">Wireless Networks</h2>
+                <p class="service-description">
+                  Secure wireless infrastructure for reliable connectivity.
+                </p>
+                <div class="service-features">
+                  <span class="feature-tag">Secure Connections</span>
+                  <span class="feature-tag">High Performance</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="services-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Upgrade Your Security?</h2>
+        <p class="cta-subtitle">
+          Contact us today for a free consultation and custom security solution
+          tailored to your needs.
+        </p>
+        <div class="cta-buttons">
+          <a href={`${base}contact`} class="btn btn-primary">Get Free Quote</a>
+          <a href={`${base}projects`} class="btn btn-secondary">View Projects</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Smooth scrolling for anchor links
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach((link) => {
+      link.addEventListener("click", function (e: Event) {
+        e.preventDefault();
+
+        const target = e.target as HTMLAnchorElement;
+        const targetId = target.getAttribute("href")?.substring(1);
+        const targetElement = targetId
+          ? document.getElementById(targetId)
+          : null;
+
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Services Hero Section */
+  .services-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    color: #fff;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Services Navigation */
+  .services-navigation {
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .services-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .service-nav-link {
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    color: #555;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    text-transform: lowercase;
+    transition: all 0.3s ease;
+    border: 2px solid #e1e5e9;
+    font-size: 0.9rem;
+  }
+
+  .service-nav-link:hover,
+  .service-nav-link.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 250px);
+    }
+
+    .service-item:nth-child(1) {
+      grid-column: 1 / 3;
+      grid-row: 1;
+    }
+
+    .service-item:nth-child(2) {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .service-item:nth-child(3) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .service-item:nth-child(4) {
+      grid-column: 1 / 3;
+      grid-row: 3;
+    }
+
+    .service-item:nth-child(5) {
+      grid-column: 1;
+      grid-row: 4;
+    }
+
+    .service-item:nth-child(6) {
+      grid-column: 2;
+      grid-row: 4;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-navigation {
+      padding: 1rem 0;
+    }
+
+    .services-nav {
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .service-nav-link {
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 300px);
+      gap: 1.5rem;
+    }
+
+    .service-item:nth-child(1),
+    .service-item:nth-child(2),
+    .service-item:nth-child(3),
+    .service-item:nth-child(4),
+    .service-item:nth-child(5),
+    .service-item:nth-child(6) {
+      grid-column: 1;
+    }
+
+    .service-item:nth-child(1) {
+      grid-row: 1;
+    }
+    .service-item:nth-child(2) {
+      grid-row: 2;
+    }
+    .service-item:nth-child(3) {
+      grid-row: 3;
+    }
+    .service-item:nth-child(4) {
+      grid-row: 4;
+    }
+    .service-item:nth-child(5) {
+      grid-row: 5;
+    }
+    .service-item:nth-child(6) {
+      grid-row: 6;
+    }
+
+    .service-overlay .service-title {
+      font-size: 1.3rem !important;
+    }
+  }
+
+  /* Services Showcase */
+  .services-showcase {
+    padding: 4rem 0;
+    background: #f8f9fa;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 300px);
+    grid-gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Grid Layout Pattern - Masonry Style */
+  .service-item:nth-child(1) {
+    /* Centralization - Top Left Large */
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .service-item:nth-child(2) {
+    /* CCTV - Top Right */
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .service-item:nth-child(3) {
+    /* Electronic Locks - Middle Left */
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .service-item:nth-child(4) {
+    /* Home Automation - Middle Right Large */
+    grid-column: 2 / 4;
+    grid-row: 2;
+  }
+
+  .service-item:nth-child(5) {
+    /* Automatic Doors - Bottom Left */
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .service-item:nth-child(6) {
+    /* Wireless Networks - Bottom Right */
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .service-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background: #fff;
+  }
+
+  .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  }
+
+  .service-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .service-image {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .service-item:hover .service-image img {
+    transform: scale(1.08);
+  }
+
+  .service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(102, 126, 234, 0.9) 0%,
+      rgba(118, 75, 162, 0.9) 100%
+    );
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .service-item:hover .service-overlay {
+    opacity: 1;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+    color: #fff;
+  }
+
+  .service-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: currentColor;
+  }
+
+  .service-overlay .service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-transform: lowercase;
+  }
+
+  /* Large items get bigger titles */
+  .service-item:nth-child(1) .service-overlay .service-title,
+  .service-item:nth-child(4) .service-overlay .service-title {
+    font-size: 2rem;
+  }
+
+  .service-overlay .service-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+  }
+
+  .service-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .feature-tag {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* All Services Grid - Alternative Layout */
+  .all-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .all-services-grid .service-item {
+    display: block;
+    height: 250px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 300px);
+    }
+
+    .service-item:nth-child(1) {
+      /* Centralization */
+      grid-column: 1 / 3;
+      grid-row: 1;
+    }
+
+    .service-item:nth-child(2) {
+      /* CCTV */
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .service-item:nth-child(3) {
+      /* Electronic Locks */
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .service-item:nth-child(4) {
+      /* Home Automation */
+      grid-column: 1 / 3;
+      grid-row: 3;
+    }
+
+    .service-item:nth-child(5) {
+      /* Automatic Doors */
+      grid-column: 1;
+      grid-row: 4;
+    }
+
+    .service-item:nth-child(6) {
+      /* Wireless Networks */
+      grid-column: 2;
+      grid-row: 4;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 280px);
+    }
+
+    .service-item:nth-child(1),
+    .service-item:nth-child(2),
+    .service-item:nth-child(3),
+    .service-item:nth-child(4),
+    .service-item:nth-child(5),
+    .service-item:nth-child(6) {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .service-overlay {
+      opacity: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(102, 126, 234, 0.8) 0%,
+        rgba(118, 75, 162, 0.8) 100%
+      );
+    }
+  }
+
+  /* CTA Section */
+  .services-cta {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-transform: lowercase;
+  }
+
+  .cta-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ffd700;
+  }
+
+  .btn-secondary:hover {
+    background: #ffd700;
+    color: #333;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .services-nav {
+      gap: 1rem;
+    }
+
+    .service-nav-link {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .service-link {
+      grid-template-columns: 1fr;
+    }
+
+    .service-item:nth-child(even) .service-link {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+
+    .service-content {
+      padding: 2rem;
+    }
+
+    .service-title {
+      font-size: 1.5rem;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-buttons .btn {
+      width: 200px;
+    }
+  }
+</style>

@@ -1,0 +1,1030 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="Centralization Control - SSS Security Solutions">
+  <!-- Hero Section -->
+  <section class="service-detail-hero">
+    <div class="hero-background">
+      <img
+        src={`${base}images/central;ization.jpg`}
+        alt="Centralization Control"
+        class="hero-bg-image"
+      />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title animated-text">centralization</h1>
+      <p class="hero-subtitle animated-text-delay">
+        intuitively control your environment
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Overview -->
+  <section class="service-overview">
+    <div class="container">
+      <div class="overview-content">
+        <h2 class="section-title">unified control systems</h2>
+        <p class="overview-text">
+          Experience seamless control over your entire security and automation
+          ecosystem through our advanced centralization platforms. Manage
+          lighting, climate, security, and entertainment systems from a single,
+          intuitive interface that puts the power of your environment at your
+          fingertips.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Showcase -->
+  <section class="feature-showcase">
+    <!-- Central Hub -->
+    <div class="feature-item">
+      <div class="feature-content">
+        <h3 class="feature-title">central control hub</h3>
+        <p class="feature-description">
+          A powerful central processing unit that integrates all your systems
+          into one cohesive platform. Touch panels, mobile apps, and voice
+          control provide multiple ways to interact with your environment,
+          ensuring convenience and accessibility for every user.
+        </p>
+        <ul class="feature-list">
+          <li>Unified system integration</li>
+          <li>Multi-touch control panels</li>
+          <li>Voice activation support</li>
+          <li>Custom user interfaces</li>
+        </ul>
+      </div>
+      <div class="feature-image">
+        <img
+          src={`${base}images/locks.jpg`}
+          alt="Control Hub"
+          class="zoom-on-scroll"
+        />
+      </div>
+    </div>
+
+    <!-- Smart Automation -->
+    <div class="feature-item alternate">
+      <div class="feature-content">
+        <h3 class="feature-title">intelligent automation</h3>
+        <p class="feature-description">
+          Pre-programmed scenes and intelligent automation routines that adapt
+          to your lifestyle. From "Good Morning" scenes that gradually brighten
+          lights and adjust temperature, to "Away" modes that secure your
+          property and optimize energy usage.
+        </p>
+        <ul class="feature-list">
+          <li>Custom scene programming</li>
+          <li>Scheduling & timers</li>
+          <li>Sensor-based automation</li>
+          <li>Energy optimization</li>
+        </ul>
+      </div>
+      <div class="feature-image">
+        <img
+          src={`${base}images/smart home.jpg`}
+          alt="Smart Automation"
+          class="zoom-on-scroll"
+        />
+      </div>
+    </div>
+
+    <!-- Remote Access -->
+    <div class="feature-item">
+      <div class="feature-content">
+        <h3 class="feature-title">anywhere access</h3>
+        <p class="feature-description">
+          Control your environment from anywhere in the world through secure
+          cloud connectivity. Monitor system status, receive real-time alerts,
+          and make adjustments remotely through our intuitive mobile and web
+          applications.
+        </p>
+        <ul class="feature-list">
+          <li>Cloud-based connectivity</li>
+          <li>Mobile & web apps</li>
+          <li>Real-time monitoring</li>
+          <li>Secure remote access</li>
+        </ul>
+      </div>
+      <div class="feature-image">
+        <img
+          src={`${base}images/wireless.jpg`}
+          alt="Remote Access"
+          class="zoom-on-scroll"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">ready to centralize your control?</h2>
+        <p class="cta-text">
+          Let our experts design a centralized control system that perfectly
+          matches your lifestyle and needs.
+        </p>
+        <a href={`${base}contact`} class="cta-button"> get consultation → </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Service Detail Hero */
+  .service-detail-hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: 1;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    animation: zoomInOut 15s ease-in-out infinite;
+  }
+
+  @keyframes zoomInOut {
+    0%,
+    100% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+  }
+
+  .service-detail-hero .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 2rem;
+    color: #fff;
+  }
+
+  .service-detail-hero .hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    letter-spacing: -2px;
+    color: #fff;
+  }
+
+  .animated-text {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease forwards;
+  }
+
+  .animated-text-delay {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease 0.5s forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .service-detail-hero .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: lowercase;
+    letter-spacing: 1px;
+  }
+
+  /* Service Overview */
+  .service-overview {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  }
+
+  .overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .service-overview .section-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .overview-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Feature Showcase */
+  .feature-showcase {
+    background-color: #1a1a1a;
+  }
+
+  .feature-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    min-height: 80vh;
+    padding: 0 5%;
+  }
+
+  .feature-item.alternate {
+    background-color: #2c2c2c;
+  }
+
+  .feature-item.alternate .feature-content {
+    order: 2;
+  }
+
+  .feature-item.alternate .feature-image {
+    order: 1;
+  }
+
+  .feature-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: #ffffff;
+  }
+
+  .feature-description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    padding: 0.8rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .feature-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .feature-image {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .feature-image:hover img {
+    transform: scale(1.05);
+  }
+
+  .zoom-on-scroll {
+    transition: transform 0.8s ease-out;
+  }
+
+  .zoom-on-scroll.zoomed {
+    transform: scale(1.1);
+  }
+
+  /* Service CTA */
+  .service-cta {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .cta-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: #fff;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .feature-item {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 4rem 2rem;
+      min-height: auto;
+    }
+
+    .feature-item.alternate .feature-content {
+      order: 1;
+    }
+
+    .feature-item.alternate .feature-image {
+      order: 2;
+    }
+
+    .feature-image {
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-detail-hero .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .service-detail-hero .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .service-overview {
+      padding: 80px 0;
+    }
+
+    .service-overview .section-title {
+      font-size: 2rem;
+    }
+
+    .overview-text {
+      font-size: 1rem;
+    }
+
+    .feature-title {
+      font-size: 2rem;
+    }
+
+    .feature-description {
+      font-size: 1rem;
+    }
+
+    .service-cta {
+      padding: 80px 0;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+    }
+
+    .cta-text {
+      font-size: 1rem;
+    }
+
+    .feature-item {
+      padding: 3rem 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-detail-hero .hero-title {
+      font-size: 2rem;
+    }
+
+    .service-overview .section-title {
+      font-size: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+    }
+
+    .cta-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<style>
+  /* Service Header */
+  .service-header {
+    padding: 6rem 0 3rem;
+    background: #f8f9fa;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .service-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+  }
+
+  .service-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Service Content */
+  .service-content {
+    padding: 4rem 0;
+    background: #fff;
+  }
+
+  .content-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+
+  .main-content {
+    max-width: none;
+  }
+
+  .service-image {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .service-description h2 {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    text-transform: lowercase;
+  }
+
+  .service-description h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin: 2rem 0 1rem;
+    text-transform: lowercase;
+  }
+
+  .service-description p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .benefits-list,
+  .components-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .benefits-list li,
+  .components-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .benefits-list li:before,
+  .components-list li:before {
+    content: "✓";
+    color: #ffd700;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .info-box {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .info-box:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .info-box h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-transform: lowercase;
+  }
+
+  .feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: #ffd700;
+    color: #333;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .specs-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .specs-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .specs-list strong {
+    color: #333;
+  }
+
+  .cta-box {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .cta-box h3 {
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-box p {
+    color: #ccc;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 0.25rem;
+    text-transform: lowercase;
+  }
+
+  .btn-primary {
+    background: #ffd700;
+    color: #333;
+  }
+
+  .btn-primary:hover {
+    background: #ffed4e;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+  }
+
+  .btn-secondary:hover {
+    background: #ffd700;
+    color: #333;
+  }
+
+  /* Related Services */
+  .related-services {
+    padding: 4rem 0;
+    background: #f8f9fa;
+  }
+
+  .related-services h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 3rem;
+    text-transform: lowercase;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .service-card h3 {
+    padding: 1rem 1rem 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+    text-transform: lowercase;
+  }
+
+  .service-card p {
+    padding: 0 1rem 1rem;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .content-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      position: static;
+      order: -1;
+    }
+
+    .service-title {
+      font-size: 2rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+  }
+</style>
+
+<div class="component-card">
+  <img
+    src={`${base}images/locks.jpg`}
+    alt="Access Control"
+    class="component-image"
+  />
+  <div class="component-content">
+    <h3>Access Control</h3>
+    <p>Door locks, keycards, and biometric systems</p>
+  </div>
+</div>
+<div class="component-card">
+  <img
+    src={`${base}images/wireless.jpg`}
+    alt="Network Infrastructure"
+    class="component-image"
+  />
+  <div class="component-content">
+    <h3>Network Infrastructure</h3>
+    <p>Secure communication between all devices</p>
+  </div>
+</div>
+<div class="component-card">
+  <img
+    src={`${base}images/smart home.jpg`}
+    alt="Smart Integration"
+    class="component-image"
+  />
+  <div class="component-content">
+    <h3>Smart Integration</h3>
+    <p>IoT devices and home automation systems</p>
+  </div>
+</div>
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+  <div class="container">
+    <div class="benefits-content">
+      <div class="benefits-text">
+        <h2 class="section-title">Why Choose Centralized Control?</h2>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">✓</div>
+            <div class="benefit-text">
+              <h3>Reduced Complexity</h3>
+              <p>
+                Eliminate multiple interfaces and streamline security management
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">✓</div>
+            <div class="benefit-text">
+              <h3>Faster Response Times</h3>
+              <p>Immediate alerts and automated responses to security events</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">✓</div>
+            <div class="benefit-text">
+              <h3>Cost Efficiency</h3>
+              <p>
+                Reduce operational costs through automation and centralized
+                management
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">✓</div>
+            <div class="benefit-text">
+              <h3>Enhanced Security</h3>
+              <p>
+                Comprehensive oversight ensures no security gaps or blind spots
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="benefits-image">
+        <img
+          src={`${base}images/central;ization.jpg`}
+          alt="Centralized Control Benefits"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-cta">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Centralize Your Security Today</h2>
+      <p class="cta-subtitle">
+        Get a unified control system for all your security needs.
+      </p>
+      <div class="cta-buttons">
+        <a href={`${base}contact`} class="btn btn-primary">Get Free Quote</a>
+        <a href={`${base}services`} class="btn btn-secondary"
+          >View All Services</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-hero {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #ffd700;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+  .service-features {
+    padding: 5rem 0;
+    background: #f8f9fa;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .feature-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  .feature-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  .feature-description {
+    color: #666;
+    line-height: 1.6;
+  }
+  .service-cta {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .cta-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #ffd700;
+  }
+  .cta-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+  }
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ffd700;
+  }
+  .btn-secondary:hover {
+    background: #ffd700;
+    color: #333;
+  }
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .cta-buttons .btn {
+      width: 200px;
+    }
+  }
+</style>
+
+<script>
+  // Scroll-triggered zoom effect for images
+  document.addEventListener("DOMContentLoaded", function () {
+    const zoomImages = document.querySelectorAll(".zoom-on-scroll");
+
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -100px 0px",
+    };
+
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("zoomed");
+        }
+      });
+    }, observerOptions);
+
+    zoomImages.forEach((img) => {
+      imageObserver.observe(img);
+    });
+  });
+</script>
