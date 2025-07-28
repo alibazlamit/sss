@@ -31,15 +31,18 @@ function updateScrollEffects() {
         element.style.transform = `translateY(${rate}px)`;
     });
     
-    // Image rotation on scroll
-    const rotateElements = document.querySelectorAll('.zoom-on-scroll');
-    rotateElements.forEach((element, index) => {
+    // Image zoom on scroll (slowly)
+    const zoomElements = document.querySelectorAll('.zoom-on-scroll');
+    zoomElements.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top;
         const elementVisible = elementTop < window.innerHeight && elementTop > -element.offsetHeight;
-        
         if (elementVisible) {
-            const rotation = (scrolled - element.offsetTop) * 0.02;
-            element.style.transform = `rotate(${rotation}deg) scale(1.05)`;
+            // Calculate zoom based on scroll position, but keep it subtle and slow
+            const zoom = 1 + Math.min(Math.max((scrolled - element.offsetTop) * 0.0005, 0), 0.08); // max 8% zoom
+            element.style.transform = `scale(${zoom})`;
+            element.style.transition = 'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+        } else {
+            element.style.transform = 'scale(1)';
         }
     });
     

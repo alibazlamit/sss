@@ -13,7 +13,7 @@
     <div id="nav-container"></div>
 
     <!-- Partners Hero -->
-    <section class="partners-page-hero">
+    <section class="partners-page-hero" data-nav-theme="light">
         <div class="partners-hero-content">
             <h1 class="partners-hero-title">success partners</h1>
             <p class="partners-hero-subtitle">
@@ -23,180 +23,51 @@
         </div>
     </section>
 
-    <!-- Partners Showcase -->
-    <section class="partners-showcase">
+    <!-- Partners Gallery Grid (Slideshow) -->
+    <section class="partners-gallery-section" data-nav-theme="light">
         <div class="container">
-            <div class="partners-grid">
-                <!-- Crestron -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/crestron-logo.svg" alt="Crestron">
-                    </div>
-                    <div class="partner-content">
-                        <span class="partner-category">automation</span>
-                        <h3 class="partner-name">crestron</h3>
-                        <p class="partner-description">
-                            Global leader in advanced control and automation systems for 
-                            intelligent buildings and homes.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Hikvision -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/Hikvision.jpg" alt="Hikvision">
-                    </div>
-                    <div class="partner-content">
-                        <span class="partner-category">surveillance</span>
-                        <h3 class="partner-name">hikvision</h3>
-                        <p class="partner-description">
-                            World's leading provider of innovative video surveillance 
-                            products and AI-powered security solutions.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Dahua -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/Dahua_Technology_logo.svg.png" alt="Dahua">
-                    </div>
-                    <div class="partner-content">
-                        <span class="partner-category">surveillance</span>
-                        <h3 class="partner-name">dahua technology</h3>
-                        <p class="partner-description">
-                            Leading manufacturer of video surveillance equipment and 
-                            smart IoT solutions with advanced AI capabilities.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Bosch -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/bosch.svg" alt="Bosch Security">
-                    </div>
-                    <div class="partner-content">
-                        <span class="partner-category">integrated systems</span>
-                        <h3 class="partner-name">bosch security</h3>
-                        <p class="partner-description">
-                            Trusted provider of comprehensive security and communications 
-                            solutions with professional-grade technology.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Honeywell -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/honeywell-1.svg" alt="Honeywell">
-                    </div>
-                    <div class="partner-content">
-                        <span class="partner-category">building technology</span>
-                        <h3 class="partner-name">honeywell security</h3>
-                        <p class="partner-description">
-                            Global leader in building technologies with integrated 
-                            security solutions and performance materials.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Pelco -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/pelco-by-schneider-electric-vector-logo.png" alt="Pelco">
-                    </div>
-                    <div class="partner-content">
-                        <h3 class="partner-name">pelco by schneider electric</h3>
-                        <p class="partner-description">
-                            Industry pioneer in video security solutions with advanced 
-                            analytics and comprehensive surveillance platforms.
-                        </p>
-                        <span class="partner-category">surveillance</span>
-                    </div>
-                </div>
-
-                <!-- Cisco -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/cisco-2.svg" alt="Cisco">
-                    </div>
-                    <div class="partner-content">
-                        <h3 class="partner-name">cisco</h3>
-                        <p class="partner-description">
-                            Leading networking solutions provider enabling secure, 
-                            reliable infrastructure for modern security systems.
-                        </p>
-                        <span class="partner-category">networking</span>
-                    </div>
-                </div>
-
-                <!-- HP -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/hp-1.svg" alt="HP">
-                    </div>
-                    <div class="partner-content">
-                        <h3 class="partner-name">hp enterprise</h3>
-                        <p class="partner-description">
-                            Enterprise-grade servers and infrastructure solutions 
-                            supporting robust security management platforms.
-                        </p>
-                        <span class="partner-category">infrastructure</span>
-                    </div>
-                </div>
-
-                <!-- Fortinet -->
-                <div class="partner-item scroll-animate">
-                    <div class="partner-logo">
-                        <img src="../public/logos/fortinet-logo.svg" alt="Fortinet">
-                    </div>
-                    <div class="partner-content">
-                        <h3 class="partner-name">fortinet</h3>
-                        <p class="partner-description">
-                            Cybersecurity leader providing secure networking solutions 
-                            and advanced threat protection for security infrastructure.
-                        </p>
-                        <span class="partner-category">cybersecurity</span>
-                    </div>
-                </div>
+            <h2 class="section-title">our technology partners</h2>
+            <div class="partners-gallery-slideshow">
+                <button class="gallery-nav-btn" id="gallery-prev">&#8592;</button>
+                <div id="partners-gallery" class="partners-gallery-grid"></div>
+                <button class="gallery-nav-btn" id="gallery-next">&#8594;</button>
             </div>
+            <div id="gallery-pagination" class="gallery-pagination"></div>
+        </div>
+    </section>
 
-            <!-- Partnership Benefits -->
-            <div class="partnership-benefits">
-                <div class="container">
-                    <h2 class="section-title">partnership benefits</h2>
-                    <div class="benefits-grid">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🔧</div>
-                            <h3 class="benefit-title">technical excellence</h3>
-                            <p class="benefit-description">
-                                Access to cutting-edge technology and expert technical support 
-                                ensuring optimal system performance and reliability.
-                            </p>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🛡️</div>
-                            <h3 class="benefit-title">proven reliability</h3>
-                            <p class="benefit-description">
-                                Industry-leading products with proven track records in 
-                                mission-critical security applications worldwide.
-                            </p>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🚀</div>
-                            <h3 class="benefit-title">innovation leadership</h3>
-                            <p class="benefit-description">
-                                Early access to innovative solutions and emerging technologies 
-                                that define the future of security systems.
-                            </p>
-                        </div>
-                    </div>
+    <!-- Partnership Benefits -->
+    <div class="partnership-benefits">
+        <div class="container">
+            <h2 class="section-title">partnership benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔧</div>
+                    <h3 class="benefit-title">technical excellence</h3>
+                    <p class="benefit-description">
+                        Access to cutting-edge technology and expert technical support 
+                        ensuring optimal system performance and reliability.
+                    </p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3 class="benefit-title">proven reliability</h3>
+                    <p class="benefit-description">
+                        Industry-leading products with proven track records in 
+                        mission-critical security applications worldwide.
+                    </p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <h3 class="benefit-title">innovation leadership</h3>
+                    <p class="benefit-description">
+                        Early access to innovative solutions and emerging technologies 
+                        that define the future of security systems.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -245,5 +116,146 @@
     </footer>
 
     <script src="../js/script.js"></script>
+    <script>
+    // Partner descriptions (auto-generated, can be customized)
+    const partnerDescriptions = {
+        '3m-red.svg': '3M: Global leader in innovation and technology solutions.',
+        'akg-logo-1.svg': 'AKG: Renowned for professional audio and microphone technology.',
+        'alcad-logo-png_seeklogo-6060.png': 'ALCAD: Specialist in communication and security systems.',
+        'alto-professional-logo-vector.svg': 'Alto Professional: High-performance audio equipment.',
+        'Arthur-Holm-1.png': 'Arthur Holm: Motorized monitors and AV solutions.',
+        'avaya-35121.svg': 'Avaya: Enterprise communications and collaboration.',
+        'belden-4.svg': 'Belden: Networking, connectivity, and cabling solutions.',
+        'bosch.svg': 'Bosch: Trusted provider of security and communications technology.',
+        'bose_professional_slider.jpg': 'Bose Professional: Premium sound systems for business.',
+        'boss-29013.svg': 'Boss: Audio and effects for musicians and professionals.',
+        'Brocade.png': 'Brocade: Data center networking and storage solutions.',
+        'cisco-2.svg': 'Cisco: World leader in networking and IT infrastructure.',
+        'commscope-networking-service.png': 'CommScope: Advanced network infrastructure solutions.',
+        'crestron-logo.svg': 'Crestron: Automation and smart building technology.',
+        'crown-by-harman-logo-vector.svg': 'Crown by Harman: Professional audio amplifiers.',
+        'Dahua_Technology_logo.svg.png': 'Dahua: Video surveillance and smart IoT solutions.',
+        'dell-2.svg': 'Dell: Enterprise computing and IT hardware.',
+        'download.png': 'Download: Technology and digital solutions.',
+        'Eneosvg.svg': 'Eneo: Video surveillance and security products.',
+        'epson-2.svg': 'Epson: Imaging and printing technology.',
+        'FAAC-Logo-Black.png': 'FAAC: Automation for gates, doors, and barriers.',
+        'FAAC.png': 'FAAC: Automation for gates, doors, and barriers.',
+        'fortinet-logo.svg': 'Fortinet: Cybersecurity and network protection.',
+        'garretpng.png': 'Garrett: Security metal detectors and screening.',
+        'hanwha-4.svg': 'Hanwha: Video surveillance and security technology.',
+        'hid-global-logo.svg': 'HID Global: Secure identity and access solutions.',
+        'Hikvision.jpg': 'Hikvision: Leading provider of video surveillance products.',
+        'Hi–Tron.png': 'Hi-Tron: Power and energy management solutions.',
+        'honeywell-1.svg': 'Honeywell: Integrated building and security systems.',
+        'hp-1.svg': 'HP: Computing and enterprise IT solutions.',
+        'hqxzxb3fyqs0ydg8vghl.webp': 'Partner: Security and technology solutions.',
+        'images.png': 'Partner: Security and technology solutions.',
+        'jbl-1.svg': 'JBL: Professional audio and sound systems.',
+        'Kwikset_Logo_JPEG.5c3f58a7c1f19.avif': 'Kwikset: Residential and commercial locks.',
+        'lg-electronics.svg': 'LG Electronics: Consumer and commercial electronics.',
+        'logo.png': 'Partner: Security and technology solutions.',
+        'LogoAPC.svg.png': 'APC: Power protection and management.',
+        'logo_commax_1.jpg': 'Commax: Home automation and intercom systems.',
+        'Lund Halsey.png': 'Lund Halsey: Control room furniture and solutions.',
+        'martin-by-harman-logo-vector.svg': 'Martin by Harman: Lighting and visual solutions.',
+        'ozak-bannar.png': 'Ozak: Turnstiles and access control.',
+        'Ozak_Tanitim_Videosu.jpg': 'Ozak: Turnstiles and access control.',
+        'pelco-by-schneider-electric-vector-logo.png': 'Pelco: Video security and surveillance.',
+        'qsclogo_halftm-converted.png': 'QSC: Audio, video, and control solutions.',
+        'R-M1.svg': 'Partner: Security and technology solutions.',
+        'Ruckus Wireless.svg': 'Ruckus Wireless: Advanced Wi-Fi and networking.',
+        'ruckus-wireless5995.jpg': 'Ruckus Wireless: Advanced Wi-Fi and networking.',
+        'safran-sagem.svg': 'Safran Sagem: Security and defense electronics.',
+        'SALTO_inspired_access_LOGO.png': 'SALTO: Electronic access control systems.',
+        'Shure Logo .jpg': 'Shure: Microphones and audio electronics.',
+        'shure-1.svg': 'Shure: Microphones and audio electronics.',
+        'TESA Small Logo - Degrade - PNG (1).webp': 'TESA: Locking solutions and access control.',
+        'TESA Small Logo - Degrade - PNG.webp': 'TESA: Locking solutions and access control.',
+        'tp-link.svg': 'TP-Link: Networking and wireless solutions.',
+        'TP-Link2.png': 'TP-Link: Networking and wireless solutions.',
+        'tr3686t9ad-trendnet-logo-trendnet-logo-evolution-history-and-meaning-png.png': 'Trendnet: Networking hardware and solutions.',
+        'tyco-security-products-vector-logo.svg': 'Tyco: Security products and fire protection.',
+        'Ubiquiti Networks.svg': 'Ubiquiti: Wireless networking and IoT.',
+        'ubiquiti-networks-2016.svg': 'Ubiquiti: Wireless networking and IoT.',
+        'ubiquiti-networks-logo-e1596649297982.jpg': 'Ubiquiti: Wireless networking and IoT.',
+        'uni_logo.png': 'Partner: Security and technology solutions.',
+        'wisi-group-logo-vector.svg': 'WISI: Broadband and communication technology.',
+        'Yale_(company)_logo.png': 'Yale: Locks and smart home security.',
+        'yamaha-2-1.svg': 'Yamaha: Professional audio and sound systems.',
+        'zkteco-logo-vector.svg': 'ZKTeco: Biometric and access control solutions.',
+        'ZKTeco.jpg': 'ZKTeco: Biometric and access control solutions.'
+    };
+
+    const logos = [
+        '3m-red.svg','akg-logo-1.svg','alcad-logo-png_seeklogo-6060.png','alto-professional-logo-vector.svg','Arthur-Holm-1.png','avaya-35121.svg','belden-4.svg','bosch.svg','bose_professional_slider.jpg','boss-29013.svg','Brocade.png','cisco-2.svg','commscope-networking-service.png','crestron-logo.svg','crown-by-harman-logo-vector.svg','Dahua_Technology_logo.svg.png','dell-2.svg','download.png','Eneosvg.svg','epson-2.svg','FAAC-Logo-Black.png','FAAC.png','fortinet-logo.svg','garretpng.png','hanwha-4.svg','hid-global-logo.svg','Hikvision.jpg','Hi–Tron.png','honeywell-1.svg','hp-1.svg','hqxzxb3fyqs0ydg8vghl.webp','images.png','jbl-1.svg','Kwikset_Logo_JPEG.5c3f58a7c1f19.avif','lg-electronics.svg','logo.png','LogoAPC.svg.png','logo_commax_1.jpg','Lund Halsey.png','martin-by-harman-logo-vector.svg','ozak-bannar.png','Ozak_Tanitim_Videosu.jpg','pelco-by-schneider-electric-vector-logo.png','qsclogo_halftm-converted.png','R-M1.svg','Ruckus Wireless.svg','ruckus-wireless5995.jpg','safran-sagem.svg','SALTO_inspired_access_LOGO.png','Shure Logo .jpg','shure-1.svg','TESA Small Logo - Degrade - PNG (1).webp','TESA Small Logo - Degrade - PNG.webp','tp-link.svg','TP-Link2.png','tr3686t9ad-trendnet-logo-trendnet-logo-evolution-history-and-meaning-png.png','tyco-security-products-vector-logo.svg','Ubiquiti Networks.svg','ubiquiti-networks-2016.svg','ubiquiti-networks-logo-e1596649297982.jpg','uni_logo.png','wisi-group-logo-vector.svg','Yale_(company)_logo.png','yamaha-2-1.svg','zkteco-logo-vector.svg','ZKTeco.jpg'
+    ];
+
+    const LOGOS_PER_PAGE = 10;
+    let currentPage = 0;
+
+    function renderGalleryPage(page) {
+        const gallery = document.getElementById('partners-gallery');
+        if (!gallery) return;
+        gallery.innerHTML = '';
+        const start = page * LOGOS_PER_PAGE;
+        const end = Math.min(start + LOGOS_PER_PAGE, logos.length);
+        for (let i = start; i < end; i++) {
+            const filename = logos[i];
+            const item = document.createElement('div');
+            item.className = 'partner-gallery-card';
+            const img = document.createElement('img');
+            img.src = `../public/logos/${filename}`;
+            img.alt = filename.replace(/[-_]/g, ' ').replace(/\..+$/, '');
+            const name = document.createElement('div');
+            name.className = 'partner-gallery-name';
+            name.textContent = filename.replace(/[-_]/g, ' ').replace(/\..+$/, '').replace(/\b\w/g, c => c.toUpperCase());
+            const desc = document.createElement('div');
+            desc.className = 'partner-gallery-desc';
+            desc.textContent = partnerDescriptions[filename] || 'Trusted technology partner.';
+            item.appendChild(img);
+            item.appendChild(name);
+            item.appendChild(desc);
+            gallery.appendChild(item);
+        }
+    }
+
+    function updateGalleryPagination() {
+        const pagination = document.getElementById('gallery-pagination');
+        if (!pagination) return;
+        pagination.innerHTML = '';
+        const pageCount = Math.ceil(logos.length / LOGOS_PER_PAGE);
+        for (let i = 0; i < pageCount; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'gallery-dot' + (i === currentPage ? ' active' : '');
+            dot.addEventListener('click', () => {
+                currentPage = i;
+                renderGalleryPage(currentPage);
+                updateGalleryPagination();
+            });
+            pagination.appendChild(dot);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderGalleryPage(currentPage);
+        updateGalleryPagination();
+        document.getElementById('gallery-prev').addEventListener('click', function() {
+            if (currentPage > 0) {
+                currentPage--;
+                renderGalleryPage(currentPage);
+                updateGalleryPagination();
+            }
+        });
+        document.getElementById('gallery-next').addEventListener('click', function() {
+            const pageCount = Math.ceil(logos.length / LOGOS_PER_PAGE);
+            if (currentPage < pageCount - 1) {
+                currentPage++;
+                renderGalleryPage(currentPage);
+                updateGalleryPagination();
+            }
+        });
+    });
+    </script>
 </body>
 </html>
