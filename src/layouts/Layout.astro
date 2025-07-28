@@ -34,7 +34,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <a href={base}>SSS</a>
+          <a href={base}>
+            <img
+              src={`${base}images/sss_logo.png`}
+              alt="SSS Security Solutions"
+              class="logo-img"
+            />
+          </a>
         </div>
         <div class="menu-toggle" id="mobile-menu">
           <span></span>
@@ -154,7 +160,32 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         // Navbar background opacity based on scroll
         const scrollProgress = Math.min(scrollTop / 100, 1);
         if (navbar) {
-          navbar.style.backgroundColor = `rgba(0, 0, 0, ${scrollProgress * 0.95})`;
+          // Change background to white when scrolled
+          if (scrollProgress > 0.5) {
+            navbar.style.backgroundColor = `rgba(255, 255, 255, ${scrollProgress * 0.95})`;
+            navbar.style.boxShadow = `0 2px 10px rgba(0, 0, 0, 0.1)`;
+            // Change text color to dark
+            const navLinks = navbar.querySelectorAll(".nav-link");
+            const logoImg = navbar.querySelector(".logo-img");
+            navLinks.forEach((link) => {
+              link.style.color = "#1a365d";
+            });
+            if (logoImg) {
+              logoImg.style.filter = "brightness(1) invert(0)";
+            }
+          } else {
+            navbar.style.backgroundColor = `rgba(0, 0, 0, ${scrollProgress * 0.95})`;
+            navbar.style.boxShadow = "none";
+            // Change text color to white
+            const navLinks = navbar.querySelectorAll(".nav-link");
+            const logoImg = navbar.querySelector(".logo-img");
+            navLinks.forEach((link) => {
+              link.style.color = "#fff";
+            });
+            if (logoImg) {
+              logoImg.style.filter = "brightness(0) invert(1)";
+            }
+          }
         }
 
         // Hide/show navbar on scroll
@@ -200,8 +231,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     line-height: 1.6;
-    color: #2c2c2c;
-    background-color: #fafafa;
+    color: #334155;
+    background-color: #f8fafc;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -244,6 +275,19 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo a:hover .logo-img {
+    filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(35deg);
   }
 
   .nav-menu {
@@ -265,7 +309,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   .nav-link:hover,
   .nav-link.active {
-    color: #ffd700;
+    color: #2c5aa0;
   }
 
   .nav-link::after {
@@ -275,7 +319,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: #ffd700;
+    background-color: #2c5aa0;
     transition: width 0.3s ease;
   }
 
@@ -313,7 +357,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   /* Footer Styles */
   .footer {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     color: #fff;
     padding: 3rem 0 1rem;
     margin-top: 4rem;
@@ -330,18 +374,18 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #ffd700;
+    color: #2c5aa0;
   }
 
   .footer-subtitle {
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 1rem;
-    color: #ffd700;
+    color: #2c5aa0;
   }
 
   .footer-description {
-    color: #ccc;
+    color: #cbd5e1;
     line-height: 1.6;
     margin-bottom: 1rem;
   }
@@ -355,25 +399,25 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .footer-links a {
-    color: #ccc;
+    color: #cbd5e1;
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
   .footer-links a:hover {
-    color: #ffd700;
+    color: #2c5aa0;
   }
 
   .footer-contact {
-    color: #ccc;
+    color: #cbd5e1;
     margin-bottom: 0.5rem;
   }
 
   .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid #444;
-    color: #999;
+    border-top: 1px solid #475569;
+    color: #94a3b8;
   }
 
   /* Responsive Design */
@@ -413,19 +457,21 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(45deg, #ffd700, #ffed4e);
-    color: #333;
+    background: linear-gradient(135deg, #1a365d, #2c5aa0);
+    color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: 500;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
   }
 
   .section-title {
@@ -433,13 +479,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     font-weight: 600;
     text-align: center;
     margin-bottom: 2rem;
-    color: #333;
+    color: #334155;
   }
 
   .section-subtitle {
     font-size: 1.2rem;
     text-align: center;
-    color: #666;
+    color: #64748b;
     margin-bottom: 3rem;
     max-width: 600px;
     margin-left: auto;

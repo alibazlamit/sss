@@ -13,7 +13,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <div class="hero-content">
       <h1 class="hero-title">our portfolio</h1>
       <p class="hero-subtitle">
-        showcasing our expertise in security system installations across various sectors and environments
+        showcasing our expertise in security system installations across various
+        sectors and environments
       </p>
     </div>
   </section>
@@ -22,7 +23,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   <nav class="projects-filter">
     <div class="container">
       <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">all projects</button>
+        <button class="filter-btn active" data-filter="all">all projects</button
+        >
         <button class="filter-btn" data-filter="worktype">by work type</button>
         <button class="filter-btn" data-filter="sector">by sector</button>
       </div>
@@ -33,13 +35,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   <section class="projects-showcase">
     <div class="container">
       <div class="projects-masonry-grid">
-        
         <!-- Work Type Projects -->
-        
+
         <!-- Fire Alarm & Safety Systems -->
         <div class="project-item large worktype" data-worktype="firealarm">
           <div class="project-image">
-            <img src={`${base}images/kkia-fire-alarm.jpg`} alt="Fire Alarm & Safety Systems" />
+            <img
+              src={`${base}images/kkia-fire-alarm.jpg`}
+              alt="Fire Alarm & Safety Systems"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">fire alarm & safety systems</h3>
@@ -51,7 +55,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Structured Cabling for Data Centers -->
         <div class="project-item medium worktype" data-worktype="datacenters">
           <div class="project-image">
-            <img src={`${base}images/datacenter.jpg`} alt="Structured Cabling for Data Centers" />
+            <img
+              src={`${base}images/datacenter.jpg`}
+              alt="Structured Cabling for Data Centers"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">structured cabling for data centers</h3>
@@ -63,7 +70,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Network Design -->
         <div class="project-item tall worktype" data-worktype="networkdesign">
           <div class="project-image">
-            <img src={`${base}images/networkdesign.jpg`} alt="Structured Cabling - Network Design" />
+            <img
+              src={`${base}images/networkdesign.jpg`}
+              alt="Structured Cabling - Network Design"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">structured cabling – network design</h3>
@@ -75,7 +85,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Theatre/Auditorium for Schools -->
         <div class="project-item medium worktype" data-worktype="theatre">
           <div class="project-image">
-            <img src={`${base}images/theatre-auditorium.jpg`} alt="Theatre/Auditorium for Schools" />
+            <img
+              src={`${base}images/theatre-auditorium.jpg`}
+              alt="Theatre/Auditorium for Schools"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">theatre/auditorium for schools</h3>
@@ -87,10 +100,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Healthcare Auditorium -->
         <div class="project-item medium worktype" data-worktype="healthcare">
           <div class="project-image">
-            <img src={`${base}images/healthcare-auditorium.jpg`} alt="Auditorium/Lecture Hall for Healthcare" />
+            <img
+              src={`${base}images/healthcare-auditorium.jpg`}
+              alt="Auditorium/Lecture Hall for Healthcare"
+            />
           </div>
           <div class="project-info">
-            <h3 class="project-title">auditorium/lecture hall for healthcare</h3>
+            <h3 class="project-title">
+              auditorium/lecture hall for healthcare
+            </h3>
             <p class="project-subtitle">medical facility design</p>
             <span class="project-category">healthcare</span>
           </div>
@@ -99,19 +117,30 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Facade Lighting -->
         <div class="project-item large worktype" data-worktype="facadelighting">
           <div class="project-image">
-            <img src={`${base}images/facade-lighting.jpg`} alt="Facade Lighting for Commercial Buildings" />
+            <img
+              src={`${base}images/facade-lighting.jpg`}
+              alt="Facade Lighting for Commercial Buildings"
+            />
           </div>
           <div class="project-info">
-            <h3 class="project-title">facade lighting for commercial buildings</h3>
+            <h3 class="project-title">
+              facade lighting for commercial buildings
+            </h3>
             <p class="project-subtitle">architectural lighting design</p>
             <span class="project-category">lighting</span>
           </div>
         </div>
 
         <!-- Meeting Scheduling Solution -->
-        <div class="project-item wide worktype" data-worktype="meetingscheduling">
+        <div
+          class="project-item wide worktype"
+          data-worktype="meetingscheduling"
+        >
           <div class="project-image">
-            <img src={`${base}images/meeting-scheduling.jpg`} alt="Meeting Scheduling Solution" />
+            <img
+              src={`${base}images/meeting-scheduling.jpg`}
+              alt="Meeting Scheduling Solution"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">meeting scheduling solution</h3>
@@ -123,7 +152,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Point-to-Point Wireless -->
         <div class="project-item medium worktype" data-worktype="p2pwireless">
           <div class="project-image">
-            <img src={`${base}images/p2p-wireless.jpg`} alt="Point-to-Point Wireless Connection" />
+            <img
+              src={`${base}images/p2p-wireless.jpg`}
+              alt="Point-to-Point Wireless Connection"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">point-to-point wireless connection</h3>
@@ -137,7 +169,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Learning Oasis School -->
         <div class="project-item large sector" data-sector="education">
           <div class="project-image">
-            <img src={`${base}images/learning_oasis_int_schools_cover.jpg`} alt="Learning Oasis School Security Installation" />
+            <img
+              src={`${base}images/learning_oasis_int_schools_cover.jpg`}
+              alt="Learning Oasis School Security Installation"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">learning oasis school</h3>
@@ -149,7 +184,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Najdarah -->
         <div class="project-item medium sector" data-sector="residential">
           <div class="project-image">
-            <img src={`${base}images/nadra.png`} alt="Najdarah Security Installation" />
+            <img
+              src={`${base}images/nadra.png`}
+              alt="Najdarah Security Installation"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">najdarah</h3>
@@ -161,7 +199,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- MOJ -->
         <div class="project-item tall sector" data-sector="government">
           <div class="project-image">
-            <img src={`${base}images/moj.png`} alt="MOJ Security Installation" />
+            <img
+              src={`${base}images/moj.png`}
+              alt="MOJ Security Installation"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">ministry of justice</h3>
@@ -173,7 +214,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Marble Restaurant -->
         <div class="project-item medium sector" data-sector="hospitality">
           <div class="project-image">
-            <img src={`${base}images/marble.webp`} alt="Marble Restaurant Security Installation" />
+            <img
+              src={`${base}images/marble.webp`}
+              alt="Marble Restaurant Security Installation"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">marble restaurant</h3>
@@ -185,7 +229,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Alon Coffee -->
         <div class="project-item wide sector" data-sector="retail">
           <div class="project-image">
-            <img src={`${base}images/falla.png`} alt="Alon Coffee Security Installation" />
+            <img
+              src={`${base}images/falla.png`}
+              alt="Alon Coffee Security Installation"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">alon coffee</h3>
@@ -197,7 +244,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Citadines Hotel -->
         <div class="project-item large sector" data-sector="hospitality">
           <div class="project-image">
-            <img src={`${base}images/citadines-hotel.jpg`} alt="Citadines Hotel Security Installation" />
+            <img
+              src={`${base}images/citadines-hotel.jpg`}
+              alt="Citadines Hotel Security Installation"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">citadines hotel</h3>
@@ -209,7 +259,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Dalla Hospital -->
         <div class="project-item wide sector" data-sector="healthcare">
           <div class="project-image">
-            <img src={`${base}images/dalla-hospital.jpg`} alt="Dalla Hospital Security Installation" />
+            <img
+              src={`${base}images/dalla-hospital.jpg`}
+              alt="Dalla Hospital Security Installation"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">dalla hospital</h3>
@@ -221,7 +274,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <!-- Corporate Office -->
         <div class="project-item medium sector" data-sector="corporate">
           <div class="project-image">
-            <img src={`${base}images/corporate-office.jpg`} alt="Corporate Office Security Installation" />
+            <img
+              src={`${base}images/corporate-office.jpg`}
+              alt="Corporate Office Security Installation"
+            />
           </div>
           <div class="project-info">
             <h3 class="project-title">corporate headquarters</h3>
@@ -229,7 +285,6 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             <span class="project-category">corporate</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -255,7 +310,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   /* Projects Hero */
   .projects-hero {
     padding: 8rem 0 4rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
     color: #fff;
     text-align: center;
   }
@@ -298,8 +353,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .filter-btn {
     padding: 0.8rem 1.5rem;
     background: transparent;
-    color: #555;
-    border: 2px solid #e1e5e9;
+    color: #475569;
+    border: 2px solid #e2e8f0;
     border-radius: 25px;
     font-weight: 500;
     text-transform: lowercase;
@@ -310,17 +365,17 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   .filter-btn:hover,
   .filter-btn.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
     color: #fff;
     border-color: transparent;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
   }
 
   /* Projects Showcase */
   .projects-showcase {
     padding: 4rem 0;
-    background: #f8f9fa;
+    background: #f8fafc;
   }
 
   .projects-masonry-grid {
@@ -410,7 +465,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   .project-category {
     display: inline-block;
-    background: rgba(102, 126, 234, 0.8);
+    background: rgba(26, 54, 93, 0.9);
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -426,7 +481,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   /* CTA Section */
   .projects-cta {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
     color: #fff;
     text-align: center;
   }
@@ -456,6 +511,49 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: #1a365d;
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .btn-secondary:hover {
+    background: #fff;
+    color: #1a365d;
+    transform: translateY(-2px);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
     padding: 1rem 2rem;
     border-radius: 50px;
     text-decoration: none;
@@ -467,7 +565,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   .btn-primary {
     background: white;
-    color: #667eea;
+    color: #1a365d;
   }
 
   .btn-secondary {
@@ -538,33 +636,33 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
 <script>
   // Project filtering functionality
-  document.addEventListener("DOMContentLoaded", function() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
-    
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const projectItems = document.querySelectorAll(".project-item");
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
         // Remove active class from all buttons
-        filterBtns.forEach(b => b.classList.remove('active'));
+        filterBtns.forEach((b) => b.classList.remove("active"));
         // Add active class to clicked button
-        btn.classList.add('active');
-        
-        const filter = btn.getAttribute('data-filter');
-        
-        projectItems.forEach(item => {
-          if (filter === 'all') {
-            item.classList.remove('hidden');
-          } else if (filter === 'worktype') {
-            if (item.classList.contains('worktype')) {
-              item.classList.remove('hidden');
+        btn.classList.add("active");
+
+        const filter = btn.getAttribute("data-filter");
+
+        projectItems.forEach((item) => {
+          if (filter === "all") {
+            item.classList.remove("hidden");
+          } else if (filter === "worktype") {
+            if (item.classList.contains("worktype")) {
+              item.classList.remove("hidden");
             } else {
-              item.classList.add('hidden');
+              item.classList.add("hidden");
             }
-          } else if (filter === 'sector') {
-            if (item.classList.contains('sector')) {
-              item.classList.remove('hidden');
+          } else if (filter === "sector") {
+            if (item.classList.contains("sector")) {
+              item.classList.remove("hidden");
             } else {
-              item.classList.add('hidden');
+              item.classList.add("hidden");
             }
           }
         });
