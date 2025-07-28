@@ -1,0 +1,1137 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="Our Partners - SSS Security Solutions">
+  <!-- Partners Hero -->
+  <section class="partners-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">strategic partnerships</h1>
+      <p class="hero-subtitle">
+        collaborating with global technology leaders to deliver cutting-edge
+        security solutions and innovative technologies
+      </p>
+    </div>
+  </section>
+
+  <!-- Partners Showcase -->
+  <section class="partners-showcase">
+    <div class="container">
+      <!-- Technology Partners -->
+      <div class="partner-category">
+        <h2 class="category-title">technology manufacturers</h2>
+        <div class="partners-grid">
+          <div class="partner-card featured">
+            <div class="partner-logo">
+              <img src={`${base}images/logos/Hikvision.jpg`} alt="Hikvision" />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">hikvision</h3>
+              <p class="partner-specialty">surveillance & analytics</p>
+              <p class="partner-description">
+                global leader in video surveillance products with ai-powered
+                analytics and intelligent security solutions
+              </p>
+            </div>
+          </div>
+
+          <div class="partner-card featured">
+            <div class="partner-logo">
+              <img
+                src={`${base}images/logos/honeywell-1.svg`}
+                alt="Honeywell"
+              />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">honeywell security</h3>
+              <p class="partner-specialty">access control systems</p>
+              <p class="partner-description">
+                comprehensive security and building automation solutions for
+                commercial and industrial applications
+              </p>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <img
+                src={`${base}images/logos/axis-communications.png`}
+                alt="Axis Communications"
+              />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">axis communications</h3>
+              <p class="partner-specialty">network cameras</p>
+              <p class="partner-description">
+                innovative network video solutions and intelligent analytics for
+                professional security applications
+              </p>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <img
+                src={`${base}images/logos/bosch-security.png`}
+                alt="Bosch Security"
+              />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">bosch security systems</h3>
+              <p class="partner-specialty">integrated solutions</p>
+              <p class="partner-description">
+                comprehensive security, safety, and communications products for
+                commercial and residential markets
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Network & Infrastructure Partners -->
+      <div class="partner-category">
+        <h2 class="category-title">network infrastructure</h2>
+        <div class="partners-grid">
+          <div class="partner-card featured">
+            <div class="partner-logo">
+              <img
+                src={`${base}images/logos/cisco-systems.png`}
+                alt="Cisco Systems"
+              />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">cisco systems</h3>
+              <p class="partner-specialty">networking solutions</p>
+              <p class="partner-description">
+                enterprise networking infrastructure and cybersecurity solutions
+                for secure connectivity
+              </p>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <img src={`${base}images/logos/ubiquiti.png`} alt="Ubiquiti" />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">ubiquiti networks</h3>
+              <p class="partner-specialty">wireless networks</p>
+              <p class="partner-description">
+                high-performance wireless networking products for enterprise and
+                service provider markets
+              </p>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <img src={`${base}images/logos/mikrotik.png`} alt="MikroTik" />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">mikrotik</h3>
+              <p class="partner-specialty">routing & switching</p>
+              <p class="partner-description">
+                innovative networking equipment and software solutions for
+                internet connectivity worldwide
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automation Partners -->
+      <div class="partner-category">
+        <h2 class="category-title">automation & control</h2>
+        <div class="partners-grid">
+          <div class="partner-card featured">
+            <div class="partner-logo">
+              <img
+                src={`${base}images/logos/schneider-electric.png`}
+                alt="Schneider Electric"
+              />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">schneider electric</h3>
+              <p class="partner-specialty">building automation</p>
+              <p class="partner-description">
+                energy management and automation solutions for efficient and
+                sustainable operations
+              </p>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <img
+                src={`${base}images/logos/johnson-controls.png`}
+                alt="Johnson Controls"
+              />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">johnson controls</h3>
+              <p class="partner-specialty">smart buildings</p>
+              <p class="partner-description">
+                integrated building technologies and solutions for smart,
+                healthy, and sustainable environments
+              </p>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo">
+              <img src={`${base}images/logos/dormakaba.png`} alt="Dormakaba" />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">dormakaba</h3>
+              <p class="partner-specialty">access solutions</p>
+              <p class="partner-description">
+                comprehensive access control and security solutions for doors,
+                gates, and building entry points
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Partners Carousel -->
+  <section class="all-partners">
+    <div class="container">
+      <h2 class="section-title">our complete partner network</h2>
+      <p class="section-subtitle">
+        Collaborating with over 60 global technology leaders and manufacturers
+      </p>
+
+      <div class="carousel-container">
+        <div class="carousel-track" id="partnerCarousel">
+          <!-- First Slide -->
+          <div class="carousel-slide">
+            <!-- Row 1 -->
+            <div class="carousel-row">
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/Hikvision.jpg`}
+                  alt="Hikvision"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/honeywell-1.svg`}
+                  alt="Honeywell"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/axis-communications.png`}
+                  alt="Axis"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/bosch-security.png`}
+                  alt="Bosch"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/cisco-systems.png`}
+                  alt="Cisco"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/ubiquiti.png`} alt="Ubiquiti" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/mikrotik.png`} alt="MikroTik" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/schneider-electric.png`}
+                  alt="Schneider"
+                />
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="carousel-row">
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/johnson-controls.png`}
+                  alt="Johnson Controls"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/dormakaba.png`}
+                  alt="Dormakaba"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/avigilon.png`} alt="Avigilon" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/dahua.png`} alt="Dahua" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/pelco.png`} alt="Pelco" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/genetec.png`} alt="Genetec" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/milestone.png`}
+                  alt="Milestone"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/exacq.png`} alt="Exacq" />
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="carousel-row">
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/verkada.png`} alt="Verkada" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/hanwha.png`} alt="Hanwha" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/panasonic.png`}
+                  alt="Panasonic"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/sony.png`} alt="Sony" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/samsung.png`} alt="Samsung" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/vivotek.png`} alt="Vivotek" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/acti.png`} alt="ACTi" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/arecont.png`} alt="Arecont" />
+              </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="carousel-row">
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/basler.png`} alt="Basler" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/flir.png`} alt="FLIR" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/mobotix.png`} alt="Mobotix" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/oncam.png`} alt="Oncam" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/illustra.png`} alt="Illustra" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/american-dynamics.png`}
+                  alt="American Dynamics"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/ganz.png`} alt="Ganz" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/geovision.png`}
+                  alt="GeoVision"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Slide -->
+          <div class="carousel-slide">
+            <!-- Row 1 -->
+            <div class="carousel-row">
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/avaya-35121.svg`} alt="Avaya" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/belden-4.svg`} alt="Belden" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/commscope-networking-service.png`}
+                  alt="CommScope"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/crestron-logo.svg`}
+                  alt="Crestron"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/dell-2.svg`} alt="Dell" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/epson-2.svg`} alt="Epson" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/fortinet-logo.svg`}
+                  alt="Fortinet"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/hid-global-logo.svg`}
+                  alt="HID Global"
+                />
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="carousel-row">
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/hp-1.svg`} alt="HP" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/lg-electronics.svg`}
+                  alt="LG Electronics"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/jbl-1.svg`} alt="JBL" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/shure-1.svg`} alt="Shure" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/yamaha-2-1.svg`} alt="Yamaha" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/tp-link.svg`} alt="TP-Link" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/tyco-security-products-vector-logo.svg`}
+                  alt="Tyco Security"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/zkteco-logo-vector.svg`}
+                  alt="ZKTeco"
+                />
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="carousel-row">
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/wisi-group-logo-vector.svg`}
+                  alt="WISI Group"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/safran-sagem.svg`}
+                  alt="Safran Sagem"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/SALTO_inspired_access_LOGO.png`}
+                  alt="SALTO"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/FAAC-Logo-Black.png`}
+                  alt="FAAC"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/Yale_(company)_logo.png`}
+                  alt="Yale"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/Kwikset_Logo_JPEG.5c3f58a7c1f19.avif`}
+                  alt="Kwikset"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/martin-by-harman-logo-vector.svg`}
+                  alt="Martin by Harman"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/crown-by-harman-logo-vector.svg`}
+                  alt="Crown by Harman"
+                />
+              </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="carousel-row">
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/boss-29013.svg`} alt="Boss" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/alto-professional-logo-vector.svg`}
+                  alt="Alto Professional"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/akg-logo-1.svg`} alt="AKG" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/3m-red.svg`} alt="3M" />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/Ruckus Wireless.svg`}
+                  alt="Ruckus Wireless"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img
+                  src={`${base}images/logos/Arthur-Holm-1.png`}
+                  alt="Arthur Holm"
+                />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/Brocade.png`} alt="Brocade" />
+              </div>
+              <div class="partner-logo-item">
+                <img src={`${base}images/logos/Hi–Tron.png`} alt="Hi-Tron" />
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="carousel-btn prev" id="prevBtn">‹</button>
+            <button class="carousel-btn next" id="nextBtn">›</button>
+          </div>
+
+          <div class="carousel-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partnership Benefits -->
+    <section class="partnership-benefits">
+      <div class="container">
+        <h2 class="section-title">partnership advantages</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <div class="icon-circle">
+                <span class="icon">🏆</span>
+              </div>
+            </div>
+            <h3 class="benefit-title">certified expertise</h3>
+            <p class="benefit-description">
+              factory-trained technicians and certified professionals ensuring
+              optimal system performance and reliability
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <div class="icon-circle">
+                <span class="icon">🔧</span>
+              </div>
+            </div>
+            <h3 class="benefit-title">genuine products</h3>
+            <p class="benefit-description">
+              authorized distribution of authentic products with full
+              manufacturer warranties and technical support
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <div class="icon-circle">
+                <span class="icon">⚡</span>
+              </div>
+            </div>
+            <h3 class="benefit-title">latest technology</h3>
+            <p class="benefit-description">
+              access to cutting-edge innovations and early adoption of new
+              technologies in security solutions
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <div class="icon-circle">
+                <span class="icon">🛠️</span>
+              </div>
+            </div>
+            <h3 class="benefit-title">comprehensive support</h3>
+            <p class="benefit-description">
+              dedicated technical support, training programs, and ongoing
+              maintenance services from our partners
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <style>
+    /* Partners Hero */
+    .partners-hero {
+      height: 70vh;
+      background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 200;
+      margin-bottom: 2rem;
+      text-transform: lowercase;
+      letter-spacing: -2px;
+      color: #fff;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: lowercase;
+      letter-spacing: 0.5px;
+      max-width: 900px;
+      line-height: 1.8;
+    }
+
+    /* Partners Showcase */
+    .partners-showcase {
+      background-color: #1e293b;
+      padding: 6rem 0;
+    }
+
+    .partner-category {
+      margin-bottom: 6rem;
+    }
+
+    .category-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #fff;
+      text-transform: lowercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .category-title::after {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, #007acc, #00a8e8);
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .partner-card {
+      background: rgba(44, 44, 44, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 3rem;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .partner-card.featured {
+      background: rgba(0, 122, 204, 0.1);
+      border-color: rgba(0, 122, 204, 0.3);
+      transform: scale(1.02);
+    }
+
+    .partner-card:hover {
+      background: rgba(44, 44, 44, 0.8);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .partner-card.featured:hover {
+      transform: translateY(-8px) scale(1.04);
+      background: rgba(0, 122, 204, 0.15);
+    }
+
+    .partner-logo {
+      width: 120px;
+      height: 120px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      padding: 1rem;
+    }
+
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 80px;
+      object-fit: contain;
+      filter: brightness(0.9);
+      transition: filter 0.3s ease;
+    }
+
+    .partner-card:hover .partner-logo img {
+      filter: brightness(1.1);
+    }
+
+    .partner-info {
+      flex: 1;
+    }
+
+    .partner-name {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #fff;
+      text-transform: lowercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .partner-specialty {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #007acc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+
+    .partner-description {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: lowercase;
+    }
+
+    /* All Partners Carousel */
+    .all-partners {
+      background: #f8fafc;
+      padding: 6rem 0;
+    }
+
+    .all-partners .section-title {
+      color: #334155;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 4rem;
+      text-transform: lowercase;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-track {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.5s ease;
+      height: 400px; /* Fixed height for proper slide transitions */
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .carousel-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .carousel-row:last-child {
+      border-bottom: none;
+    }
+
+    .partner-logo-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .partner-logo-item:hover {
+      transform: scale(1.05);
+    }
+
+    .partner-logo-item img {
+      max-width: 120px;
+      max-height: 60px;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(0.7);
+      transition: filter 0.3s ease;
+    }
+
+    .partner-logo-item:hover img {
+      filter: grayscale(0%) opacity(1);
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+      pointer-events: none;
+    }
+
+    .carousel-btn {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      pointer-events: auto;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-btn:hover {
+      background: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem 0;
+      background: #fff;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+      background: linear-gradient(135deg, #1a365d, #2c5aa0);
+      transform: scale(1.2);
+    }
+
+    /* Partnership Benefits */
+    .partnership-benefits {
+      background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 300;
+      color: #fff;
+      text-transform: lowercase;
+      letter-spacing: -1px;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .benefit-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .benefit-icon {
+      margin-bottom: 2rem;
+    }
+
+    .icon-circle {
+      width: 80px;
+      height: 80px;
+      background: rgba(0, 122, 204, 0.1);
+      border: 2px solid rgba(0, 122, 204, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover .icon-circle {
+      background: rgba(0, 122, 204, 0.2);
+      border-color: rgba(0, 122, 204, 0.5);
+      transform: scale(1.1);
+    }
+
+    .icon {
+      font-size: 2rem;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .benefit-card:hover .icon {
+      filter: grayscale(0%);
+    }
+
+    .benefit-title {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #fff;
+      text-transform: lowercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .benefit-description {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: lowercase;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .partner-card {
+        padding: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .partners-hero {
+        height: 60vh;
+      }
+
+      .partners-showcase,
+      .partnership-benefits {
+        padding: 4rem 0;
+      }
+
+      .partner-category {
+        margin-bottom: 4rem;
+      }
+
+      .category-title {
+        font-size: 1.8rem;
+      }
+
+      .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .partner-card {
+        padding: 2rem;
+      }
+
+      .partner-logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      .partner-logo img {
+        max-height: 70px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .icon-circle {
+        width: 70px;
+        height: 70px;
+      }
+
+      .icon {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .partners-hero {
+        height: 50vh;
+      }
+
+      .partner-card {
+        padding: 1.5rem;
+      }
+
+      .partner-logo {
+        width: 80px;
+        height: 80px;
+      }
+
+      .partner-logo img {
+        max-height: 60px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Carousel functionality
+    let currentSlide = 0;
+    const totalSlides = 2; // We have 2 sets of 4 rows each
+
+    function updateCarousel() {
+      const track = document.querySelector(".carousel-track") as HTMLElement;
+      const indicators = document.querySelectorAll(".indicator");
+
+      if (track) {
+        track.style.transform = `translateY(-${currentSlide * 100}%)`;
+      }
+
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle("active", index === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
+      updateCarousel();
+    }
+
+    function goToSlide(index: number) {
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    // Initialize carousel when page loads
+    document.addEventListener("DOMContentLoaded", function () {
+      // Set up button listeners
+      const prevBtn = document.querySelector(".carousel-btn.prev");
+      const nextBtn = document.querySelector(".carousel-btn.next");
+
+      if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+      if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+
+      // Set up indicator listeners
+      document.querySelectorAll(".indicator").forEach((indicator, index) => {
+        indicator.addEventListener("click", () => goToSlide(index));
+      });
+
+      // Auto-play carousel
+      setInterval(nextSlide, 5000);
+
+      // Initialize
+      updateCarousel();
+    });
+  </script>
+</Layout>

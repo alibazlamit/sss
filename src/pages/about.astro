@@ -1,0 +1,920 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="About SSS - Security System Solutions">
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">about sss</h1>
+      <p class="hero-subtitle">
+        security system solutions - professional installation and comprehensive
+        security services
+      </p>
+    </div>
+  </section>
+
+  <!-- About Navigation -->
+  <nav class="about-navigation">
+    <div class="about-nav">
+      <a href="#company-overview" class="about-nav-link active"
+        >company overview</a
+      >
+      <a href="#company-structure" class="about-nav-link">company structure</a>
+      <a href="#mission-vision" class="about-nav-link">mission & vision</a>
+      <a href="#why-choose-us" class="about-nav-link">why choose us</a>
+    </div>
+  </nav>
+
+  <!-- Company Overview Section -->
+  <section id="company-overview" class="about-section">
+    <div class="section-container">
+      <h2 class="section-title">company overview</h2>
+      <div class="overview-grid">
+        <div class="overview-text">
+          <p class="lead-text">
+            SSS Security Systems is a leading provider of comprehensive security
+            solutions, specializing in the design, installation, and maintenance
+            of advanced security systems for residential and commercial
+            properties.
+          </p>
+
+          <p>
+            With years of experience in the security industry, we have built a
+            reputation for delivering high-quality installations, innovative
+            solutions, and exceptional customer service. Our team of certified
+            professionals works with cutting-edge technology to ensure your
+            property remains secure and protected.
+          </p>
+
+          <div class="key-stats">
+            <div class="stat-item">
+              <h3>500+</h3>
+              <p>projects completed</p>
+            </div>
+            <div class="stat-item">
+              <h3>200+</h3>
+              <p>satisfied clients</p>
+            </div>
+            <div class="stat-item">
+              <h3>24/7</h3>
+              <p>support available</p>
+            </div>
+          </div>
+        </div>
+        <div class="overview-image">
+          <img src={`${base}images/team.jpg`} alt="SSS Security Systems Team" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Structure Section -->
+  <section
+    id="company-structure"
+    class="about-section company-structure-section"
+  >
+    <div class="section-container">
+      <h2 class="section-title">company structure</h2>
+      <p class="section-subtitle">
+        our organizational hierarchy and team structure
+      </p>
+
+      <div class="structure-container">
+        <!-- Top Level - External Entities -->
+        <div class="top-level">
+          <div class="entity-box customer">
+            <h3>customer / client</h3>
+            <p>
+              end users requiring comprehensive security solutions and
+              professional installation services
+            </p>
+          </div>
+          <div class="entity-box suppliers">
+            <h3>suppliers</h3>
+            <p>
+              equipment vendors, technology partners, and component
+              manufacturers providing quality materials
+            </p>
+          </div>
+          <div class="entity-box sss">
+            <h3>security system solution co.</h3>
+            <p>
+              core business entity delivering integrated security solutions and
+              professional installation services
+            </p>
+          </div>
+        </div>
+
+        <!-- Division Manager -->
+        <div class="division-manager">
+          <div class="manager-box">
+            <h3>division manager</h3>
+            <ul>
+              <li>strategic planning and oversight</li>
+              <li>team coordination and management</li>
+              <li>client relationship management</li>
+              <li>business development initiatives</li>
+              <li>quality assurance and compliance</li>
+              <li>resource allocation and optimization</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Department Structure -->
+        <div class="departments-grid">
+          <div class="department-box sales">
+            <div class="department-header">sales team</div>
+            <div class="department-content">
+              <div class="department-title">sales engineer</div>
+              <ul>
+                <li>problem solving</li>
+                <li>product knowledge</li>
+                <li>selling to customer needs</li>
+                <li>software requirements</li>
+                <li>product development</li>
+                <li>presentation skills</li>
+                <li>technical understanding</li>
+                <li>verbal communication</li>
+                <li>requirements analysis</li>
+                <li>innovation</li>
+                <li>meets assigned sales targets</li>
+                <li>business development</li>
+                <li>due diligence of unsuccessful sales pitch</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="department-box pre-sales">
+            <div class="department-header">pre-sales team</div>
+            <div class="department-content">
+              <div class="department-title">pre-sales engineer</div>
+              <ul>
+                <li>supports assigned deals</li>
+                <li>prioritizing effort on team productivity and profit</li>
+                <li>technical solution required</li>
+                <li>address customer requirements</li>
+                <li>assess customers' needs</li>
+                <li>recommend solutions</li>
+                <li>optimize value</li>
+                <li>sales support</li>
+                <li>product knowledge</li>
+                <li>enhancement</li>
+                <li>site surveys</li>
+                <li>creates technical proposals</li>
+                <li>prepares commercial proposals</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="department-box draftsman">
+            <div class="department-header">draftsman</div>
+            <div class="department-content">
+              <div class="department-title">draftsman</div>
+              <ul>
+                <li>liaise with sales and pre-sales team</li>
+                <li>quantity takeoff</li>
+                <li>
+                  prepare and review rough sketches and review with sales and
+                  pre-sales team
+                </li>
+                <li>create detailed designs</li>
+                <li>identify potential operational issues</li>
+                <li>
+                  ensure final designs comply with regulations and quality
+                  standards
+                </li>
+                <li>create as-built drawings</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="department-box accounting">
+            <div class="department-header">accounting</div>
+            <div class="department-content">
+              <div class="department-title">accountant</div>
+              <ul>
+                <li>weekly report</li>
+                <li>payment follow-up with clients</li>
+                <li>create pos</li>
+                <li>create invoices</li>
+                <li>prepare soa</li>
+                <li>create supplier payment transfers</li>
+                <li>follow-up on delivery</li>
+                <li>follow-ups on payment refunds</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="department-box project-impl">
+            <div class="department-header">project implementation team</div>
+            <div class="department-content">
+              <div class="department-title">site engineer</div>
+              <ul>
+                <li>service & maintenance</li>
+                <li>repair faulty equipment units</li>
+                <li>develop and implement preventive maintenance</li>
+                <li>ensure proper installation of equipment/devices</li>
+                <li>works with a variety of tools and equipment</li>
+                <li>
+                  climbs ladders, squats, bends, & stands on working hours
+                </li>
+                <li>completing installation; performing acceptance tests</li>
+                <li>suggesting improved methods and techniques</li>
+                <li>maintains rapport with customers</li>
+                <li>completing forms, reports, logs, & records</li>
+                <li>knowledge transfer</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="department-box it">
+            <div class="department-header">it</div>
+            <div class="department-content">
+              <div class="department-title">it</div>
+              <ul>
+                <li>customer training</li>
+                <li>meeting with clients</li>
+                <li>project site survey</li>
+                <li>plan and implement projects</li>
+                <li>help define project scope, goals and deliverables</li>
+                <li>define tasks and required resources</li>
+                <li>project and project team consultation</li>
+                <li>send emails to client after task completion</li>
+                <li>knowledge transfer</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Helper/Laborer Section -->
+        <div class="helper-section">
+          <div class="department-box helper-box">
+            <div class="department-header">helper / laborer</div>
+            <div class="department-content">
+              <div class="department-title">helper / laborer</div>
+              <ul>
+                <li>assists technicians</li>
+                <li>cleans and prepares installation sites</li>
+                <li>removes debris and possible hazards</li>
+                <li>loads and unloads materials</li>
+                <li>takes apart and sets up scaffolding</li>
+                <li>structures construction sites</li>
+                <li>digging trenches</li>
+                <li>
+                  operating hand tools, including hoists, saws, drills, steel
+                  saws, & welding equipment
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section id="mission-vision" class="about-section">
+    <div class="section-container">
+      <h2 class="section-title">mission & vision</h2>
+      <div class="mission-vision-grid">
+        <div class="mission-box">
+          <h3>our mission</h3>
+          <p>
+            to provide comprehensive, reliable, and innovative security
+            solutions that protect our clients' assets, ensuring peace of mind
+            through cutting-edge technology and exceptional service delivery.
+          </p>
+        </div>
+        <div class="vision-box">
+          <h3>our vision</h3>
+          <p>
+            to be the leading security systems provider in the region,
+            recognized for our technical expertise, customer-centric approach,
+            and commitment to advancing security technology solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="why-choose-us" class="about-section">
+    <div class="section-container">
+      <h2 class="section-title">why choose sss</h2>
+      <div class="why-choose-grid">
+        <div class="feature-item">
+          <div class="feature-icon-text">expert installation</div>
+          <h3>expert installation</h3>
+          <p>
+            certified professionals with years of experience in security system
+            installation and maintenance.
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-text">comprehensive solutions</div>
+          <h3>comprehensive solutions</h3>
+          <p>
+            complete range of security services from design and installation to
+            ongoing maintenance and support.
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-text">latest technology</div>
+          <h3>latest technology</h3>
+          <p>
+            cutting-edge security systems and smart technology integration for
+            modern protection needs.
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-text">24/7 support</div>
+          <h3>24/7 support</h3>
+          <p>
+            round-the-clock technical support and emergency response services
+            for complete peace of mind.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* About Hero */
+  .about-hero {
+    height: 70vh;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
+    letter-spacing: -2px;
+    color: #fff;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    max-width: 900px;
+    line-height: 1.8;
+  }
+
+  /* About Navigation */
+  .about-navigation {
+    background-color: #334155;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .about-nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .about-nav-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .about-nav-link:hover,
+  .about-nav-link.active {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* About Sections */
+  .about-section {
+    padding: 6rem 0;
+    background-color: #1e293b;
+  }
+
+  .about-section:nth-child(even) {
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+  }
+
+  .section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #fff;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: lowercase;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  /* Company Overview */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .overview-text .lead-text {
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  .overview-text p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+  }
+
+  .key-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .stat-item h3 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: #007acc;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-item p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: lowercase;
+    margin: 0;
+  }
+
+  .overview-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .overview-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  /* Company Structure */
+  .company-structure-section {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  }
+
+  .structure-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .top-level {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .entity-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .entity-box h3 {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #fff;
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+  }
+
+  .entity-box p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: lowercase;
+    line-height: 1.6;
+  }
+
+  .division-manager {
+    margin-bottom: 4rem;
+  }
+
+  .manager-box {
+    background: rgba(0, 122, 204, 0.1);
+    border: 2px solid rgba(0, 122, 204, 0.3);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .manager-box h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #007acc;
+    text-transform: lowercase;
+    margin-bottom: 2rem;
+  }
+
+  .manager-box ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .manager-box li {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: lowercase;
+    padding: 0.5rem 0;
+  }
+
+  .departments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .department-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .department-header {
+    background: rgba(0, 122, 204, 0.2);
+    color: #007acc;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    text-align: center;
+  }
+
+  .department-content {
+    padding: 2rem;
+  }
+
+  .department-title {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #fff;
+    text-transform: lowercase;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .department-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .department-box li {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: lowercase;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .helper-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .helper-box {
+    max-width: 500px;
+  }
+
+  /* Mission & Vision */
+  .mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .mission-box,
+  .vision-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .mission-box h3,
+  .vision-box h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #007acc;
+    text-transform: lowercase;
+    margin-bottom: 2rem;
+  }
+
+  .mission-box p,
+  .vision-box p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: lowercase;
+  }
+
+  /* Why Choose Us */
+  .why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .feature-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .feature-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 122, 204, 0.3);
+    transform: translateY(-5px);
+  }
+
+  .feature-icon-text {
+    display: inline-block;
+    background: rgba(0, 122, 204, 0.2);
+    color: #007acc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-item h3 {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #fff;
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+  }
+
+  .feature-item p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: lowercase;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .about-nav {
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .overview-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .key-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .top-level {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .departments-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .manager-box ul {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .about-hero {
+      height: 60vh;
+    }
+
+    .about-section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .about-nav {
+      gap: 1rem;
+    }
+
+    .about-nav-link {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .key-stats {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .departments-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .mission-vision-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .why-choose-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .department-content {
+      padding: 1.5rem;
+    }
+
+    .manager-box {
+      padding: 2rem;
+    }
+
+    .mission-box,
+    .vision-box,
+    .feature-item {
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .about-hero {
+      height: 50vh;
+    }
+
+    .about-nav {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .overview-image img {
+      height: 250px;
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+    }
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<script>
+  // Smooth navigation scroll and active link updating
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".about-nav-link");
+    const sections = document.querySelectorAll(".about-section");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+          const offsetTop = targetSection.offsetTop - 100;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth",
+          });
+        }
+
+        // Update active link
+        navLinks.forEach((l) => l.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+
+    // Update active link on scroll
+    window.addEventListener("scroll", function () {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 150;
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  });
+</script>

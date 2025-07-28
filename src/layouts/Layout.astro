@@ -1,0 +1,494 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "SSS Security System Solution - Professional security services including CCTV, electronic locks, automatic doors, and home automation.",
+} = Astro.props;
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href={base}>
+            <img
+              src={`${base}images/sss_logo.png`}
+              alt="SSS Security Solutions"
+              class="logo-img"
+            />
+          </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href={base} class="nav-link" data-page="index">home</a>
+          </li>
+          <li class="nav-item">
+            <a href={`${base}services`} class="nav-link" data-page="services"
+              >services</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href={`${base}projects`} class="nav-link" data-page="projects"
+              >projects</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href={`${base}clients`} class="nav-link" data-page="clients"
+              >clients</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href={`${base}partners`} class="nav-link" data-page="partners"
+              >partners</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href={`${base}about`} class="nav-link" data-page="about">about</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href={`${base}contact`} class="nav-link">contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">SSS Security System Solution</h3>
+            <p class="footer-description">
+              Professional security solutions for modern environments. We
+              provide comprehensive security systems designed to keep your
+              property safe and secure.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-subtitle">Services</h4>
+            <ul class="footer-links">
+              <li>
+                <a href={`${base}services/centralization`}
+                  >Centralization Control</a
+                >
+              </li>
+              <li><a href={`${base}services/cctv`}>CCTV Systems</a></li>
+              <li>
+                <a href={`${base}services/electronic-locks`}>Electronic Locks</a
+                >
+              </li>
+              <li>
+                <a href={`${base}services/automatic-doors`}>Automatic Doors</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-subtitle">Company</h4>
+            <ul class="footer-links">
+              <li><a href={`${base}about`}>About Us</a></li>
+              <li><a href={`${base}projects`}>Projects</a></li>
+              <li><a href={`${base}clients`}>Clients</a></li>
+              <li><a href={`${base}partners`}>Partners</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-subtitle">Contact</h4>
+            <p class="footer-contact">Email: info@sss-security.com</p>
+            <p class="footer-contact">Phone: +1 (555) 123-4567</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 SSS Security System Solution. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenu?.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+        navMenu?.classList.toggle("active");
+      });
+
+      // Navbar scroll behavior
+      let lastScrollTop = 0;
+      const navbar = document.getElementById("navbar");
+
+      window.addEventListener("scroll", () => {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        // Navbar background opacity based on scroll
+        const scrollProgress = Math.min(scrollTop / 100, 1);
+        if (navbar) {
+          // Change background to white when scrolled
+          if (scrollProgress > 0.5) {
+            navbar.style.backgroundColor = `rgba(255, 255, 255, ${scrollProgress * 0.95})`;
+            navbar.style.boxShadow = `0 2px 10px rgba(0, 0, 0, 0.1)`;
+            // Change text color to dark
+            const navLinks = navbar.querySelectorAll(".nav-link");
+            const logoImg = navbar.querySelector(".logo-img");
+            navLinks.forEach((link) => {
+              link.style.color = "#1a365d";
+            });
+            if (logoImg) {
+              logoImg.style.filter = "brightness(1) invert(0)";
+            }
+          } else {
+            navbar.style.backgroundColor = `rgba(0, 0, 0, ${scrollProgress * 0.95})`;
+            navbar.style.boxShadow = "none";
+            // Change text color to white
+            const navLinks = navbar.querySelectorAll(".nav-link");
+            const logoImg = navbar.querySelector(".logo-img");
+            navLinks.forEach((link) => {
+              link.style.color = "#fff";
+            });
+            if (logoImg) {
+              logoImg.style.filter = "brightness(0) invert(1)";
+            }
+          }
+        }
+
+        // Hide/show navbar on scroll
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          navbar?.classList.add("nav-hidden");
+        } else {
+          navbar?.classList.remove("nav-hidden");
+        }
+        lastScrollTop = scrollTop;
+      });
+
+      // Active navigation highlighting
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll(".nav-link[data-page]");
+
+      navLinks.forEach((link) => {
+        const page = link.getAttribute("data-page");
+        if (
+          (currentPath === "/" && page === "index") ||
+          (currentPath.includes(`/${page}`) && page !== "index")
+        ) {
+          link.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Reset and base styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #334155;
+    background-color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Navigation Styles */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.nav-hidden {
+    transform: translateY(-100%);
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo a {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo a:hover .logo-img {
+    filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(35deg);
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    text-transform: lowercase;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #2c5aa0;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #2c5aa0;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Mobile menu */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 3px 0;
+    transition: 0.3s;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* Footer Styles */
+  .footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2c5aa0;
+  }
+
+  .footer-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #2c5aa0;
+  }
+
+  .footer-description {
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: #2c5aa0;
+  }
+
+  .footer-contact {
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    color: #cbd5e1;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.95);
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+      padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    .nav-menu li {
+      margin: 1rem 0;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  /* Utility Classes */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #1a365d, #2c5aa0);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #334155;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

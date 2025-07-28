@@ -1,0 +1,368 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="Our Projects - Page 2 - SSS Security Solutions">
+  <!-- Projects Hero -->
+  <section class="projects-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">some of our projects</h1>
+      <p class="hero-subtitle">
+        showcasing our expertise in security system installations across various
+        sectors and environments
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Showcase -->
+  <section class="projects-showcase">
+    <div class="projects-masonry-grid">
+      <!-- Project 7: Citadines Hotel -->
+      <div class="project-item large" data-project="citadines">
+        <div class="project-image">
+          <img
+            src={`${base}images/citadines-hotel.jpg`}
+            alt="Citadines Hotel Security Installation"
+          />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">citadines hotel</h3>
+          <p class="project-subtitle">hospitality complex</p>
+        </div>
+      </div>
+
+      <!-- Project 8: Dalla Hospital -->
+      <div class="project-item wide" data-project="dalla">
+        <div class="project-image">
+          <img
+            src={`${base}images/dalla-hospital.jpg`}
+            alt="Dalla Hospital Security Installation"
+          />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">dalla hospital</h3>
+          <p class="project-subtitle">healthcare facility</p>
+        </div>
+      </div>
+
+      <!-- Project 9: Signature 1 -->
+      <div class="project-item tall" data-project="signature1">
+        <div class="project-image">
+          <img
+            src={`${base}images/signature1.jpg`}
+            alt="Signature 1 Security Installation"
+          />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">signature 1</h3>
+          <p class="project-subtitle">commercial complex</p>
+        </div>
+      </div>
+
+      <!-- Project 10: Signature 2 -->
+      <div class="project-item medium" data-project="signature2">
+        <div class="project-image">
+          <img
+            src={`${base}images/signature2.jpg`}
+            alt="Signature 2 Security Installation"
+          />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">signature 2</h3>
+          <p class="project-subtitle">business center</p>
+        </div>
+      </div>
+
+      <!-- Project 11: Signature 3 -->
+      <div class="project-item medium" data-project="signature3">
+        <div class="project-image">
+          <img
+            src={`${base}images/signature3.jpg`}
+            alt="Signature 3 Security Installation"
+          />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">signature 3</h3>
+          <p class="project-subtitle">retail complex</p>
+        </div>
+      </div>
+
+      <!-- Project 12: Salam Mall -->
+      <div class="project-item wide" data-project="salam-mall">
+        <div class="project-image">
+          <img
+            src={`${base}images/salam-mall.jpg`}
+            alt="Salam Mall Security Installation"
+          />
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">salam mall - jeddah</h3>
+          <p class="project-subtitle">shopping center</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="projects-pagination">
+      <div class="pagination-container">
+        <a href="/projects" class="pagination-link" id="prev-page">←</a>
+        <a href="/projects" class="pagination-link">1</a>
+        <a href="/projects-2" class="pagination-link active">2</a>
+        <a href="/projects-3" class="pagination-link">3</a>
+        <a href="/projects-3" class="pagination-link" id="next-page">→</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Projects Hero */
+  .projects-hero {
+    height: 60vh;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    letter-spacing: -2px;
+    color: #fff;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+
+  /* Projects Showcase */
+  .projects-showcase {
+    background-color: #f8fafc;
+    padding: 4rem 0;
+  }
+
+  .projects-masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .project-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Different sizes for masonry effect */
+  .project-item.large {
+    grid-row: span 2;
+  }
+
+  .project-item.tall {
+    grid-row: span 3;
+  }
+
+  .project-item.wide {
+    grid-column: span 2;
+  }
+
+  .project-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .project-item.large .project-image,
+  .project-item.tall .project-image {
+    height: 350px;
+  }
+
+  .project-item.wide .project-image {
+    height: 200px;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .project-item:hover .project-image img {
+    transform: scale(1.1);
+  }
+
+  .project-info {
+    padding: 2rem;
+  }
+
+  .project-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+    letter-spacing: -0.5px;
+    color: #1a365d;
+  }
+
+  .project-subtitle {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #64748b;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Projects Pagination */
+  .projects-pagination {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .pagination-container {
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .pagination-link {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  .pagination-link:hover {
+    color: #1a365d;
+    border-color: #2c5aa0;
+    background: rgba(44, 90, 160, 0.05);
+  }
+
+  .pagination-link.active {
+    color: #fff;
+    background: linear-gradient(135deg, #1a365d, #2c5aa0);
+    border-color: transparent;
+  }
+
+  .pagination-link.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .pagination-link.disabled:hover {
+    color: #94a3b8;
+    border-color: #e2e8f0;
+    background: transparent;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .projects-masonry-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .project-item.wide {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .projects-masonry-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .project-item.large,
+    .project-item.tall,
+    .project-item.wide {
+      grid-row: span 1;
+      grid-column: span 1;
+    }
+
+    .project-image {
+      height: 200px;
+    }
+
+    .project-item.large .project-image,
+    .project-item.tall .project-image,
+    .project-item.wide .project-image {
+      height: 200px;
+    }
+
+    .pagination-container {
+      gap: 0.5rem;
+    }
+
+    .pagination-link {
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+      min-width: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .projects-hero {
+      height: 50vh;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+    }
+
+    .project-subtitle {
+      font-size: 0.8rem;
+    }
+  }
+</style>

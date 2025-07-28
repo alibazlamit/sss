@@ -1,0 +1,605 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Import base path for proper navigation - ensure it ends with /
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + "/";
+---
+
+<Layout title="Our Clients - SSS Security Solutions">
+  <!-- Clients Hero Section -->
+  <section class="clients-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">our valued clients</h1>
+        <p class="hero-subtitle">
+          Trusted partnerships built on excellence, security, and reliability.
+          We're proud to serve leading organizations across various industries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Grid Section -->
+  <section class="clients-showcase">
+    <div class="container">
+      <div class="clients-grid">
+        <!-- Client Logos -->
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Arabian-Centres.png`}
+              alt="Arabian Centres"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Arabian Centres</h3>
+            <p class="client-sector">Retail & Commercial</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Carrefour Saudi Arabia.png`}
+              alt="Carrefour Saudi Arabia"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Carrefour Saudi Arabia</h3>
+            <p class="client-sector">Retail & Hypermarket</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Ascott.jpg`}
+              alt="Ascott"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Ascott</h3>
+            <p class="client-sector">Hospitality & Hotels</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/STC-01.svg`}
+              alt="STC"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">STC</h3>
+            <p class="client-sector">Telecommunications</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/dallah.jpg`}
+              alt="Dallah"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Dallah</h3>
+            <p class="client-sector">Healthcare & Medical</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Nahdi.png`}
+              alt="Nahdi Pharmacy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Nahdi Pharmacy</h3>
+            <p class="client-sector">Healthcare & Pharmacy</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Regus.png`}
+              alt="Regus"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Regus</h3>
+            <p class="client-sector">Business Centers</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Spaces.png`}
+              alt="Spaces"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Spaces</h3>
+            <p class="client-sector">Co-working Spaces</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/riyad municipilit.png`}
+              alt="Riyadh Municipality"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Riyadh Municipality</h3>
+            <p class="client-sector">Government & Public</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/ministry-of-environment-water-agriculture-logo-png_seeklogo-335808.png`}
+              alt="Ministry of Environment"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Ministry of Environment</h3>
+            <p class="client-sector">Government & Environment</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Kkia-logo.jpg`}
+              alt="KIA"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">KIA Motors</h3>
+            <p class="client-sector">Automotive</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/SAMT.png`}
+              alt="SAMT"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">SAMT</h3>
+            <p class="client-sector">Technology & Services</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Color Motion.png`}
+              alt="Color Motion"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Color Motion</h3>
+            <p class="client-sector">Creative & Design</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/BLENDS.png`}
+              alt="Blends"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Blends</h3>
+            <p class="client-sector">Food & Beverage</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/Falla.png`}
+              alt="Falla"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Falla</h3>
+            <p class="client-sector">Food & Restaurants</p>
+          </div>
+        </div>
+
+        <div class="client-item">
+          <div class="client-logo">
+            <img
+              src={`${base}images/clients/37_logo~v~signature-juices.jpg`}
+              alt="Signature Juices"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="client-info">
+            <h3 class="client-name">Signature Juices</h3>
+            <p class="client-sector">Food & Beverage</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">what our clients say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">
+              "SSS Security transformed our retail security with a comprehensive
+              CCTV and access control system. Their professional approach and
+              reliable service have exceeded our expectations."
+            </p>
+            <div class="testimonial-author">
+              <h4>Mohammed Al-Rashid</h4>
+              <span>Security Manager, Arabian Centres</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">
+              "Outstanding wireless security network installation across our
+              entire chain. The 24/7 support and monitoring capabilities are
+              invaluable for our operations."
+            </p>
+            <div class="testimonial-author">
+              <h4>Sarah Al-Mahmoud</h4>
+              <span>Operations Director, Carrefour Saudi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">
+              "The smart home automation and security integration for our
+              hospitality properties exceeded expectations. Seamless technology
+              with exceptional results."
+            </p>
+            <div class="testimonial-author">
+              <h4>Ahmed Al-Fahad</h4>
+              <span>Property Manager, Ascott</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="contact-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">ready to join our trusted clients?</h2>
+        <p class="cta-text">
+          Contact us today for a free consultation and discover how our security
+          solutions can protect your business.
+        </p>
+        <a href={`${base}contact`} class="cta-button">get free consultation</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Common Styles */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #334155;
+  }
+
+  /* Clients Hero */
+  .clients-hero {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    letter-spacing: -2px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  /* Clients Grid */
+  .clients-showcase {
+    padding: 80px 0;
+    background: #f8fafc;
+  }
+
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+
+  .client-item {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+  }
+
+  .client-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: #2c5aa0;
+  }
+
+  .client-logo {
+    width: 160px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .client-item:hover .client-logo {
+    background: #fff;
+    border-color: #2c5aa0;
+    transform: scale(1.05);
+  }
+
+  .client-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(50%) opacity(0.8);
+    transition: filter 0.3s ease;
+  }
+
+  .client-item:hover .client-logo img {
+    filter: grayscale(0%) opacity(1);
+  }
+
+  .client-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #334155;
+  }
+
+  .client-sector {
+    color: #2c5aa0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  .testimonials .section-title {
+    color: #334155;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background: #f8fafc;
+    padding: 2.5rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .rating {
+    margin-bottom: 1.5rem;
+  }
+
+  .star {
+    color: #fbbf24;
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+  }
+
+  .testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .testimonial-author h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #334155;
+  }
+
+  .testimonial-author span {
+    color: #2c5aa0;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* Contact CTA */
+  .contact-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+  }
+
+  .cta-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+    }
+
+    .clients-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .cta-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
