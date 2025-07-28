@@ -159,69 +159,51 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-link');
+    const navLogo = document.querySelector('.nav-logo a');
+    
     if (!navbar) return;
-    if (window.scrollY > 50) {
+    
+    const scrolled = window.scrollY > 50;
+    
+    if (scrolled) {
+        // When scrolled down - white background, dark text
         navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.98)';
+        navbar.style.backdropFilter = 'blur(10px)';
         navLinks.forEach(link => {
-            link.style.color = '#222'; // dark text for white bg
+            link.style.color = '#2c2c2c';
         });
-        if (document.body.classList.contains('services-page') || document.body.classList.contains('clients-page')) {
-            navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
-            navLinks.forEach(link => {
-                link.style.color = '#fff'; // white text for dark bg
-            });
+        if (navLogo) {
+            navLogo.style.color = '#2c2c2c';
         }
     } else {
-        navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.95)';
-        navLinks.forEach(link => {
-            link.style.color = '#222'; // default dark text
-        });
-        if (document.body.classList.contains('services-page') || document.body.classList.contains('clients-page')) {
-            navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+        // At top of page - transparent/semi-transparent background
+        const isServicePage = document.body.classList.contains('service-detail-page');
+        
+        if (isServicePage) {
+            // Service pages start with dark navbar
+            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            navbar.style.backdropFilter = 'blur(10px)';
             navLinks.forEach(link => {
-                link.style.color = '#fff';
+                link.style.color = '#ffffff';
             });
+            if (navLogo) {
+                navLogo.style.color = '#ffffff';
+            }
+        } else {
+            // Other pages start with light navbar
+            navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.95)';
+            navbar.style.backdropFilter = 'blur(10px)';
+            navLinks.forEach(link => {
+                link.style.color = '#2c2c2c';
+            });
+            if (navLogo) {
+                navLogo.style.color = '#2c2c2c';
+            }
         }
     }
 });
 
-// Navbar adaptive color/text logic based on section theme
-function getSectionThemeUnderNavbar() {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return null;
-    const navbarRect = navbar.getBoundingClientRect();
-    const sections = document.querySelectorAll('section[data-nav-theme]');
-    let theme = null;
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        // Check if section is under the navbar (top of section within navbar height)
-        if (rect.top <= navbarRect.height && rect.bottom > navbarRect.height) {
-            theme = section.getAttribute('data-nav-theme');
-        }
-    });
-    return theme;
-}
-
-function updateNavbarTheme() {
-    const navbar = document.querySelector('.navbar');
-    const navLinks = document.querySelectorAll('.nav-link');
-    if (!navbar) return;
-    const theme = getSectionThemeUnderNavbar();
-    if (theme === 'dark') {
-        navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
-        navLinks.forEach(link => link.style.color = '#fff');
-    } else if (theme === 'light') {
-        navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.98)';
-        navLinks.forEach(link => link.style.color = '#222');
-    } else {
-        // Default fallback
-        navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.95)';
-        navLinks.forEach(link => link.style.color = '#222');
-    }
-}
-
-window.addEventListener('scroll', updateNavbarTheme);
-document.addEventListener('DOMContentLoaded', updateNavbarTheme);
+// Navbar adaptive color/text logic - REMOVED (using main scroll listener instead)
 
 // Disable animations for users who prefer reduced motion
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -239,11 +221,11 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 // Navigation Templates
 const navTemplates = {
-    standard: `
+    root: `
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="../index.html">SSS</a>
+                    <a href="index.html">SSS</a>
                 </div>
                 <div class="menu-toggle" id="mobile-menu">
                     <span></span>
@@ -252,32 +234,32 @@ const navTemplates = {
                 </div>
                 <ul class="nav-menu" id="nav-menu">
                     <li class="nav-item">
-                        <a href="../index.html" class="nav-link" data-page="index">home</a>
+                        <a href="index.html" class="nav-link" data-page="index">home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../services/services.html" class="nav-link" data-page="services">services</a>
+                        <a href="services/services.html" class="nav-link" data-page="services">services</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../projects/projects.html" class="nav-link" data-page="projects">projects</a>
+                        <a href="projects/projects.html" class="nav-link" data-page="projects">projects</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../clients/clients.html" class="nav-link" data-page="clients">clients</a>
+                        <a href="clients/clients.html" class="nav-link" data-page="clients">clients</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../partners/partners.html" class="nav-link" data-page="partners">partners</a>
+                        <a href="partners/partners.html" class="nav-link" data-page="partners">partners</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../about/about.html" class="nav-link" data-page="about">about</a>
+                        <a href="about/about.html" class="nav-link" data-page="about">about</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../contact/contact.html" class="nav-link">contact</a>
+                        <a href="index.html#contact" class="nav-link">contact</a>
                     </li>
                 </ul>
             </div>
         </nav>
     `,
     
-    index: `
+    subdirectory: `
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
@@ -308,7 +290,7 @@ const navTemplates = {
                         <a href="../about/about.html" class="nav-link" data-page="about">about</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../contact/contact.html" class="nav-link">contact</a>
+                        <a href="../index.html#contact" class="nav-link">contact</a>
                     </li>
                 </ul>
             </div>
@@ -321,14 +303,17 @@ function loadNavigation() {
     const navContainer = document.getElementById('nav-container');
     
     if (navContainer) {
-        // Check if this is the index page
-        const currentPage = getCurrentPage();
-        let template;
+        // Detect directory level based on current path
+        const path = window.location.pathname;
+        const isInSubdirectory = path.includes('/') && !path.endsWith('/') && path.split('/').length > 2;
         
-        if (currentPage === 'index') {
-            template = navTemplates.index;
+        let template;
+        if (isInSubdirectory || path.includes('/services/') || path.includes('/projects/') || 
+            path.includes('/clients/') || path.includes('/partners/') || path.includes('/about/') || 
+            path.includes('/contact/')) {
+            template = navTemplates.subdirectory;
         } else {
-            template = navTemplates.standard;
+            template = navTemplates.root;
         }
         
         navContainer.innerHTML = template;
@@ -353,13 +338,14 @@ function setActiveNavigation() {
 
 function getCurrentPage() {
     const path = window.location.pathname;
-    const page = path.split('/').pop();
+    const segments = path.split('/');
+    const page = segments[segments.length - 1] || 'index.html';
     
-    if (page === 'index.html' || page === '') {
-        return 'index';
+    // Handle service detail pages
+    if (page.startsWith('service-')) {
+        return 'services';
     }
     
-    // Remove .html extension and return page name
     return page.replace('.html', '');
 }
 
@@ -385,7 +371,42 @@ function initializeMobileMenu() {
 }
 
 // Initialize navigation when DOM is loaded
-document.addEventListener('DOMContentLoaded', loadNavigation);
+document.addEventListener('DOMContentLoaded', () => {
+    loadNavigation();
+    
+    // Set initial navbar state
+    setTimeout(() => {
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navLogo = document.querySelector('.nav-logo a');
+        
+        if (navbar) {
+            const isServicePage = document.body.classList.contains('service-detail-page');
+            
+            if (isServicePage) {
+                // Service pages start with dark navbar
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                navbar.style.backdropFilter = 'blur(10px)';
+                navLinks.forEach(link => {
+                    link.style.color = '#ffffff';
+                });
+                if (navLogo) {
+                    navLogo.style.color = '#ffffff';
+                }
+            } else {
+                // Other pages start with light navbar
+                navbar.style.backgroundColor = 'rgba(250, 250, 250, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+                navLinks.forEach(link => {
+                    link.style.color = '#2c2c2c';
+                });
+                if (navLogo) {
+                    navLogo.style.color = '#2c2c2c';
+                }
+            }
+        }
+    }, 100);
+});
 
 // Add zoom-on-scroll effect (ensure this runs after DOM is loaded)
 document.addEventListener('DOMContentLoaded', function() {
