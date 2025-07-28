@@ -305,15 +305,24 @@ function loadNavigation() {
     if (navContainer) {
         // Detect directory level based on current path
         const path = window.location.pathname;
-        const isInSubdirectory = path.includes('/') && !path.endsWith('/') && path.split('/').length > 2;
+        console.log('Current path:', path); // Debug log
+        
+        // More robust subdirectory detection
+        const isInSubdirectory = path.includes('/services/') || 
+                                path.includes('/projects/') || 
+                                path.includes('/clients/') || 
+                                path.includes('/partners/') || 
+                                path.includes('/about/') || 
+                                path.includes('/contact/') ||
+                                (path.split('/').length > 2 && !path.endsWith('/'));
         
         let template;
-        if (isInSubdirectory || path.includes('/services/') || path.includes('/projects/') || 
-            path.includes('/clients/') || path.includes('/partners/') || path.includes('/about/') || 
-            path.includes('/contact/')) {
+        if (isInSubdirectory) {
             template = navTemplates.subdirectory;
+            console.log('Using subdirectory template'); // Debug log
         } else {
             template = navTemplates.root;
+            console.log('Using root template'); // Debug log
         }
         
         navContainer.innerHTML = template;
