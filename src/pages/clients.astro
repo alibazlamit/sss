@@ -390,43 +390,52 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   .clients-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
     margin-top: 3rem;
   }
 
   .client-item {
     background: #fff;
-    padding: 2.5rem 2rem;
-    border-radius: 15px;
+    padding: 3rem 2rem;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     border: 1px solid #e2e8f0;
   }
 
   .client-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: #2c5aa0;
   }
 
   .client-logo {
-    width: 120px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
+    width: 160px;
+    height: 120px;
+    margin: 0 auto 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #f8fafc;
-    border-radius: 10px;
-    padding: 1rem;
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .client-item:hover .client-logo {
+    background: #fff;
+    border-color: #2c5aa0;
+    transform: scale(1.05);
   }
 
   .client-logo img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: grayscale(100%) opacity(0.8);
+    filter: grayscale(50%) opacity(0.8);
     transition: filter 0.3s ease;
   }
 
@@ -435,7 +444,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .client-name {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: #334155;
@@ -444,8 +453,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .client-sector {
     color: #2c5aa0;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-transform: lowercase;
+    letter-spacing: 0.5px;
   }
 
   /* Testimonials */
@@ -482,7 +492,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .star {
-    color: #2c5aa0;
+    color: #fbbf24;
     font-size: 1.2rem;
     margin-right: 0.2rem;
   }

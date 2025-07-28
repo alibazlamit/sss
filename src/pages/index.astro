@@ -434,9 +434,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     align-items: center;
     justify-content: center;
     text-align: center;
-    background:
-      linear-gradient(rgba(20, 20, 20, 0.65), rgba(20, 20, 20, 0.65)),
-      url("/images/hero2.jpg") center/cover no-repeat;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
     color: #fff;
     position: relative;
     overflow: hidden;
@@ -448,22 +446,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
-    background-image: radial-gradient(
-        circle at 20% 50%,
-        rgba(255, 215, 0, 0.1) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 80% 20%,
-        rgba(255, 215, 0, 0.1) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 40% 80%,
-        rgba(255, 215, 0, 0.05) 0%,
-        transparent 50%
-      );
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
   }
 
   .hero-overlay {
@@ -472,7 +455,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(20, 20, 20, 0.65), rgba(20, 20, 20, 0.65));
+    background: rgba(26, 54, 93, 0.1);
   }
 
   .hero-content {
@@ -543,50 +526,53 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .btn-primary {
-    background: #334155;
-    color: white;
+    background: #f8fafc;
+    color: #1a365d;
     padding: 15px 30px;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s ease;
     text-transform: lowercase;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(248, 250, 252, 0.3);
+    border: 2px solid #f8fafc;
   }
 
   .btn-primary:hover {
-    background: #1e293b;
+    background: #e2e8f0;
+    color: #1a365d;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(248, 250, 252, 0.4);
   }
 
   .btn-secondary {
     background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
+    color: #f8fafc;
+    border: 2px solid #f8fafc;
     padding: 13px 28px;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s ease;
     text-transform: lowercase;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(248, 250, 252, 0.2);
   }
 
   .btn-secondary:hover {
-    background: #fff;
-    color: #334155;
+    background: #f8fafc;
+    color: #1a365d;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(248, 250, 252, 0.3);
   }
 
-  .btn-secondary {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #2c5aa0;
-  }
-
-  .btn-secondary:hover {
-    background: #2c5aa0;
-    color: #fff;
+  .btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    text-decoration: none;
   }
 
   .scroll-indicator {
@@ -684,7 +670,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .service-description {
-    color: #64748b;
+    color: #475569;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     padding: 0 1.5rem;
@@ -706,8 +692,24 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   /* Featured Projects Section */
   .featured-projects {
     padding: 5rem 0;
-    background: #334155;
+    background: #1e293b;
     color: #fff;
+  }
+
+  .featured-projects .section-title {
+    color: #f8fafc;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .featured-projects .section-subtitle {
+    color: #cbd5e1;
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
   }
 
   .projects-grid {
@@ -718,7 +720,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .project-card {
-    background: #3a3a3a;
+    background: #2d3748;
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -760,7 +762,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .project-description {
-    color: #cbd5e1;
+    color: #e2e8f0;
     line-height: 1.6;
     margin-bottom: 1rem;
     font-size: 0.9rem;
@@ -773,12 +775,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .tag {
-    background: #2c5aa0;
-    color: #334155;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    background: #f8fafc;
+    color: #1a365d;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
   }
 
   .projects-cta {
@@ -787,22 +790,24 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   .btn-secondary {
-    background: transparent;
-    color: #2c5aa0;
-    border: 2px solid #2c5aa0;
-    padding: 13px 28px;
+    background: #f8fafc;
+    color: #1a365d;
+    border: 2px solid #f8fafc;
+    padding: 15px 30px;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s ease;
     text-transform: lowercase;
     display: inline-block;
+    box-shadow: 0 4px 15px rgba(248, 250, 252, 0.3);
   }
 
   .btn-secondary:hover {
-    background: #2c5aa0;
-    color: #334155;
+    background: #e2e8f0;
+    color: #1a365d;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(248, 250, 252, 0.4);
   }
 
   /* Why Choose Us Section */
@@ -978,11 +983,12 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #1a365d;
+    color: #f8fafc;
   }
 
   .contact-details p {
-    color: #cbd5e1;
+    color: #e2e8f0;
+    font-weight: 500;
   }
 
   .form {
