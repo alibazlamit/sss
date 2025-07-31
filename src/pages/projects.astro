@@ -450,11 +450,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     transform: translateY(0);
   }
 
-  .project-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 200;
+    color: #fff;
+    margin-bottom: 2rem;
     text-transform: lowercase;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
   }
 
   .project-subtitle {
@@ -592,7 +596,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   @media (max-width: 768px) {
     .hero-title {
-      font-size: 2rem;
+      font-size: 4rem;
     }
 
     .projects-masonry-grid {
