@@ -44,3 +44,16 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Colors to use
+
+main gray and blue
+#9e9a99
+
+#00ADE7
+
+get in touch brighter blue
+#4ABDEA #3FB7E9
+
+footer
+#6F7074
