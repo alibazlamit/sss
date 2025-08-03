@@ -170,6 +170,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 <style>
   /* Projects Hero */
   .projects-hero {
+    height: 60vh;
     padding: 8rem 0 4rem;
     background: linear-gradient(15deg, #2c3031 0%, #00ade7 100%);
     color: #fff;
@@ -1019,6 +1020,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         const img = document.createElement("img");
         img.src = `/sss/projects/${currentProject.folder}/${imageName}`;
         img.alt = `${currentProject.title} - Image ${index + 1}`;
+        img.style.width = "60px";
+        img.style.height = "60px";
+        img.style.objectFit = "cover";
 
         thumb.appendChild(img);
         thumb.addEventListener("click", () => showImage(index));
