@@ -405,23 +405,23 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     .service-nav-link {
       padding: 0.8rem 1.5rem;
       background: transparent;
-      color: #475569;
+      color: #6f7074;
       text-decoration: none;
       border-radius: 25px;
       font-weight: 500;
       text-transform: lowercase;
       transition: all 0.3s ease;
-      border: 2px solid #e2e8f0;
+      border: 2px solid #9e9a99;
       font-size: 0.9rem;
     }
 
     .service-nav-link:hover,
     .service-nav-link.active {
-      background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+      background: linear-gradient(90deg, #00ade7, #4abdea);
       color: #fff;
-      border-color: transparent;
+      border-color: #00ade7;
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 5px 15px rgba(0, 173, 231, 0.1);
     }
 
     @media (max-width: 1024px) {
@@ -572,13 +572,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       border-radius: 20px;
       overflow: hidden;
       transition: all 0.4s ease;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 173, 231, 0.08);
       background: #fff;
+      border: 1.5px solid #9e9a99;
     }
 
     .service-item:hover {
       transform: translateY(-10px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 25px 50px rgba(0, 173, 231, 0.13);
+      border-color: #00ade7;
     }
 
     .service-link {
@@ -613,10 +615,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       bottom: 0;
       background: linear-gradient(
         135deg,
-        rgba(26, 54, 93, 0.9) 0%,
-        rgba(44, 90, 160, 0.9) 100%
+        rgba(0, 173, 231, 0.93) 0%,
+        rgba(78, 189, 234, 0.93) 100%
       );
-      color: white;
+      color: #fff;
       padding: 2rem;
       display: flex;
       flex-direction: column;
@@ -644,10 +646,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     .service-overlay .service-title {
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 0.5rem;
       color: #fff;
       text-transform: lowercase;
+      letter-spacing: -0.5px;
     }
 
     /* Large items get bigger titles */
@@ -670,14 +673,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     }
 
     .feature-tag {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.18);
       color: #fff;
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
       font-size: 0.7rem;
       font-weight: 500;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid #fff;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 4px rgba(0, 173, 231, 0.1);
     }
 
     /* All Services Grid - Alternative Layout */
@@ -766,22 +770,23 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     /* CTA Section */
     .services-cta {
       padding: 4rem 0;
-      background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+      background: linear-gradient(90deg, #00ade7 0%, #4abdea 100%);
       color: #fff;
       text-align: center;
     }
 
     .cta-title {
       font-size: 2.5rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 1rem;
       color: #fff;
       text-transform: lowercase;
+      letter-spacing: -0.5px;
     }
 
     .cta-subtitle {
       font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: #f8fafc;
       margin-bottom: 2rem;
       max-width: 600px;
       margin-left: auto;
@@ -796,19 +801,46 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     }
 
     .btn-primary {
-      background: linear-gradient(45deg, #2c5aa0, #4a90e2);
+      background: linear-gradient(90deg, #4abdea, #00ade7);
       color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0, 173, 231, 0.08);
+      transition:
+        background 0.3s,
+        box-shadow 0.3s,
+        transform 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #00ade7, #4abdea);
+      box-shadow: 0 8px 24px rgba(0, 173, 231, 0.12);
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
       background: transparent;
       color: #fff;
-      border: 2px solid #2c5aa0;
+      border: 2px solid #fff;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      transition:
+        background 0.3s,
+        color 0.3s,
+        box-shadow 0.3s,
+        transform 0.3s;
     }
 
     .btn-secondary:hover {
-      background: #2c5aa0;
-      color: #fff;
+      background: #fff;
+      color: #00ade7;
+      box-shadow: 0 8px 24px rgba(0, 173, 231, 0.1);
+      transform: translateY(-2px);
     }
 
     /* Responsive Design */
