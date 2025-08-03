@@ -22,12 +22,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   <!-- Projects Filter Navigation -->
   <nav class="projects-filter">
     <div class="container">
-      <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">all projects</button
-        >
-        <button class="filter-btn" data-filter="worktype">by work type</button>
-        <button class="filter-btn" data-filter="sector">by sector</button>
-      </div>
+      <p class="projects-description">
+        Explore our completed security installation projects across various
+        sectors including government, education, healthcare, hospitality, and
+        corporate facilities.
+      </p>
     </div>
   </nav>
 
@@ -35,259 +34,120 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   <section class="projects-showcase">
     <div class="container">
       <div class="projects-masonry-grid">
-        <!-- Work Type Projects -->
-
-        <!-- Fire Alarm & Safety Systems -->
-        <div class="project-item large worktype" data-worktype="firealarm">
+        <!-- King Khalid International Airport -->
+        <div class="project-item large" data-project="kkia">
           <div class="project-image">
             <img
-              src={`${base}images/kkia-fire-alarm.jpg`}
-              alt="Fire Alarm & Safety Systems"
+              src={`${base}projects/King Khalid International Airport - Terminal 1 - Pic/cover.jpeg`}
+              alt="King Khalid International Airport Terminal 1"
             />
           </div>
           <div class="project-info">
-            <h3 class="project-title">fire alarm & safety systems</h3>
-            <p class="project-subtitle">kkia - t1 renovation project</p>
-            <span class="project-category">fire safety</span>
+            <h3 class="project-title">king khalid international airport</h3>
+            <p class="project-subtitle">terminal 1 renovation project</p>
+            <span class="project-category">government</span>
           </div>
         </div>
-
-        <!-- Structured Cabling for Data Centers -->
-        <div class="project-item medium worktype" data-worktype="datacenters">
-          <div class="project-image">
-            <img
-              src={`${base}images/datacenter.jpg`}
-              alt="Structured Cabling for Data Centers"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">structured cabling for data centers</h3>
-            <p class="project-subtitle">infrastructure & installation</p>
-            <span class="project-category">data centers</span>
-          </div>
-        </div>
-
-        <!-- Network Design -->
-        <div class="project-item tall worktype" data-worktype="networkdesign">
-          <div class="project-image">
-            <img
-              src={`${base}images/networkdesign.jpg`}
-              alt="Structured Cabling - Network Design"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">structured cabling – network design</h3>
-            <p class="project-subtitle">networking & cctv</p>
-            <span class="project-category">networking</span>
-          </div>
-        </div>
-
-        <!-- Theatre/Auditorium for Schools -->
-        <div class="project-item medium worktype" data-worktype="theatre">
-          <div class="project-image">
-            <img
-              src={`${base}images/theatre-auditorium.jpg`}
-              alt="Theatre/Auditorium for Schools"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">theatre/auditorium for schools</h3>
-            <p class="project-subtitle">educational facility design</p>
-            <span class="project-category">education</span>
-          </div>
-        </div>
-
-        <!-- Healthcare Auditorium -->
-        <div class="project-item medium worktype" data-worktype="healthcare">
-          <div class="project-image">
-            <img
-              src={`${base}images/healthcare-auditorium.jpg`}
-              alt="Auditorium/Lecture Hall for Healthcare"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">
-              auditorium/lecture hall for healthcare
-            </h3>
-            <p class="project-subtitle">medical facility design</p>
-            <span class="project-category">healthcare</span>
-          </div>
-        </div>
-
-        <!-- Facade Lighting -->
-        <div class="project-item large worktype" data-worktype="facadelighting">
-          <div class="project-image">
-            <img
-              src={`${base}images/facade-lighting.jpg`}
-              alt="Facade Lighting for Commercial Buildings"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">
-              facade lighting for commercial buildings
-            </h3>
-            <p class="project-subtitle">architectural lighting design</p>
-            <span class="project-category">lighting</span>
-          </div>
-        </div>
-
-        <!-- Meeting Scheduling Solution -->
-        <div
-          class="project-item wide worktype"
-          data-worktype="meetingscheduling"
-        >
-          <div class="project-image">
-            <img
-              src={`${base}images/meeting-scheduling.jpg`}
-              alt="Meeting Scheduling Solution"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">meeting scheduling solution</h3>
-            <p class="project-subtitle">smart room booking systems</p>
-            <span class="project-category">smart systems</span>
-          </div>
-        </div>
-
-        <!-- Point-to-Point Wireless -->
-        <div class="project-item medium worktype" data-worktype="p2pwireless">
-          <div class="project-image">
-            <img
-              src={`${base}images/p2p-wireless.jpg`}
-              alt="Point-to-Point Wireless Connection"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">point-to-point wireless connection</h3>
-            <p class="project-subtitle">long-distance network bridging</p>
-            <span class="project-category">wireless</span>
-          </div>
-        </div>
-
-        <!-- Sector Projects -->
 
         <!-- Learning Oasis School -->
-        <div class="project-item large sector" data-sector="education">
+        <div class="project-item medium" data-project="learning-oasis">
           <div class="project-image">
             <img
-              src={`${base}images/learning_oasis_int_schools_cover.jpg`}
-              alt="Learning Oasis School Security Installation"
+              src={`${base}/images/projects/learning_oasis_int_schools_cover.jpg`}
+              alt="Learning Oasis National International School"
             />
           </div>
           <div class="project-info">
-            <h3 class="project-title">learning oasis school</h3>
+            <h3 class="project-title">learning oasis national school</h3>
             <p class="project-subtitle">comprehensive security system</p>
             <span class="project-category">education</span>
           </div>
         </div>
 
-        <!-- Najdarah -->
-        <div class="project-item medium sector" data-sector="residential">
+        <!-- Citadines Culture Village Dubai -->
+        <div class="project-item tall" data-project="citadines">
           <div class="project-image">
             <img
-              src={`${base}images/nadra.png`}
-              alt="Najdarah Security Installation"
+              src={`${base}projects/Citadines Culture Village Dubai - Pic/cover.jpg`}
+              alt="Citadines Culture Village Dubai"
             />
           </div>
           <div class="project-info">
-            <h3 class="project-title">najdarah</h3>
-            <p class="project-subtitle">residential complex</p>
-            <span class="project-category">residential</span>
-          </div>
-        </div>
-
-        <!-- MOJ -->
-        <div class="project-item tall sector" data-sector="government">
-          <div class="project-image">
-            <img
-              src={`${base}images/moj.png`}
-              alt="MOJ Security Installation"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">ministry of justice</h3>
-            <p class="project-subtitle">government facility</p>
-            <span class="project-category">government</span>
-          </div>
-        </div>
-
-        <!-- Marble Restaurant -->
-        <div class="project-item medium sector" data-sector="hospitality">
-          <div class="project-image">
-            <img
-              src={`${base}images/marble.webp`}
-              alt="Marble Restaurant Security Installation"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">marble restaurant</h3>
-            <p class="project-subtitle">hospitality sector</p>
+            <h3 class="project-title">citadines culture village dubai</h3>
+            <p class="project-subtitle">hospitality security solution</p>
             <span class="project-category">hospitality</span>
           </div>
         </div>
 
-        <!-- Alon Coffee -->
-        <div class="project-item wide sector" data-sector="retail">
+        <!-- Dallah Rafa Clinic -->
+        <div class="project-item medium" data-project="dallah">
           <div class="project-image">
             <img
-              src={`${base}images/falla.png`}
-              alt="Alon Coffee Security Installation"
+              src={`${base}projects/Dallah Rafa Clinic Basement Parking Renovation - Pic/cover.jpg`}
+              alt="Dallah Rafa Clinic Basement Parking"
             />
           </div>
           <div class="project-info">
-            <h3 class="project-title">alon coffee</h3>
-            <p class="project-subtitle">retail establishment</p>
-            <span class="project-category">retail</span>
-          </div>
-        </div>
-
-        <!-- Citadines Hotel -->
-        <div class="project-item large sector" data-sector="hospitality">
-          <div class="project-image">
-            <img
-              src={`${base}images/citadines-hotel.jpg`}
-              alt="Citadines Hotel Security Installation"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">citadines hotel</h3>
-            <p class="project-subtitle">hospitality complex</p>
-            <span class="project-category">hospitality</span>
-          </div>
-        </div>
-
-        <!-- Dalla Hospital -->
-        <div class="project-item wide sector" data-sector="healthcare">
-          <div class="project-image">
-            <img
-              src={`${base}images/dalla-hospital.jpg`}
-              alt="Dalla Hospital Security Installation"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">dalla hospital</h3>
-            <p class="project-subtitle">healthcare facility</p>
+            <h3 class="project-title">dallah rafa clinic</h3>
+            <p class="project-subtitle">basement parking renovation</p>
             <span class="project-category">healthcare</span>
           </div>
         </div>
 
-        <!-- Corporate Office -->
-        <div class="project-item medium sector" data-sector="corporate">
+        <!-- Point to Point Wireless -->
+        <div class="project-item wide" data-project="p2p">
           <div class="project-image">
             <img
-              src={`${base}images/corporate-office.jpg`}
-              alt="Corporate Office Security Installation"
+              src={`${base}projects/Point to Point Wireless Connection Project - Pic/P2P.jpg`}
+              alt="Point to Point Wireless Connection"
             />
           </div>
           <div class="project-info">
-            <h3 class="project-title">corporate headquarters</h3>
-            <p class="project-subtitle">business complex</p>
+            <h3 class="project-title">point to point wireless connection</h3>
+            <p class="project-subtitle">long-distance network bridging</p>
+            <span class="project-category">networking</span>
+          </div>
+        </div>
+
+        <!-- Serviced Office - SPACES by Regus -->
+        <div class="project-item medium" data-project="spaces">
+          <div class="project-image">
+            <img
+              src={`${base}projects/Serviced Office - SPACES - by Regus at Riyadh Park - Pic/cover.jpg`}
+              alt="Serviced Office SPACES by Regus"
+            />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">spaces by regus</h3>
+            <p class="project-subtitle">riyadh park serviced office</p>
             <span class="project-category">corporate</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Gallery Modal -->
+  <div id="gallery-modal" class="gallery-modal">
+    <div class="gallery-modal-content">
+      <button class="gallery-close">&times;</button>
+      <div class="gallery-header">
+        <h3 id="gallery-title"></h3>
+        <p id="gallery-subtitle"></p>
+      </div>
+      <div class="gallery-main">
+        <button class="gallery-nav gallery-prev">&#8249;</button>
+        <img id="gallery-image" src="" alt="" />
+        <button class="gallery-nav gallery-next">&#8250;</button>
+      </div>
+      <div class="gallery-thumbnails">
+        <div id="gallery-thumbs"></div>
+      </div>
+      <div class="gallery-counter">
+        <span id="gallery-current">1</span> / <span id="gallery-total">1</span>
+      </div>
+    </div>
+  </div>
 
   <!-- CTA Section -->
   <section class="projects-cta">
@@ -341,35 +201,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     z-index: 100;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
 
-  .filter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .filter-btn {
-    padding: 0.8rem 1.5rem;
-    background: transparent;
-    color: #475569;
-    border: 2px solid #e2e8f0;
-    border-radius: 25px;
-    font-weight: 500;
-    text-transform: lowercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-  }
-
-  .filter-btn:hover,
-  .filter-btn.active {
-    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
-    color: #fff;
-    border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
+  .projects-description {
+    color: #64748b;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
   }
 
   /* Projects Showcase */
@@ -482,6 +322,172 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     display: none;
   }
 
+  /* Gallery Modal */
+  .gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+  }
+
+  .gallery-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-modal-content {
+    position: relative;
+    width: 95%;
+    max-width: 1200px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .gallery-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  .gallery-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+  }
+
+  .gallery-header {
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
+    color: #fff;
+    text-align: center;
+  }
+
+  .gallery-header h3 {
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem;
+    text-transform: lowercase;
+  }
+
+  .gallery-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+  }
+
+  .gallery-main {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    overflow: hidden;
+  }
+
+  .gallery-main img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+  }
+
+  .gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 5;
+  }
+
+  .gallery-nav:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .gallery-prev {
+    left: 20px;
+  }
+
+  .gallery-next {
+    right: 20px;
+  }
+
+  .gallery-thumbnails {
+    padding: 1rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    max-height: 120px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  #gallery-thumbs {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+
+  .gallery-thumb {
+    flex-shrink: 0;
+    width: 80px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .gallery-thumb:hover,
+  .gallery-thumb.active {
+    border-color: #2c5aa0;
+    transform: scale(1.05);
+  }
+
+  .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-counter {
+    padding: 1rem;
+    text-align: center;
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 500;
+    border-top: 1px solid #e2e8f0;
+  }
+
   /* CTA Section */
   .projects-cta {
     padding: 4rem 0;
@@ -592,11 +598,30 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     .project-item.wide {
       grid-column: span 1;
     }
+
+    .gallery-modal-content {
+      width: 98%;
+      height: 95vh;
+    }
+
+    .gallery-nav {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+
+    .gallery-prev {
+      left: 10px;
+    }
+
+    .gallery-next {
+      right: 10px;
+    }
   }
 
   @media (max-width: 768px) {
     .hero-title {
-      font-size: 4rem;
+      font-size: 3rem;
     }
 
     .projects-masonry-grid {
@@ -618,13 +643,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       );
     }
 
-    .filter-buttons {
-      gap: 0.5rem;
-    }
-
-    .filter-btn {
-      padding: 0.6rem 1rem;
-      font-size: 0.8rem;
+    .projects-description {
+      font-size: 1rem;
+      padding: 0 1rem;
     }
 
     .cta-title {
@@ -635,42 +656,279 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       flex-direction: column;
       align-items: center;
     }
+
+    .gallery-header {
+      padding: 1.5rem 1rem;
+    }
+
+    .gallery-header h3 {
+      font-size: 1.4rem;
+    }
+
+    .gallery-header p {
+      font-size: 1rem;
+    }
+
+    .gallery-thumbnails {
+      padding: 0.5rem;
+    }
+
+    .gallery-thumb {
+      width: 60px;
+      height: 45px;
+    }
   }
 </style>
 
 <script>
-  // Project filtering functionality
+  // Gallery functionality
   document.addEventListener("DOMContentLoaded", function () {
-    const filterBtns = document.querySelectorAll(".filter-btn");
     const projectItems = document.querySelectorAll(".project-item");
+    const galleryModal = document.getElementById("gallery-modal");
+    const galleryClose = document.querySelector(".gallery-close");
+    const galleryTitle = document.getElementById("gallery-title");
+    const gallerySubtitle = document.getElementById("gallery-subtitle");
+    const galleryImage = document.getElementById("gallery-image");
+    const galleryThumbs = document.getElementById("gallery-thumbs");
+    const galleryPrev = document.querySelector(".gallery-prev");
+    const galleryNext = document.querySelector(".gallery-next");
+    const galleryCurrent = document.getElementById("gallery-current");
+    const galleryTotal = document.getElementById("gallery-total");
 
-    filterBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        // Remove active class from all buttons
-        filterBtns.forEach((b) => b.classList.remove("active"));
-        // Add active class to clicked button
-        btn.classList.add("active");
+    let currentProject = null;
+    let currentImageIndex = 0;
+    let projectImages = [];
 
-        const filter = btn.getAttribute("data-filter");
+    // Project data with image arrays
+    const projects = {
+      kkia: {
+        title: "King Khalid International Airport",
+        subtitle: "Terminal 1 Renovation Project",
+        folder: "King Khalid International Airport - Terminal 1 - Pic",
+        images: [
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0013.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0016.jpg",
+          "0017.jpg",
+          "0018.jpg",
+          "0019.jpg",
+          "0020.jpg",
+          "0021.jpg",
+          "KKIA 1.jpg",
+          "KKIA 2.jpg",
+          "KKIA 3.png",
+          "P2P.jpg",
+        ],
+      },
+      "learning-oasis": {
+        title: "Learning Oasis National School",
+        subtitle: "Comprehensive Security System",
+        folder: "Learning Oasis National International School - Pic",
+        images: [
+          "5_000.jpg",
+          "6_004.jpg",
+          "6_280.jpg",
+          "WhatsApp Video 2023-10-23 at 12.03.21_114.jpg",
+          "WhatsApp Video 2023-10-23 at 12.03.21_119.jpg",
+          "WhatsApp Video 2023-10-23 at 12.03.21_130.jpg",
+          "WhatsApp Video 2023-10-23 at 12.03.21_175.jpg",
+          "WhatsApp Video 2023-10-23 at 12.03.21_210.jpg",
+          "WhatsApp Video 2023-10-23 at 12.03.21_253.jpg",
+          "WhatsApp Video 2023-10-23 at 12.03.21_299.jpg",
+        ],
+      },
+      citadines: {
+        title: "Citadines Culture Village Dubai",
+        subtitle: "Hospitality Security Solution",
+        folder: "Citadines Culture Village Dubai - Pic",
+        images: [
+          "WhatsApp Image 2023-10-23 at 12.05.09.jpeg",
+          "WhatsApp Image 2023-10-23 at 12.05.19.jpeg",
+          "WhatsApp Image 2023-10-23 at 12.05.28.jpeg",
+          "WhatsApp Image 2023-10-23 at 12.05.37.jpeg",
+          "WhatsApp Image 2023-10-23 at 12.05.52.jpeg",
+          "WhatsApp Image 2023-10-23 at 12.06.03.jpeg",
+          "WhatsApp Image 2023-10-23 at 12.06.13.jpeg",
+          "WhatsApp Image 2023-10-23 at 12.06.34.jpeg",
+        ],
+      },
+      dallah: {
+        title: "Dallah Rafa Clinic",
+        subtitle: "Basement Parking Renovation",
+        folder: "Dallah Rafa Clinic Basement Parking Renovation - Pic",
+        images: [
+          "WhatsApp Image 2023-10-23 at 12.00.22.jpeg",
+          "WhatsApp Image 2023-10-23 at 12.00.22 (1).jpeg",
+          "WhatsApp Image 2023-10-23 at 12.00.22 (2).jpeg",
+          "WhatsApp Image 2023-10-23 at 12.00.22 (3).jpeg",
+          "WhatsApp Image 2023-10-23 at 12.00.22 (4).jpeg",
+          "WhatsApp Image 2023-10-23 at 12.00.22 (5).jpeg",
+          "WhatsApp Image 2023-10-23 at 12.00.22 (6).jpeg",
+        ],
+      },
+      p2p: {
+        title: "Point to Point Wireless Connection",
+        subtitle: "Long-Distance Network Bridging",
+        folder: "Point to Point Wireless Connection Project - Pic",
+        images: [
+          "P2P.jpg",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "6.png",
+          "IMG-20220531-WA0008.jpg",
+          "IMG-20220531-WA0017.jpg",
+          "IMG-20220531-WA0019.jpg",
+          "IMG-20220531-WA0023.jpg",
+          "IMG-20220531-WA0024.jpg",
+          "IMG-20220531-WA0028.jpg",
+        ],
+      },
+      spaces: {
+        title: "SPACES by Regus",
+        subtitle: "Riyadh Park Serviced Office",
+        folder: "Serviced Office - SPACES - by Regus at Riyadh Park - Pic",
+        images: [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "6.png",
+          "WhatsApp Image 2023-10-23 at 11.56.27.jpeg",
+          "WhatsApp Image 2023-10-23 at 11.56.27 (1).jpeg",
+          "WhatsApp Image 2023-10-23 at 11.56.27 (2).jpeg",
+          "WhatsApp Image 2023-10-23 at 11.56.28.jpeg",
+        ],
+      },
+    };
 
-        projectItems.forEach((item) => {
-          if (filter === "all") {
-            item.classList.remove("hidden");
-          } else if (filter === "worktype") {
-            if (item.classList.contains("worktype")) {
-              item.classList.remove("hidden");
-            } else {
-              item.classList.add("hidden");
-            }
-          } else if (filter === "sector") {
-            if (item.classList.contains("sector")) {
-              item.classList.remove("hidden");
-            } else {
-              item.classList.add("hidden");
-            }
-          }
-        });
+    // Open gallery
+    function openGallery(projectId) {
+      currentProject = projects[projectId];
+      if (!currentProject) return;
+
+      currentImageIndex = 0;
+      projectImages = currentProject.images;
+
+      galleryTitle.textContent = currentProject.title;
+      gallerySubtitle.textContent = currentProject.subtitle;
+      galleryTotal.textContent = projectImages.length;
+
+      createThumbnails();
+      showImage(0);
+      galleryModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    // Close gallery
+    function closeGallery() {
+      galleryModal.classList.remove("active");
+      document.body.style.overflow = "";
+      currentProject = null;
+      currentImageIndex = 0;
+      projectImages = [];
+    }
+
+    // Create thumbnails
+    function createThumbnails() {
+      galleryThumbs.innerHTML = "";
+      projectImages.forEach((imageName, index) => {
+        const thumb = document.createElement("div");
+        thumb.className = "gallery-thumb";
+        if (index === 0) thumb.classList.add("active");
+
+        const img = document.createElement("img");
+        img.src = `/sss/projects/${currentProject.folder}/${imageName}`;
+        img.alt = `${currentProject.title} - Image ${index + 1}`;
+
+        thumb.appendChild(img);
+        thumb.addEventListener("click", () => showImage(index));
+        galleryThumbs.appendChild(thumb);
       });
+    }
+
+    // Show specific image
+    function showImage(index) {
+      if (index < 0 || index >= projectImages.length) return;
+
+      currentImageIndex = index;
+      galleryImage.src = `/sss/projects/${currentProject.folder}/${projectImages[index]}`;
+      galleryImage.alt = `${currentProject.title} - Image ${index + 1}`;
+      galleryCurrent.textContent = index + 1;
+
+      // Update active thumbnail
+      document.querySelectorAll(".gallery-thumb").forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === index);
+      });
+
+      // Update navigation buttons
+      galleryPrev.style.opacity = index === 0 ? "0.5" : "1";
+      galleryNext.style.opacity =
+        index === projectImages.length - 1 ? "0.5" : "1";
+    }
+
+    // Previous image
+    function prevImage() {
+      if (currentImageIndex > 0) {
+        showImage(currentImageIndex - 1);
+      }
+    }
+
+    // Next image
+    function nextImage() {
+      if (currentImageIndex < projectImages.length - 1) {
+        showImage(currentImageIndex + 1);
+      }
+    }
+
+    // Event listeners
+    projectItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const projectId = item.getAttribute("data-project");
+        openGallery(projectId);
+      });
+    });
+
+    galleryClose.addEventListener("click", closeGallery);
+    galleryPrev.addEventListener("click", prevImage);
+    galleryNext.addEventListener("click", nextImage);
+
+    // Close on outside click
+    galleryModal.addEventListener("click", (e) => {
+      if (e.target === galleryModal) {
+        closeGallery();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (!galleryModal.classList.contains("active")) return;
+
+      switch (e.key) {
+        case "Escape":
+          closeGallery();
+          break;
+        case "ArrowLeft":
+          prevImage();
+          break;
+        case "ArrowRight":
+          nextImage();
+          break;
+      }
     });
   });
 </script>
