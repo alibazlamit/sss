@@ -53,7 +53,7 @@ const base =
         <div class="project-item medium" data-project="learning-oasis">
           <div class="project-image">
             <img
-              src={`${base}/images/projects/learning_oasis_int_schools_cover.jpg`}
+              src={`${base}images/projects/learning_oasis_int_schools_cover.jpg`}
               alt="Learning Oasis National International School"
             />
           </div>
@@ -846,11 +846,11 @@ const base =
   }
 </style>
 
-<script>
+<script define:vars={{ base }}>
   // Gallery functionality
   document.addEventListener("DOMContentLoaded", function () {
     // Set base path for images
-    window.BASE_PATH = `${base}`;
+    window.BASE_PATH = base;
 
     const projectItems = document.querySelectorAll(".project-item");
     const galleryModal = document.getElementById("gallery-modal");
