@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://alibazlamit.github.io',
-  base: '/sss',
+  site: 'https://subtle-moonbeam-09842d.netlify.app',
+  base: '',
   trailingSlash: 'ignore'
 });
