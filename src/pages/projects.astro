@@ -2,9 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 
 // Import base path for proper navigation - ensure it ends with /
-const base = import.meta.env.BASE_URL.endsWith("/")
-  ? import.meta.env.BASE_URL
-  : import.meta.env.BASE_URL + "/";
+const baseUrl = import.meta.env.BASE_URL;
+const base =
+  baseUrl === "" ? "/" : baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
 ---
 
 <Layout title="Our Projects - SSS Security Solutions">
@@ -849,6 +849,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 <script>
   // Gallery functionality
   document.addEventListener("DOMContentLoaded", function () {
+    // Set base path for images
+    window.BASE_PATH = `${base}`;
+
     const projectItems = document.querySelectorAll(".project-item");
     const galleryModal = document.getElementById("gallery-modal");
     const galleryClose = document.querySelector(".gallery-close");
@@ -1018,7 +1021,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         if (index === 0) thumb.classList.add("active");
 
         const img = document.createElement("img");
-        img.src = `/sss/projects/${currentProject.folder}/${imageName}`;
+        img.src = `${window.BASE_PATH}projects/${currentProject.folder}/${imageName}`;
         img.alt = `${currentProject.title} - Image ${index + 1}`;
         img.style.width = "60px";
         img.style.height = "60px";
@@ -1035,7 +1038,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       if (index < 0 || index >= projectImages.length) return;
 
       currentImageIndex = index;
-      galleryImage.src = `/sss/projects/${currentProject.folder}/${projectImages[index]}`;
+      galleryImage.src = `${window.BASE_PATH}projects/${currentProject.folder}/${projectImages[index]}`;
       galleryImage.alt = `${currentProject.title} - Image ${index + 1}`;
       galleryCurrent.textContent = index + 1;
 
