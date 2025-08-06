@@ -7,5 +7,11 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
+  from = "https://sss-mep.com/*"
+  to = "https://www.sss-mep.com/:splat"
+  status = 301
+  force = true
+
 [build.environment]
   NODE_VERSION = "18"
