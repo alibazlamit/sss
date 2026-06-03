@@ -68,7 +68,10 @@ const base =
           </div>
         </div>
         <div class="overview-image">
-          <img src={`${base}images/team.jpg`} alt="SSS Security Systems Team" />
+          <img
+            src={`${base}images/upgrade/about-team.jpg`}
+            alt="SSS Security Systems Team"
+          />
         </div>
       </div>
     </div>
@@ -349,7 +352,18 @@ const base =
   /* About Hero */
   .about-hero {
     height: 60vh;
-    background: linear-gradient(15deg, #2c3031 0%, #00ade7 100%);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(11, 31, 51, 0.8) 0%,
+        rgba(11, 31, 51, 0.62) 100%
+      ),
+      linear-gradient(
+        115deg,
+        rgba(0, 173, 231, 0.25) 0%,
+        rgba(26, 54, 93, 0.35) 100%
+      ),
+      url("/images/upgrade/about-hero.jpg") center center / cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;

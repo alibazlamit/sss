@@ -44,6 +44,7 @@ const base =
             </div>
             <div class="contact-details">
               <h3>email us</h3>
+              {/* TODO: Placeholder — replace with the client's real email before launch. */}
               <p>info@sss-security.com</p>
             </div>
           </div>
@@ -65,6 +66,7 @@ const base =
             </div>
             <div class="contact-details">
               <h3>call us</h3>
+              {/* TODO: Placeholder US number — replace with the client's real phone before launch. */}
               <p>+1 (555) 123-4567</p>
             </div>
           </div>
@@ -85,6 +87,7 @@ const base =
             </div>
             <div class="contact-details">
               <h3>visit us</h3>
+              {/* TODO: Placeholder address — replace with the client's real Saudi Arabia address before launch. */}
               <p>123 Security Street<br />Tech City, TC 12345</p>
             </div>
           </div>
@@ -148,7 +151,18 @@ const base =
   .contact-hero {
     height: 60vh;
     padding: 8rem 0 4rem;
-    background: linear-gradient(15deg, #2c3031 0%, #00ade7 100%);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(11, 31, 51, 0.8) 0%,
+        rgba(11, 31, 51, 0.64) 100%
+      ),
+      linear-gradient(
+        115deg,
+        rgba(0, 173, 231, 0.25) 0%,
+        rgba(26, 54, 93, 0.35) 100%
+      ),
+      url("/images/upgrade/contact-hero.jpg") center center / cover no-repeat;
     color: #fff;
     text-align: center;
   }
