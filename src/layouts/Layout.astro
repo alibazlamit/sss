@@ -333,6 +333,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     box-sizing: border-box;
   }
 
+  /* Defensive: never let an image force horizontal scroll */
+  img {
+    max-width: 100%;
+  }
+
   html {
     font-family: "Poppins", sans-serif;
     scroll-behavior: smooth;
@@ -833,6 +838,96 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     .nav-cta::before {
       display: none;
     }
+    .has-js .feature-showcase .feature-item {
+      translate: 0 0;
+    }
+  }
+
+  /* ============================================================
+     Service detail pages — feature showcase enhancements.
+     Scoped to .feature-showcase so the home/about .feature-item
+     cards are untouched. Applies to all 6 sub-service pages.
+     ============================================================ */
+  .feature-showcase {
+    counter-reset: feat;
+    overflow: hidden;
+  }
+
+  .feature-showcase .feature-item {
+    position: relative;
+    counter-increment: feat;
+  }
+
+  /* Big cyan ghost index number above each feature title */
+  .feature-showcase .feature-content::before {
+    content: counter(feat, decimal-leading-zero);
+    display: block;
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+    color: rgba(0, 173, 231, 0.9);
+    background: linear-gradient(135deg, #00ade7, #3fb7e9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Cyan accent underline beneath feature titles */
+  .feature-showcase .feature-title {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .feature-showcase .feature-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 56px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #00ade7, #3fb7e9);
+  }
+
+  /* Cyan feature-list markers (override the white default) */
+  .feature-showcase .feature-list li::before {
+    color: #00ade7 !important;
+  }
+
+  /* Alternating horizontal slide-in (overrides the default vertical reveal) */
+  .has-js .feature-showcase .feature-item {
+    translate: -44px 0;
+  }
+
+  .has-js .feature-showcase .feature-item.alternate {
+    translate: 44px 0;
+  }
+
+  .has-js .feature-showcase .feature-item.is-visible {
+    translate: 0 0;
+  }
+
+  /* Brand-tinted hero overlay on detail pages */
+  .service-detail-hero .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 31, 51, 0.6) 0%,
+      rgba(11, 31, 51, 0.45) 50%,
+      rgba(0, 173, 231, 0.32) 100%
+    ) !important;
+  }
+
+  /* Cyan CTA on detail pages */
+  .service-cta .cta-button {
+    border-color: #00ade7 !important;
+  }
+
+  .service-cta .cta-button:hover {
+    background: #00ade7 !important;
+    border-color: #00ade7 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 30px rgba(0, 173, 231, 0.3) !important;
   }
 
   /* Mobile: keep the CTA out of the slim bar (mobile menu covers contact) */
