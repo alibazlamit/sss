@@ -68,7 +68,7 @@ const base =
           </div>
         </div>
         <div class="overview-image">
-          <img
+          <img loading="lazy" decoding="async"
             src={`${base}images/upgrade/about-team.jpg`}
             alt="SSS Security Systems Team"
           />
@@ -926,22 +926,24 @@ const base =
       });
     });
 
-    // Update active link on scroll
-    window.addEventListener("scroll", function () {
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 150;
-        if (window.pageYOffset >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
-    });
+    // Update active link via IntersectionObserver (no per-scroll layout reads)
+    if ("IntersectionObserver" in window && sections.length) {
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.getAttribute("id");
+            navLinks.forEach((link) => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + id
+              );
+            });
+          });
+        },
+        { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+      );
+      sections.forEach((section) => sectionObserver.observe(section));
+    }
   });
 </script>

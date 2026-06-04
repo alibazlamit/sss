@@ -39,7 +39,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       <div class="nav-container">
         <div class="nav-logo">
           <a href={base}>
-            <img
+            <img loading="lazy" decoding="async"
               src={`${base}images/sss_logo.png`}
               alt="SSS Security Solutions"
               class="logo-img"
@@ -188,53 +188,38 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         navMenu?.classList.toggle("active");
       });
 
-      // Navbar scroll behavior
-      let lastScrollTop = 0;
+      // Navbar scroll behavior — rAF-throttled, passive, and class-based.
+      // No inline style writes or DOM queries per scroll event, so the
+      // browser keeps a smooth 60fps scroll.
       const navbar = document.getElementById("navbar");
+      let lastScrollTop = 0;
+      let navTicking = false;
 
-      window.addEventListener("scroll", () => {
+      const updateNav = () => {
         const scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
-
-        // Navbar background opacity based on scroll
-        const scrollProgress = Math.min(scrollTop / 100, 1);
         if (navbar) {
-          // Change background to white when scrolled
-          if (scrollProgress > 0.5) {
-            navbar.style.backgroundColor = `rgba(255, 255, 255, ${scrollProgress * 0.95})`;
-            navbar.style.boxShadow = `0 2px 10px rgba(0, 0, 0, 0.1)`;
-            // Change text color to dark
-            const navLinks = navbar.querySelectorAll(".nav-link");
-            const logoImg = navbar.querySelector(".logo-img");
-            navLinks.forEach((link) => {
-              link.style.color = "#1a365d";
-            });
-            if (logoImg) {
-              logoImg.style.filter = "brightness(1) invert(0)";
-            }
+          navbar.classList.toggle("scrolled", scrollTop > 50);
+          if (scrollTop > lastScrollTop && scrollTop > 120) {
+            navbar.classList.add("nav-hidden");
           } else {
-            navbar.style.backgroundColor = `rgba(0, 0, 0, ${scrollProgress * 0.95})`;
-            navbar.style.boxShadow = "none";
-            // Change text color to white
-            const navLinks = navbar.querySelectorAll(".nav-link");
-            const logoImg = navbar.querySelector(".logo-img");
-            navLinks.forEach((link) => {
-              link.style.color = "#fff";
-            });
-            if (logoImg) {
-              logoImg.style.filter = "brightness(0) invert(1)";
-            }
+            navbar.classList.remove("nav-hidden");
           }
         }
-
-        // Hide/show navbar on scroll
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-          navbar?.classList.add("nav-hidden");
-        } else {
-          navbar?.classList.remove("nav-hidden");
-        }
         lastScrollTop = scrollTop;
-      });
+        navTicking = false;
+      };
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!navTicking) {
+            navTicking = true;
+            requestAnimationFrame(updateNav);
+          }
+        },
+        { passive: true }
+      );
 
       // Active navigation highlighting
       const currentPath = window.location.pathname;
@@ -371,10 +356,36 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     top: 0;
     width: 100%;
     padding: 1rem 0;
-    background-color: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(10px);
+    background-color: transparent;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  /* Scrolled state handled purely in CSS (toggled by a single class) so the
+     scroll handler never writes inline styles or re-blurs every frame. */
+  .navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 2px 16px rgba(15, 31, 51, 0.08);
+  }
+
+  .navbar.scrolled .nav-link {
+    color: #1a365d;
+  }
+
+  .navbar.scrolled .nav-link:hover,
+  .navbar.scrolled .nav-link.active {
+    color: #00ade7;
+  }
+
+  .navbar.scrolled .logo-img {
+    filter: none;
+  }
+
+  .navbar.scrolled .menu-toggle span {
+    background: #1a365d;
   }
 
   .navbar.nav-hidden {
@@ -781,7 +792,6 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     transition:
       opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
       translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-    will-change: opacity, translate;
   }
 
   .has-js .is-visible {

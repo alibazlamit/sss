@@ -11,8 +11,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   <!-- Hero Section -->
   <section class="service-detail-hero">
     <div class="hero-background">
-      <img
-        src={`${base}images/doors.png`}
+      <img loading="eager" fetchpriority="high" decoding="async"
+        src={`${base}images/doors.jpg`}
         alt="Automatic Door Systems"
         class="hero-bg-image"
       />
@@ -60,8 +60,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </ul>
       </div>
       <div class="feature-image">
-        <img
-          src={`${base}images/doorrsensor.png`}
+        <img loading="lazy" decoding="async"
+          src={`${base}images/doorrsensor.jpg`}
           alt="Motion Detection"
           class="zoom-on-scroll"
         />
@@ -86,7 +86,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </ul>
       </div>
       <div class="feature-image">
-        <img
+        <img loading="lazy" decoding="async"
           src={`${base}images/automaticdoor.jpg`}
           alt="Safety Systems"
           class="zoom-on-scroll"
@@ -112,7 +112,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </ul>
       </div>
       <div class="feature-image">
-        <img
+        <img loading="lazy" decoding="async"
           src={`${base}images/green energy.jpg`}
           alt="Energy Efficiency"
           class="zoom-on-scroll"

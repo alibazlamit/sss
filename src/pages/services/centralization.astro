@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   <!-- Hero Section -->
   <section class="service-detail-hero">
     <div class="hero-background">
-      <img
+      <img loading="eager" fetchpriority="high" decoding="async"
         src={`${base}images/central;ization.jpg`}
         alt="Centralization Control"
         class="hero-bg-image"
@@ -62,7 +62,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </ul>
       </div>
       <div class="feature-image">
-        <img
+        <img loading="lazy" decoding="async"
           src={`${base}images/locks.jpg`}
           alt="Control Hub"
           class="zoom-on-scroll"
@@ -88,7 +88,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </ul>
       </div>
       <div class="feature-image">
-        <img
+        <img loading="lazy" decoding="async"
           src={`${base}images/smart home.jpg`}
           alt="Smart Automation"
           class="zoom-on-scroll"
@@ -114,7 +114,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </ul>
       </div>
       <div class="feature-image">
-        <img
+        <img loading="lazy" decoding="async"
           src={`${base}images/cloud connection.jpg`}
           alt="Remote Access"
           class="zoom-on-scroll"
@@ -784,7 +784,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 </style>
 
 <div class="component-card">
-  <img
+  <img loading="lazy" decoding="async"
     src={`${base}images/locks.jpg`}
     alt="Access Control"
     class="component-image"
@@ -795,7 +795,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   </div>
 </div>
 <div class="component-card">
-  <img
+  <img loading="lazy" decoding="async"
     src={`${base}images/wireless.jpg`}
     alt="Network Infrastructure"
     class="component-image"
@@ -806,7 +806,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   </div>
 </div>
 <div class="component-card">
-  <img
+  <img loading="lazy" decoding="async"
     src={`${base}images/smart home.jpg`}
     alt="Smart Integration"
     class="component-image"
@@ -862,7 +862,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </div>
       </div>
       <div class="benefits-image">
-        <img
+        <img loading="lazy" decoding="async"
           src={`${base}images/central;ization.jpg`}
           alt="Centralized Control Benefits"
         />
