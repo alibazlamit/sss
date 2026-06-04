@@ -536,14 +536,66 @@ const base =
     object-fit: cover;
   }
 
-  /* Company Structure */
-  .company-structure-section {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  /* Company Structure — connected hierarchy diagram */
+  /* `.about-section.company-structure-section` to beat `.about-section:nth-child(even)` */
+  .about-section.company-structure-section {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(
+        circle at 18% 0%,
+        rgba(0, 173, 231, 0.18),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 85% 100%,
+        rgba(63, 183, 233, 0.12),
+        transparent 45%
+      ),
+      linear-gradient(135deg, #0b1f33 0%, #1e293b 100%);
+  }
+
+  .company-structure-section .section-title {
+    color: #fff;
+  }
+
+  .company-structure-section .section-subtitle {
+    color: rgba(255, 255, 255, 0.72);
   }
 
   .structure-container {
     max-width: 1600px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  /* Cyan connector spine between tiers */
+  .division-manager,
+  .departments-grid {
+    position: relative;
+  }
+
+  .division-manager::before,
+  .departments-grid::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -4rem;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 4rem;
+    background: linear-gradient(180deg, rgba(0, 173, 231, 0), #00ade7);
+  }
+
+  .division-manager::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4rem;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 4rem;
+    background: linear-gradient(180deg, #00ade7, rgba(0, 173, 231, 0));
   }
 
   .top-level {
@@ -553,13 +605,45 @@ const base =
     margin-bottom: 4rem;
   }
 
-  .entity-box {
-    background: #fff;
-    border: 1.5px solid #9e9a99;
+  .entity-box,
+  .manager-box,
+  .department-box {
+    position: relative;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(0, 173, 231, 0.22);
     border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      border-color 0.35s ease;
+  }
+
+  .entity-box {
     padding: 2rem;
     text-align: center;
-    box-shadow: 0 2px 12px rgba(0, 173, 231, 0.04);
+  }
+
+  .entity-box:hover,
+  .manager-box:hover,
+  .department-box:hover {
+    transform: translateY(-6px);
+    border-color: #00ade7;
+    box-shadow: 0 20px 45px rgba(0, 173, 231, 0.28);
+  }
+
+  /* glowing node dot on the entity cards */
+  .entity-box::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #00ade7;
+    box-shadow: 0 0 0 4px rgba(0, 173, 231, 0.22);
   }
 
   .entity-box h3 {
@@ -572,8 +656,7 @@ const base =
 
   .entity-box p {
     font-size: 0.9rem;
-    font-weight: 400;
-    color: #444;
+    color: #475569;
     text-transform: lowercase;
     line-height: 1.6;
   }
@@ -583,22 +666,34 @@ const base =
   }
 
   .manager-box {
-    background: #e6f8fd;
-    border: 1.5px solid #00ade7;
-    border-radius: 16px;
     padding: 3rem;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    box-shadow: 0 2px 12px rgba(0, 173, 231, 0.04);
+    background: linear-gradient(135deg, #ffffff 0%, #eaf8fe 100%);
+    border-color: #00ade7;
   }
 
   .manager-box h3 {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #00ade7;
+    color: #1a365d;
     text-transform: lowercase;
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .manager-box h3::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.7rem;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #00ade7, #3fb7e9);
   }
 
   .manager-box ul {
@@ -606,15 +701,28 @@ const base =
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 0.75rem 2rem;
   }
 
   .manager-box li {
     font-size: 0.95rem;
-    font-weight: 400;
-    color: #444;
+    color: #475569;
     text-transform: lowercase;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    position: relative;
+    text-align: left;
+  }
+
+  .manager-box li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00ade7;
   }
 
   .departments-grid {
@@ -625,22 +733,18 @@ const base =
   }
 
   .department-box {
-    background: #fff;
-    border: 1.5px solid #9e9a99;
-    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 173, 231, 0.04);
   }
 
   .department-header {
-    background: #e6f8fd;
-    color: #00ade7;
-    padding: 1rem;
+    background: linear-gradient(135deg, #00ade7, #3fb7e9);
+    color: #fff;
+    padding: 1.1rem;
     font-size: 1rem;
     font-weight: 700;
     text-transform: lowercase;
     text-align: center;
-    border-bottom: 1px solid #9e9a99;
+    letter-spacing: 0.3px;
   }
 
   .department-content {
@@ -650,7 +754,7 @@ const base =
   .department-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #00ade7;
+    color: #1a365d;
     text-transform: lowercase;
     margin-bottom: 1.5rem;
     text-align: center;
@@ -663,11 +767,23 @@ const base =
 
   .department-box li {
     font-size: 0.85rem;
-    font-weight: 400;
-    color: #444;
+    color: #475569;
     text-transform: lowercase;
-    padding: 0.3rem 0;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    border-bottom: 1px solid #eef2f5;
+    position: relative;
+  }
+
+  .department-box li::before {
+    content: "\203A";
+    position: absolute;
+    left: 0;
+    color: #00ade7;
+    font-weight: 700;
+  }
+
+  .department-box li:last-child {
+    border-bottom: none;
   }
 
   .helper-section {
