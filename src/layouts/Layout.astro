@@ -321,6 +321,20 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         );
         counters.forEach((el) => countObserver.observe(el));
       }
+
+      // ---- Pause the homepage hero ken-burns when scrolled off-screen ----
+      const heroEl = document.querySelector(".hero");
+      if (heroEl && "IntersectionObserver" in window) {
+        const heroPauseObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) =>
+              heroEl.classList.toggle("is-offscreen", !entry.isIntersecting)
+            );
+          },
+          { threshold: 0 }
+        );
+        heroPauseObserver.observe(heroEl);
+      }
     </script>
   </body>
 </html>
@@ -928,6 +942,21 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     border-color: #00ade7 !important;
     color: #fff !important;
     box-shadow: 0 10px 30px rgba(0, 173, 231, 0.3) !important;
+  }
+
+  /* ----------------------------------------------------------
+     Hero animation performance.
+     Detail-page heroes are static (a continuous full-screen
+     image zoom keeps the compositor busy on every scroll frame).
+     The homepage ken-burns pauses when scrolled off-screen.
+     ---------------------------------------------------------- */
+  .service-detail-hero .hero-bg-image {
+    animation: none !important;
+    transform: scale(1.04);
+  }
+
+  .hero.is-offscreen .hero-background {
+    animation-play-state: paused;
   }
 
   /* Mobile: keep the CTA out of the slim bar (mobile menu covers contact) */
