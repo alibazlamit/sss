@@ -335,22 +335,31 @@ const testimonials = [
   }
 
   .marquee {
+    position: relative;
     width: 100%;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent,
-      #000 8%,
-      #000 92%,
-      transparent
-    );
-    mask-image: linear-gradient(
-      90deg,
-      transparent,
-      #000 8%,
-      #000 92%,
-      transparent
-    );
+  }
+
+  /* Static edge fades (cheaper than a mask that re-composites every frame) */
+  .marquee::before,
+  .marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, #fff, transparent);
+  }
+
+  .marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, #fff, transparent);
   }
 
   .marquee + .marquee {
@@ -363,6 +372,12 @@ const testimonials = [
     gap: 4rem;
     width: max-content;
     animation: marqueeScroll 38s linear infinite;
+    will-change: transform;
+  }
+
+  /* Pause the marquee entirely when its section is scrolled off-screen */
+  .logo-marquee-section.paused .marquee-track {
+    animation-play-state: paused;
   }
 
   .marquee-reverse .marquee-track {
@@ -823,5 +838,19 @@ const testimonials = [
     carousel.addEventListener("mouseleave", restart);
 
     restart();
+
+    // Pause the logo marquee animation when it scrolls out of view
+    const marqueeSection = document.querySelector(".logo-marquee-section");
+    if (marqueeSection && "IntersectionObserver" in window) {
+      const mqObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) =>
+            marqueeSection.classList.toggle("paused", !entry.isIntersecting)
+          );
+        },
+        { threshold: 0 }
+      );
+      mqObserver.observe(marqueeSection);
+    }
   });
 </script>
