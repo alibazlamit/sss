@@ -27,6 +27,17 @@ const base =
         sectors including government, education, healthcare, hospitality, and
         corporate facilities.
       </p>
+      <div class="filter-pills" id="filterPills">
+        <button class="filter-pill active" data-filter="all">all</button>
+        <button class="filter-pill" data-filter="government">government</button>
+        <button class="filter-pill" data-filter="education">education</button>
+        <button class="filter-pill" data-filter="healthcare">healthcare</button>
+        <button class="filter-pill" data-filter="hospitality"
+          >hospitality</button
+        >
+        <button class="filter-pill" data-filter="networking">networking</button>
+        <button class="filter-pill" data-filter="corporate">corporate</button>
+      </div>
     </div>
   </nav>
 
@@ -35,7 +46,7 @@ const base =
     <div class="container">
       <div class="projects-masonry-grid">
         <!-- King Khalid International Airport -->
-        <div class="project-item large" data-project="kkia">
+        <div class="project-item large" data-project="kkia" data-category="government">
           <div class="project-image">
             <img loading="lazy" decoding="async"
               src={`${base}projects/King Khalid International Airport - Terminal 1 - Pic/cover.jpeg`}
@@ -50,7 +61,7 @@ const base =
         </div>
 
         <!-- Learning Oasis School -->
-        <div class="project-item medium" data-project="learning-oasis">
+        <div class="project-item medium" data-project="learning-oasis" data-category="education">
           <div class="project-image">
             <img loading="lazy" decoding="async"
               src={`${base}images/projects/learning_oasis_int_schools_cover.jpg`}
@@ -65,7 +76,7 @@ const base =
         </div>
 
         <!-- Citadines Culture Village Dubai -->
-        <div class="project-item tall" data-project="citadines">
+        <div class="project-item tall" data-project="citadines" data-category="hospitality">
           <div class="project-image">
             <img loading="lazy" decoding="async"
               src={`${base}projects/Citadines Culture Village Dubai - Pic/cover.jpg`}
@@ -80,7 +91,7 @@ const base =
         </div>
 
         <!-- Dallah Rafa Clinic -->
-        <div class="project-item medium" data-project="dallah">
+        <div class="project-item medium" data-project="dallah" data-category="healthcare">
           <div class="project-image">
             <img loading="lazy" decoding="async"
               src={`${base}projects/Dallah Rafa Clinic Basement Parking Renovation - Pic/cover.jpg`}
@@ -95,7 +106,7 @@ const base =
         </div>
 
         <!-- Point to Point Wireless -->
-        <div class="project-item wide" data-project="p2p">
+        <div class="project-item wide" data-project="p2p" data-category="networking">
           <div class="project-image">
             <img loading="lazy" decoding="async"
               src={`${base}projects/Point to Point Wireless Connection Project - Pic/P2P.jpg`}
@@ -110,7 +121,7 @@ const base =
         </div>
 
         <!-- Serviced Office - SPACES by Regus -->
-        <div class="project-item medium" data-project="spaces">
+        <div class="project-item medium" data-project="spaces" data-category="corporate">
           <div class="project-image">
             <img loading="lazy" decoding="async"
               src={`${base}projects/Serviced Office - SPACES - by Regus at Riyadh Park - Pic/cover.jpg`}
@@ -207,22 +218,61 @@ const base =
 
   /* Projects Filter */
   .projects-filter {
-    padding: 2rem 0;
-    background: rgba(255, 255, 255, 0.95);
+    padding: 1.75rem 0;
+    background: #ffffff;
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e8eef3;
     text-align: center;
   }
 
   .projects-description {
     color: #64748b;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
     line-height: 1.6;
+  }
+
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .filter-pill {
+    padding: 0.55rem 1.3rem;
+    border-radius: 999px;
+    border: 1.5px solid #d6e6ef;
+    background: #fff;
+    color: #5b7186;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition:
+      color 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .filter-pill:hover {
+    color: #00ade7;
+    border-color: #9ad7f0;
+    transform: translateY(-2px);
+  }
+
+  .filter-pill.active {
+    color: #fff;
+    background: linear-gradient(120deg, #00ade7, #3fb7e9);
+    border-color: #00ade7;
+    box-shadow: 0 6px 16px -4px rgba(0, 173, 231, 0.5);
   }
 
   /* Projects Showcase */
@@ -322,17 +372,25 @@ const base =
 
   .project-category {
     display: inline-block;
-    background: rgba(26, 54, 93, 0.9);
+    background: linear-gradient(120deg, #00ade7, #3fb7e9);
     color: white;
-    padding: 0.3rem 0.8rem;
+    padding: 0.3rem 0.9rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: lowercase;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 12px -2px rgba(0, 173, 231, 0.5);
   }
 
   /* Filter States */
   .project-item.hidden {
     display: none;
+  }
+
+  .project-item.is-hidden {
+    opacity: 0;
+    transform: scale(0.92);
   }
 
   /* Gallery Modal */
@@ -1124,6 +1182,33 @@ const base =
           nextImage();
           break;
       }
+    });
+
+    // ---- Category filtering ----
+    const filterPills = document.querySelectorAll(".filter-pill");
+    const allItems = document.querySelectorAll(".project-item");
+    filterPills.forEach((pill) => {
+      pill.addEventListener("click", () => {
+        filterPills.forEach((p) => p.classList.remove("active"));
+        pill.classList.add("active");
+        const filter = pill.getAttribute("data-filter");
+        allItems.forEach((item) => {
+          const match =
+            filter === "all" ||
+            item.getAttribute("data-category") === filter;
+          if (match) {
+            item.style.display = "";
+            requestAnimationFrame(() => item.classList.remove("is-hidden"));
+          } else {
+            item.classList.add("is-hidden");
+            setTimeout(() => {
+              if (item.classList.contains("is-hidden")) {
+                item.style.display = "none";
+              }
+            }, 350);
+          }
+        });
+      });
     });
   });
 </script>
