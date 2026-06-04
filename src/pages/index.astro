@@ -518,8 +518,7 @@ const base =
     width: 100%;
     height: 100%;
     z-index: 1;
-    mix-blend-mode: screen;
-    opacity: 0.6;
+    opacity: 0.7;
     pointer-events: none;
   }
 
@@ -917,9 +916,8 @@ const base =
     text-align: center;
     padding: 5px 12px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: #fff;
     font-size: 12px;
     font-weight: 500;
@@ -1266,7 +1264,9 @@ const base =
 
     if (canvas && hero && canvas.getContext) {
       const ctx = canvas.getContext("2d");
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // Cap at 1 — the network lines don't need retina resolution, and a
+      // smaller backing store means far less fill cost per frame.
+      const dpr = 1;
       let w = 0;
       let h = 0;
       let nodes = [];
@@ -1277,7 +1277,7 @@ const base =
         canvas.width = w * dpr;
         canvas.height = h * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const count = Math.max(24, Math.min(70, Math.floor((w * h) / 20000)));
+        const count = Math.max(18, Math.min(50, Math.floor((w * h) / 28000)));
         nodes = Array.from({ length: count }, () => ({
           x: Math.random() * w,
           y: Math.random() * h,
@@ -1322,11 +1322,15 @@ const base =
       };
 
       let running = false;
-      const loop = () => {
+      let lastDraw = 0;
+      const loop = (t) => {
         if (!running) return;
+        requestAnimationFrame(loop);
+        // Throttle to ~30fps — imperceptible for a slow drift, half the cost
+        if (t - lastDraw < 33) return;
+        lastDraw = t;
         step();
         render();
-        requestAnimationFrame(loop);
       };
       const start = () => {
         if (!running) {
