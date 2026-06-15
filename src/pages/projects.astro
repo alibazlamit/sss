@@ -5,6 +5,71 @@ import Layout from "../layouts/Layout.astro";
 const baseUrl = import.meta.env.BASE_URL;
 const base =
   baseUrl === "" ? "/" : baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+
+// Case-study cards: client + sector + scope of work lead; the photo supports.
+// NOTE: scope tags are drafted from project type — confirm exact systems with client.
+const projectCards = [
+  {
+    id: "kkia",
+    cat: "government",
+    size: "large",
+    cover: `${base}projects/King Khalid International Airport - Terminal 1 - Pic/cover.jpeg`,
+    title: "King Khalid International Airport",
+    location: "Terminal 1 · Riyadh",
+    sector: "Government",
+    scope: ["Fire & Safety", "Structured Cabling"],
+  },
+  {
+    id: "learning-oasis",
+    cat: "education",
+    size: "medium",
+    cover: `${base}images/projects/learning_oasis_int_schools_cover.jpg`,
+    title: "Learning Oasis National School",
+    location: "Riyadh",
+    sector: "Education",
+    scope: ["CCTV", "Access Control"],
+  },
+  {
+    id: "citadines",
+    cat: "hospitality",
+    size: "tall",
+    cover: `${base}projects/Citadines Culture Village Dubai - Pic/cover.jpg`,
+    title: "Citadines Culture Village",
+    location: "Dubai",
+    sector: "Hospitality",
+    scope: ["CCTV", "Smart Integration"],
+  },
+  {
+    id: "dallah",
+    cat: "healthcare",
+    size: "medium",
+    cover: `${base}projects/Dallah Rafa Clinic Basement Parking Renovation - Pic/cover.jpg`,
+    title: "Dallah Rafa Clinic",
+    location: "Basement Parking · Riyadh",
+    sector: "Healthcare",
+    scope: ["CCTV", "Access Control"],
+  },
+  {
+    id: "p2p",
+    cat: "networking",
+    size: "wide",
+    cover: `${base}projects/Point to Point Wireless Connection Project - Pic/P2P.jpg`,
+    title: "Point-to-Point Wireless Link",
+    location: "Long-distance network bridging",
+    sector: "Networking",
+    scope: ["Wireless", "Connectivity"],
+  },
+  {
+    id: "spaces",
+    cat: "corporate",
+    size: "medium",
+    cover: `${base}projects/Serviced Office - SPACES - by Regus at Riyadh Park - Pic/cover.jpg`,
+    title: "SPACES by Regus",
+    location: "Riyadh Park",
+    sector: "Corporate",
+    scope: ["CCTV", "Access Control"],
+  },
+];
 ---
 
 <Layout title="Our Projects - SSS Security Solutions">
@@ -45,95 +110,35 @@ const base =
   <section class="projects-showcase">
     <div class="container">
       <div class="projects-masonry-grid">
-        <!-- King Khalid International Airport -->
-        <div class="project-item large" data-project="kkia" data-category="government">
-          <div class="project-image">
-            <img loading="lazy" decoding="async"
-              src={`${base}projects/King Khalid International Airport - Terminal 1 - Pic/cover.jpeg`}
-              alt="King Khalid International Airport Terminal 1"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">king khalid international airport</h3>
-            <p class="project-subtitle">terminal 1 renovation project</p>
-            <span class="project-category">government</span>
-          </div>
-        </div>
-
-        <!-- Learning Oasis School -->
-        <div class="project-item medium" data-project="learning-oasis" data-category="education">
-          <div class="project-image">
-            <img loading="lazy" decoding="async"
-              src={`${base}images/projects/learning_oasis_int_schools_cover.jpg`}
-              alt="Learning Oasis National International School"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">learning oasis national school</h3>
-            <p class="project-subtitle">comprehensive security system</p>
-            <span class="project-category">education</span>
-          </div>
-        </div>
-
-        <!-- Citadines Culture Village Dubai -->
-        <div class="project-item tall" data-project="citadines" data-category="hospitality">
-          <div class="project-image">
-            <img loading="lazy" decoding="async"
-              src={`${base}projects/Citadines Culture Village Dubai - Pic/cover.jpg`}
-              alt="Citadines Culture Village Dubai"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">citadines culture village dubai</h3>
-            <p class="project-subtitle">hospitality security solution</p>
-            <span class="project-category">hospitality</span>
-          </div>
-        </div>
-
-        <!-- Dallah Rafa Clinic -->
-        <div class="project-item medium" data-project="dallah" data-category="healthcare">
-          <div class="project-image">
-            <img loading="lazy" decoding="async"
-              src={`${base}projects/Dallah Rafa Clinic Basement Parking Renovation - Pic/cover.jpg`}
-              alt="Dallah Rafa Clinic Basement Parking"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">dallah rafa clinic</h3>
-            <p class="project-subtitle">basement parking renovation</p>
-            <span class="project-category">healthcare</span>
-          </div>
-        </div>
-
-        <!-- Point to Point Wireless -->
-        <div class="project-item wide" data-project="p2p" data-category="networking">
-          <div class="project-image">
-            <img loading="lazy" decoding="async"
-              src={`${base}projects/Point to Point Wireless Connection Project - Pic/P2P.jpg`}
-              alt="Point to Point Wireless Connection"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">point to point wireless connection</h3>
-            <p class="project-subtitle">long-distance network bridging</p>
-            <span class="project-category">networking</span>
-          </div>
-        </div>
-
-        <!-- Serviced Office - SPACES by Regus -->
-        <div class="project-item medium" data-project="spaces" data-category="corporate">
-          <div class="project-image">
-            <img loading="lazy" decoding="async"
-              src={`${base}projects/Serviced Office - SPACES - by Regus at Riyadh Park - Pic/cover.jpg`}
-              alt="Serviced Office SPACES by Regus"
-            />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">spaces by regus</h3>
-            <p class="project-subtitle">riyadh park serviced office</p>
-            <span class="project-category">corporate</span>
-          </div>
-        </div>
+        {
+          projectCards.map((p) => (
+            <div
+              class={`project-item ${p.size}`}
+              data-project={p.id}
+              data-category={p.cat}
+            >
+              <div class="project-image">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={p.cover}
+                  alt={p.title}
+                />
+              </div>
+              <div class="project-info">
+                <span class="project-category">{p.sector}</span>
+                <h3 class="project-title">{p.title}</h3>
+                <p class="project-subtitle">{p.location}</p>
+                <div class="project-scope">
+                  {p.scope.map((s) => (
+                    <span class="scope-tag">{s}</span>
+                  ))}
+                </div>
+                <span class="project-view">view project →</span>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -322,15 +327,40 @@ const base =
     overflow: hidden;
   }
 
+  /* Unified brand treatment: a consistent navy/cyan wash + bottom scrim so
+     mixed-quality project photos read as one cohesive, intentional set and
+     the always-visible caption stays legible. */
+  .project-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(11, 31, 51, 0.12) 0%,
+        rgba(11, 31, 51, 0.04) 35%,
+        rgba(6, 18, 31, 0.6) 72%,
+        rgba(6, 18, 31, 0.95) 100%
+      ),
+      linear-gradient(
+        120deg,
+        rgba(0, 173, 231, 0.14) 0%,
+        rgba(26, 54, 93, 0.2) 100%
+      );
+  }
+
   .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    filter: saturate(0.92) contrast(1.05);
+    transition: transform 0.5s ease;
   }
 
   .project-item:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.06);
   }
 
   .project-info {
@@ -338,19 +368,23 @@ const base =
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(
-      transparent,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.9)
-    );
+    z-index: 2;
     color: white;
-    padding: 3rem 2rem 2rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    padding: 1.6rem 1.6rem 1.4rem;
   }
 
-  .project-item:hover .project-info {
-    transform: translateY(0);
+  .project-info .project-category {
+    margin-bottom: 0.7rem;
+  }
+
+  .project-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin-bottom: 0.25rem;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
   }
 
   .hero-title {
@@ -365,9 +399,9 @@ const base =
   }
 
   .project-subtitle {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 0.85rem;
   }
 
   .project-category {
@@ -381,6 +415,42 @@ const base =
     text-transform: lowercase;
     letter-spacing: 0.3px;
     box-shadow: 0 4px 12px -2px rgba(0, 173, 231, 0.5);
+  }
+
+  /* Scope-of-work tags — the systems delivered on each project */
+  .project-scope {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .scope-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 0.28rem 0.7rem;
+    border-radius: 6px;
+    color: #dff4fc;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  .project-view {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #7fdcff;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .project-item:hover .project-view {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* Filter States */
@@ -856,12 +926,7 @@ const base =
     }
 
     .project-info {
-      transform: translateY(0);
-      background: linear-gradient(
-        transparent,
-        rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.95)
-      );
+      padding: 1.3rem 1.3rem 1.2rem;
     }
 
     .projects-description {
@@ -941,33 +1006,17 @@ const base =
     const projects = {
       kkia: {
         title: "King Khalid International Airport",
-        subtitle: "Terminal 1 Renovation Project",
+        subtitle: "Terminal 1 — Fire & Safety, Structured Cabling",
         folder: "King Khalid International Airport - Terminal 1 - Pic",
+        // Heavily curated from 87 raw site photos down to the strongest shots
+        // (terminal architecture + clean cabling work). cover is AI-upscaled.
         images: [
-          "0001.jpg",
-          "0002.jpg",
-          "0003.jpg",
-          "0004.jpg",
-          "0005.jpg",
-          "0006.jpg",
-          "0007.jpg",
-          "0009.jpg",
-          "0010.jpg",
-          "0011.jpg",
-          "0012.jpg",
-          "0013.jpg",
-          "0014.jpg",
-          "0015.jpg",
-          "0016.jpg",
-          "0017.jpg",
-          "0018.jpg",
-          "0019.jpg",
-          "0020.jpg",
-          "0021.jpg",
-          "KKIA 1.jpg",
+          "cover.jpeg",
+          "WhatsApp Image 2023-10-12 at 18.06.20.jpeg",
+          "WhatsApp Image 2023-10-12 at 18.06.41.jpeg",
+          "WhatsApp Image 2023-10-12 at 18.06.42.jpeg",
           "KKIA 2.jpg",
-          "KKIA 3.png",
-          "P2P.jpg",
+          "0005.jpg",
         ],
       },
       "learning-oasis": {
@@ -1081,6 +1130,15 @@ const base =
       projectImages = [];
     }
 
+    // Resolve an image src. Names containing "/" are treated as
+    // base-relative paths (e.g. clean system/representative images),
+    // otherwise they live inside the project's photo folder.
+    function srcFor(name) {
+      return name.includes("/")
+        ? `${window.BASE_PATH}${name}`
+        : `${window.BASE_PATH}projects/${currentProject.folder}/${name}`;
+    }
+
     // Create thumbnails
     function createThumbnails() {
       galleryThumbs.innerHTML = "";
@@ -1090,7 +1148,7 @@ const base =
         if (index === 0) thumb.classList.add("active");
 
         const img = document.createElement("img");
-        img.src = `${window.BASE_PATH}projects/${currentProject.folder}/${imageName}`;
+        img.src = srcFor(imageName);
         img.alt = `${currentProject.title} - Image ${index + 1}`;
         img.style.width = "60px";
         img.style.height = "60px";
@@ -1107,7 +1165,7 @@ const base =
       if (index < 0 || index >= projectImages.length) return;
 
       currentImageIndex = index;
-      galleryImage.src = `${window.BASE_PATH}projects/${currentProject.folder}/${projectImages[index]}`;
+      galleryImage.src = srcFor(projectImages[index]);
       galleryImage.alt = `${currentProject.title} - Image ${index + 1}`;
       galleryCurrent.textContent = index + 1;
 
