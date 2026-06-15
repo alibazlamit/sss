@@ -398,28 +398,30 @@ const base =
         Ready to secure your property? Contact us for a free consultation and
         custom quote.
       </p>
-      {/* TODO: The email, phone, and address below are placeholders (US format) — replace with the client's real Saudi Arabia contact details before launch. */}
       <div class="contact-grid">
         <div class="contact-info">
           <div class="contact-item">
             <div class="contact-icon">📧</div>
             <div class="contact-details">
               <h3>Email Us</h3>
-              <p>info@sss-security.com</p>
+              <p><a href="mailto:info@sss-lcs.com">info@sss-lcs.com</a></p>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">📱</div>
             <div class="contact-details">
               <h3>Call Us</h3>
-              <p>+1 (555) 123-4567</p>
+              <p>
+                <a href="tel:+966112079523">+966 11 207 9523</a><br />
+                <a href="tel:+966561013909">+966 56 101 3909</a>
+              </p>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">📍</div>
             <div class="contact-details">
               <h3>Visit Us</h3>
-              <p>123 Security Street, Tech City, TC 12345</p>
+              <p>64006 Riyadh 11536, Kingdom of Saudi Arabia</p>
             </div>
           </div>
         </div>
@@ -1128,6 +1130,16 @@ const base =
   .contact-details p {
     color: #e2e8f0;
     font-weight: 500;
+  }
+
+  .contact-details a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .contact-details a:hover {
+    text-decoration: underline;
   }
 
   .form {
