@@ -88,7 +88,16 @@ const base =
             </div>
             <div class="contact-details">
               <h3>visit us</h3>
-              <p>64006 Riyadh 11536<br />Kingdom of Saudi Arabia</p>
+              <p>
+                <a
+                  href="https://www.google.com/maps/place/24%C2%B045'40.0%22N+46%C2%B036'16.1%22E/@24.7611027,46.6044655,17z"
+                  target="_blank"
+                  rel="noopener"
+                  >Signature Center 2 &ndash; 2nd Floor<br />Prince Turki
+                  Al-Awwal Rd, Exit 2<br />Hittin District, Riyadh 11536<br
+                  />Kingdom of Saudi Arabia</a
+                >
+              </p>
             </div>
           </div>
         </div>
@@ -141,6 +150,27 @@ const base =
             <span>emergency only</span>
           </div>
         </div>
+      </div>
+
+      <div class="map-section">
+        <h3>find us</h3>
+        <div class="map-frame">
+          <iframe
+            title="SSS Security Solutions location on Google Maps"
+            src="https://www.google.com/maps?q=24.7611027,46.6044655&z=16&hl=en&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+        <a
+          class="map-link"
+          href="https://www.google.com/maps/dir/?api=1&destination=24.7611027,46.6044655"
+          target="_blank"
+          rel="noopener">get directions →</a
+        >
       </div>
     </div>
   </section>
@@ -363,6 +393,51 @@ const base =
     border-bottom: 1px solid #e2e8f0;
     color: #444;
     font-weight: 400;
+  }
+
+  .map-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 173, 231, 0.08);
+    border: 1.5px solid #9e9a99;
+    text-align: center;
+  }
+
+  .map-section h3 {
+    margin-bottom: 1.5rem;
+    color: #00ade7;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .map-frame {
+    width: 100%;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid #e2e8f0;
+  }
+
+  .map-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: #00ade7;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: color 0.2s ease;
+  }
+
+  .map-link:hover {
+    color: #007ea8;
   }
 
   .emergency-contact {
