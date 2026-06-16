@@ -421,7 +421,16 @@ const base =
             <div class="contact-icon">📍</div>
             <div class="contact-details">
               <h3>Visit Us</h3>
-              <p>64006 Riyadh 11536, Kingdom of Saudi Arabia</p>
+              <p>
+                <a
+                  href="https://www.google.com/maps/place/24%C2%B045'40.0%22N+46%C2%B036'16.1%22E/@24.7611027,46.6044655,17z"
+                  target="_blank"
+                  rel="noopener"
+                  >Signature Center 2, 2nd Floor<br />Prince Turki Al-Awwal Rd,
+                  Exit 2, Hittin District<br />Riyadh 11536, Kingdom of Saudi
+                  Arabia</a
+                >
+              </p>
             </div>
           </div>
         </div>
@@ -454,6 +463,26 @@ const base =
             <button type="submit" class="btn btn-primary">Send Message</button>
           </form>
         </div>
+      </div>
+
+      <div class="home-map">
+        <div class="home-map-frame">
+          <iframe
+            title="SSS Security Solutions location on Google Maps"
+            src="https://www.google.com/maps?q=24.7611027,46.6044655&z=16&hl=en&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+        <a
+          class="home-map-link"
+          href="https://www.google.com/maps/dir/?api=1&destination=24.7611027,46.6044655"
+          target="_blank"
+          rel="noopener">Get Directions →</a
+        >
       </div>
     </div>
   </section>
@@ -1140,6 +1169,41 @@ const base =
 
   .contact-details a:hover {
     text-decoration: underline;
+  }
+
+  .home-map {
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .home-map-frame {
+    width: 100%;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  }
+
+  .home-map-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-map-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease;
+  }
+
+  .home-map-link:hover {
+    border-color: #fff;
   }
 
   .form {
