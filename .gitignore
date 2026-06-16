@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # Windows bash crash artifacts
 *.stackdump
+
+.netlify

@@ -1,1272 +1,697 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-// Import base path for proper navigation - ensure it ends with /
+// Base path (ends with /)
 const baseUrl = import.meta.env.BASE_URL;
 const base =
   baseUrl === "" ? "/" : baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
 
-// Case-study cards: client + sector + scope of work lead; the photo supports.
-// NOTE: scope tags are drafted from project type — confirm exact systems with client.
-const projectCards = [
+const f = (folder: string, name: string) =>
+  `${base}projects/${folder}/${name}`;
+
+// Cinematic portfolio reel. Client + sector + scope lead; treated imagery supports.
+// Scope copy drafted from project type — confirm exact systems with client.
+const projects = [
   {
     id: "kkia",
-    cat: "government",
-    size: "large",
-    cover: `${base}projects/King Khalid International Airport - Terminal 1 - Pic/cover.jpeg`,
-    title: "King Khalid International Airport",
-    location: "Terminal 1 · Riyadh",
+    code: "KKIA-T1",
     sector: "Government",
+    location: "Terminal 1 · Riyadh",
+    title: "King Khalid<br/>International Airport",
+    blurb:
+      "Fire-detection and structured-cabling backbone delivered across a live international terminal — engineered for uptime, code compliance and round-the-clock operation.",
     scope: ["Fire & Safety", "Structured Cabling"],
-  },
-  {
-    id: "learning-oasis",
-    cat: "education",
-    size: "medium",
-    cover: `${base}images/projects/learning_oasis_int_schools_cover.jpg`,
-    title: "Learning Oasis National School",
-    location: "Riyadh",
-    sector: "Education",
-    scope: ["CCTV", "Access Control"],
+    cover: `${base}images/systems/kkia-terminal-enhanced.jpg`,
+    folder: "King Khalid International Airport - Terminal 1 - Pic",
+    images: [
+      `${base}images/systems/kkia-terminal-enhanced.jpg`,
+      `${base}images/kkia/terminal-systems.jpg`,
+      `${base}images/kkia/fire-safety.jpg`,
+      `${base}images/kkia/cabling-rack.jpg`,
+      `${base}images/kkia/cabling-trays.jpg`,
+    ],
   },
   {
     id: "citadines",
-    cat: "hospitality",
-    size: "tall",
-    cover: `${base}projects/Citadines Culture Village Dubai - Pic/cover.jpg`,
-    title: "Citadines Culture Village",
-    location: "Dubai",
+    code: "CITA-DXB",
     sector: "Hospitality",
+    location: "Culture Village · Dubai",
+    title: "Citadines<br/>Culture Village",
+    blurb:
+      "Integrated CCTV and smart-building systems for a waterfront hospitality landmark — discreet coverage that holds the guest experience intact.",
     scope: ["CCTV", "Smart Integration"],
+    cover: f("Citadines Culture Village Dubai - Pic", "cover.jpg"),
+    folder: "Citadines Culture Village Dubai - Pic",
+    images: [
+      f("Citadines Culture Village Dubai - Pic", "cover.jpg"),
+      `${base}images/ai-projects/citadines-cctv.jpg`,
+      `${base}images/ai-projects/citadines-access.jpg`,
+      `${base}images/ai-projects/citadines-bms.jpg`,
+    ],
+  },
+  {
+    id: "learning-oasis",
+    code: "OASIS-EDU",
+    sector: "Education",
+    location: "Riyadh",
+    title: "Learning Oasis<br/>National School",
+    blurb:
+      "End-to-end campus security — surveillance and access control mapped across classrooms, corridors and entry points to keep a busy school safe.",
+    scope: ["CCTV", "Access Control"],
+    cover: `${base}images/projects/learning_oasis_int_schools_cover.jpg`,
+    folder: "Learning Oasis National International School - Pic",
+    images: [
+      `${base}images/projects/learning_oasis_int_schools_cover.jpg`,
+      `${base}images/ai-projects/oasis-corridor.jpg`,
+      `${base}images/ai-projects/oasis-entrance.jpg`,
+      `${base}images/ai-projects/oasis-monitoring.jpg`,
+    ],
   },
   {
     id: "dallah",
-    cat: "healthcare",
-    size: "medium",
-    cover: `${base}projects/Dallah Rafa Clinic Basement Parking Renovation - Pic/cover.jpg`,
-    title: "Dallah Rafa Clinic",
-    location: "Basement Parking · Riyadh",
+    code: "DLH-RYD",
     sector: "Healthcare",
+    location: "Basement Parking · Riyadh",
+    title: "Dallah<br/>Rafa Clinic",
+    blurb:
+      "Surveillance and access control for a clinic basement-parking renovation — controlled entry and full visual coverage in a sensitive healthcare setting.",
     scope: ["CCTV", "Access Control"],
-  },
-  {
-    id: "p2p",
-    cat: "networking",
-    size: "wide",
-    cover: `${base}projects/Point to Point Wireless Connection Project - Pic/P2P.jpg`,
-    title: "Point-to-Point Wireless Link",
-    location: "Long-distance network bridging",
-    sector: "Networking",
-    scope: ["Wireless", "Connectivity"],
+    cover: f("Dallah Rafa Clinic Basement Parking Renovation - Pic", "cover.jpg"),
+    folder: "Dallah Rafa Clinic Basement Parking Renovation - Pic",
+    images: [
+      f("Dallah Rafa Clinic Basement Parking Renovation - Pic", "cover.jpg"),
+      `${base}images/ai-projects/dallah-parking-cctv.jpg`,
+      `${base}images/ai-projects/dallah-barrier.jpg`,
+      `${base}images/ai-projects/dallah-entrance.jpg`,
+    ],
   },
   {
     id: "spaces",
-    cat: "corporate",
-    size: "medium",
-    cover: `${base}projects/Serviced Office - SPACES - by Regus at Riyadh Park - Pic/cover.jpg`,
-    title: "SPACES by Regus",
-    location: "Riyadh Park",
+    code: "SPCS-RP",
     sector: "Corporate",
+    location: "Riyadh Park",
+    title: "SPACES<br/>by Regus",
+    blurb:
+      "CCTV and access control for a premium serviced-office floor — clean, unobtrusive security that matches a high-end corporate environment.",
     scope: ["CCTV", "Access Control"],
+    cover: f("Serviced Office - SPACES - by Regus at Riyadh Park - Pic", "cover.jpg"),
+    folder: "Serviced Office - SPACES - by Regus at Riyadh Park - Pic",
+    images: [
+      f("Serviced Office - SPACES - by Regus at Riyadh Park - Pic", "cover.jpg"),
+      `${base}images/ai-projects/spaces-cctv.jpg`,
+      `${base}images/ai-projects/spaces-access.jpg`,
+      `${base}images/ai-projects/spaces-reception.jpg`,
+    ],
+  },
+  {
+    id: "p2p",
+    code: "P2P-LINK",
+    sector: "Networking",
+    location: "Long-distance bridging",
+    title: "Point-to-Point<br/>Wireless Link",
+    blurb:
+      "Long-range point-to-point wireless bridging between distant sites — a licensed, line-of-sight backbone delivering stable connectivity without trenching.",
+    scope: ["Wireless", "Connectivity"],
+    cover: `${base}images/ai-projects/p2p-antenna.jpg`,
+    folder: "Point to Point Wireless Connection Project - Pic",
+    images: [
+      `${base}images/ai-projects/p2p-antenna.jpg`,
+      `${base}images/ai-projects/p2p-rooftop.jpg`,
+      `${base}images/ai-projects/p2p-tower.jpg`,
+      `${base}images/ai-projects/p2p-install.jpg`,
+    ],
   },
 ];
 ---
 
-<Layout title="Our Projects - SSS Security Solutions">
-  <!-- Projects Hero -->
-  <section class="projects-hero">
-    <div class="hero-content">
-      <h1 class="hero-title">our portfolio</h1>
-      <p class="hero-subtitle">
-        showcasing our expertise in security system installations across various
-        sectors and environments
-      </p>
-    </div>
-  </section>
-
-  <!-- Projects Filter Navigation -->
-  <nav class="projects-filter">
-    <div class="container">
-      <p class="projects-description">
-        Explore our completed security installation projects across various
-        sectors including government, education, healthcare, hospitality, and
-        corporate facilities.
-      </p>
-      <div class="filter-pills" id="filterPills">
-        <button class="filter-pill active" data-filter="all">all</button>
-        <button class="filter-pill" data-filter="government">government</button>
-        <button class="filter-pill" data-filter="education">education</button>
-        <button class="filter-pill" data-filter="healthcare">healthcare</button>
-        <button class="filter-pill" data-filter="hospitality"
-          >hospitality</button
-        >
-        <button class="filter-pill" data-filter="networking">networking</button>
-        <button class="filter-pill" data-filter="corporate">corporate</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Projects Showcase -->
-  <section class="projects-showcase">
-    <div class="container">
-      <div class="projects-masonry-grid">
-        {
-          projectCards.map((p) => (
-            <div
-              class={`project-item ${p.size}`}
-              data-project={p.id}
-              data-category={p.cat}
-            >
-              <div class="project-image">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={p.cover}
-                  alt={p.title}
-                />
-              </div>
-              <div class="project-info">
-                <span class="project-category">{p.sector}</span>
-                <h3 class="project-title">{p.title}</h3>
-                <p class="project-subtitle">{p.location}</p>
-                <div class="project-scope">
-                  {p.scope.map((s) => (
-                    <span class="scope-tag">{s}</span>
-                  ))}
-                </div>
-                <span class="project-view">view project →</span>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Modal -->
-  <div id="gallery-modal" class="gallery-modal">
-    <div class="gallery-modal-content">
-      <button class="gallery-close">&times;</button>
-      <div class="gallery-main">
-        <div class="gallery-info-overlay">
-          <h3 id="gallery-title"></h3>
-          <p id="gallery-subtitle"></p>
-        </div>
-        <button class="gallery-nav gallery-prev">&#8249;</button>
-        <img loading="lazy" decoding="async" id="gallery-image" src="" alt="" />
-        <button class="gallery-nav gallery-next">&#8250;</button>
-        <div class="gallery-counter">
-          <span id="gallery-current">1</span> / <span id="gallery-total">1</span
-          >
+<Layout title="Projects — SSS Security Solutions">
+  <main class="reel">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-inner">
+        <span class="kicker">SSS · selected work</span>
+        <h1>Projects engineered<br /><em>to operate at scale.</em></h1>
+        <p class="hero-sub">
+          A reel of delivered security &amp; telecom integrations — from a live
+          international airport to clinics, schools and corporate floors across
+          the Kingdom and the Gulf.
+        </p>
+        <div class="hero-stats">
+          <div><b>6</b><span>flagship projects</span></div>
+          <div><b>5</b><span>sectors served</span></div>
+          <div><b>KSA + UAE</b><span>delivery footprint</span></div>
         </div>
       </div>
-      <div class="gallery-thumbnails">
-        <div id="gallery-thumbs"></div>
+      <span class="scrollcue">scroll ↓</span>
+    </section>
+
+    <!-- ============ INDEX RAIL ============ -->
+    <nav class="rail" aria-label="Project index">
+      {projects.map((p, i) => (
+        <button class="rail-dot" data-jump={i} aria-label={p.title.replace(/<[^>]+>/g, " ")}>
+          <span class="rail-no">{String(i + 1).padStart(2, "0")}</span>
+          <span class="rail-tip">{p.sector}</span>
+        </button>
+      ))}
+    </nav>
+
+    <!-- ============ PROJECT PANELS ============ -->
+    {projects.map((p, i) => (
+      <section class={`panel ${i % 2 === 0 ? "left" : "right"}`} data-panel={i} id={`p-${p.id}`}>
+        <div class="panel-bg" style={`background-image:url("${p.cover}")`}></div>
+        <div class="panel-scrim"></div>
+        <div class="panel-lines"></div>
+        <span class="panel-badge"><span>CAM · {p.code}</span><i class="rec"></i>REC</span>
+
+        <div class="panel-content">
+          <span class="p-no">{String(i + 1).padStart(2, "0")} <em>/ 0{projects.length}</em></span>
+          <span class="p-tag">{p.sector} · {p.location}</span>
+          <h2 class="p-title" set:html={p.title}></h2>
+          <p class="p-blurb">{p.blurb}</p>
+          <div class="p-chips">
+            {p.scope.map((s) => <span>{s}</span>)}
+          </div>
+          <button class="p-open" data-proj={p.id}>
+            <span class="p-open-lbl">Open gallery</span>
+            <span class="p-open-n">{p.images.length} photos</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </section>
+    ))}
+  </main>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lb" id="lb" aria-hidden="true">
+    <div class="lb-scrim" id="lbScrim"></div>
+    <div class="lb-panel">
+      <div class="lb-head">
+        <div class="lb-titles">
+          <span class="lb-code" id="lbCode">CAM</span>
+          <h3 id="lbTitle">Project</h3>
+          <p id="lbMeta">meta</p>
+        </div>
+        <div class="lb-chips" id="lbScope"></div>
+        <button class="lb-x" id="lbX" aria-label="Close gallery">✕</button>
       </div>
+      <div class="lb-stage">
+        <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+        <div class="lb-imgwrap">
+          <img id="lbImg" src="" alt="" />
+          <span class="lb-rec"><i></i>REC</span>
+          <span class="lb-count" id="lbCount">1 / 1</span>
+        </div>
+        <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+      </div>
+      <div class="lb-thumbs" id="lbThumbs"></div>
     </div>
   </div>
-
-  <!-- CTA Section -->
-  <section class="projects-cta">
-    <div class="container">
-      <div class="cta-content">
-        <h2 class="cta-title">ready to start your project?</h2>
-        <p class="cta-subtitle">
-          let us bring our expertise to your security requirements
-        </p>
-        <div class="cta-buttons">
-          <a href="/contact" class="btn btn-primary">get quote</a>
-          <a href="/services" class="btn btn-secondary">our services</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </Layout>
 
 <style>
-  /* Projects Hero */
-  .projects-hero {
-    height: 60vh;
-    padding: 8rem 0 4rem;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(11, 31, 51, 0.78) 0%,
-        rgba(11, 31, 51, 0.6) 100%
-      ),
-      linear-gradient(
-        115deg,
-        rgba(0, 173, 231, 0.25) 0%,
-        rgba(26, 54, 93, 0.35) 100%
-      ),
-      url("/images/upgrade/projects-hero.jpg") center center / cover no-repeat;
-    color: #fff;
-    text-align: center;
+  @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+  .reel {
+    --cy: #00ade7;
+    --cy2: #3fb7e9;
+    --ink: #050d17;
+    --ink2: #081726;
+    --paper: #e8f2f9;
+    --muted: #9db4c6;
+    --mono: "JetBrains Mono", monospace;
+    background: var(--ink);
+    color: var(--paper);
+    overflow-x: clip;
   }
 
-  .hero-title {
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    text-transform: lowercase;
-    color: #fff;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  /* Projects Filter */
-  .projects-filter {
-    padding: 1.75rem 0;
-    background: #ffffff;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #e8eef3;
-    text-align: center;
-  }
-
-  .projects-description {
-    color: #64748b;
-    font-size: 1.05rem;
-    max-width: 800px;
-    margin: 0 auto 1.5rem;
-    line-height: 1.6;
-  }
-
-  .filter-pills {
+  /* ===================== HERO ===================== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6rem;
-  }
-
-  .filter-pill {
-    padding: 0.55rem 1.3rem;
-    border-radius: 999px;
-    border: 1.5px solid #d6e6ef;
-    background: #fff;
-    color: #5b7186;
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: lowercase;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition:
-      color 0.25s ease,
-      background 0.25s ease,
-      border-color 0.25s ease,
-      box-shadow 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .filter-pill:hover {
-    color: #00ade7;
-    border-color: #9ad7f0;
-    transform: translateY(-2px);
-  }
-
-  .filter-pill.active {
-    color: #fff;
-    background: linear-gradient(120deg, #00ade7, #3fb7e9);
-    border-color: #00ade7;
-    box-shadow: 0 6px 16px -4px rgba(0, 173, 231, 0.5);
-  }
-
-  /* Projects Showcase */
-  .projects-showcase {
-    padding: 4rem 0;
-    background: #f8fafc;
-  }
-
-  .projects-masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-rows: 280px;
-    gap: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .project-item {
-    position: relative;
-    border-radius: 15px;
+    align-items: center;
+    padding: 6rem clamp(1.5rem, 7vw, 9rem) 4rem;
     overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+    background: var(--ink);
   }
-
-  .project-item.large {
-    grid-row: span 2;
-  }
-
-  .project-item.tall {
-    grid-row: span 2;
-  }
-
-  .project-item.wide {
-    grid-column: span 2;
-  }
-
-  .project-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  }
-
-  .project-image {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  /* Unified brand treatment: a consistent navy/cyan wash + bottom scrim so
-     mixed-quality project photos read as one cohesive, intentional set and
-     the always-visible caption stays legible. */
-  .project-image::after {
-    content: "";
+  .hero-glow {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    background:
+      radial-gradient(ellipse 60% 50% at 18% 8%, rgba(0, 173, 231, 0.22), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 95% 100%, rgba(63, 183, 233, 0.14), transparent 60%);
     pointer-events: none;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(11, 31, 51, 0.12) 0%,
-        rgba(11, 31, 51, 0.04) 35%,
-        rgba(6, 18, 31, 0.6) 72%,
-        rgba(6, 18, 31, 0.95) 100%
-      ),
-      linear-gradient(
-        120deg,
-        rgba(0, 173, 231, 0.14) 0%,
-        rgba(26, 54, 93, 0.2) 100%
-      );
   }
-
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(0.92) contrast(1.05);
-    transition: transform 0.5s ease;
-  }
-
-  .project-item:hover .project-image img {
-    transform: scale(1.06);
-  }
-
-  .project-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    color: white;
-    padding: 1.6rem 1.6rem 1.4rem;
-  }
-
-  .project-info .project-category {
-    margin-bottom: 0.7rem;
-  }
-
-  .project-title {
-    font-size: 1.35rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.3px;
-    margin-bottom: 0.25rem;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
-  }
-
-  .hero-title {
-    font-size: 4rem;
-    font-weight: 200;
-    color: #fff;
-    margin-bottom: 2rem;
-    text-transform: lowercase;
-    letter-spacing: -1px;
-    line-height: 1.1;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
-  }
-
-  .project-subtitle {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.82);
-    margin-bottom: 0.85rem;
-  }
-
-  .project-category {
-    display: inline-block;
-    background: linear-gradient(120deg, #00ade7, #3fb7e9);
-    color: white;
-    padding: 0.3rem 0.9rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: lowercase;
-    letter-spacing: 0.3px;
-    box-shadow: 0 4px 12px -2px rgba(0, 173, 231, 0.5);
-  }
-
-  /* Scope-of-work tags — the systems delivered on each project */
-  .project-scope {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.85rem;
-  }
-
-  .scope-tag {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    padding: 0.28rem 0.7rem;
-    border-radius: 6px;
-    color: #dff4fc;
-    background: rgba(255, 255, 255, 0.13);
-    border: 1px solid rgba(255, 255, 255, 0.24);
-  }
-
-  .project-view {
-    display: inline-block;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #7fdcff;
-    opacity: 0;
-    transform: translateY(6px);
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
-  }
-
-  .project-item:hover .project-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Filter States */
-  .project-item.hidden {
-    display: none;
-  }
-
-  .project-item.is-hidden {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-
-  /* Gallery Modal */
-  .gallery-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(5px);
-  }
-
-  .gallery-modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .gallery-modal-content {
-    position: relative;
-    width: 95%;
-    max-width: 1400px;
-    height: 95vh;
-    display: flex;
-    flex-direction: column;
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    animation: modalFadeIn 0.3s ease-out;
-  }
-
-  @keyframes modalFadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .gallery-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    z-index: 20;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-  }
-
-  .gallery-close:hover {
-    background: rgba(0, 0, 0, 0.9);
-    transform: scale(1.1);
-  }
-
-  .gallery-header {
-    display: none;
-  }
-
-  .gallery-header::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 2px;
-  }
-
-  .gallery-header h3 {
-    font-size: 1.6rem;
-    margin: 0 0 0.5rem;
-    text-transform: lowercase;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
-
-  .gallery-header p {
-    margin: 0;
-    opacity: 0.9;
-    font-size: 1rem;
-    font-weight: 300;
-  }
-
-  .gallery-main {
-    flex: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000;
-    overflow: hidden;
-    min-height: 0;
-  }
-
-  .gallery-main img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: all 0.3s ease;
-  }
-
-  .gallery-info-overlay {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    z-index: 15;
-    max-width: 400px;
-  }
-
-  .gallery-info-overlay h3 {
-    font-size: 1.1rem;
-    margin: 0 0 0.3rem;
-    text-transform: lowercase;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    color: #fff;
-  }
-
-  .gallery-info-overlay p {
-    margin: 0;
-    opacity: 0.9;
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  .gallery-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    color: #333;
-    border: none;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 15;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    backdrop-filter: blur(10px);
-  }
-
-  .gallery-nav:hover {
-    background: #fff;
-    transform: translateY(-50%) scale(1.05);
-  }
-
-  .gallery-nav:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    transform: translateY(-50%);
-  }
-
-  .gallery-nav:disabled:hover {
-    transform: translateY(-50%);
-  }
-
-  .gallery-prev {
-    left: 15px;
-  }
-
-  .gallery-next {
-    right: 15px;
-  }
-
-  .gallery-thumbnails {
-    padding: 0.8rem 1rem;
-    background: rgba(0, 0, 0, 0.9);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    height: 100px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .gallery-thumbnails::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .gallery-thumbnails::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-  }
-
-  .gallery-thumbnails::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 2px;
-  }
-
-  .gallery-thumbnails::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
-  }
-
-  #gallery-thumbs {
-    display: flex;
-    gap: 0.4rem;
-    align-items: center;
-    height: 100%;
-    padding: 0;
-  }
-
-  .gallery-thumb {
-    border-radius: 4px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    position: relative;
-    background: #0792d7; /* subtle dark background for letterboxing */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .gallery-thumb::after {
-    content: "";
+  .hero-grid {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    background-image:
+      linear-gradient(rgba(0, 173, 231, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 173, 231, 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 30% 20%, #000, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 70% at 30% 20%, #000, transparent 75%);
+    pointer-events: none;
   }
-
-  .gallery-thumb:hover {
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1.05);
-  }
-
-  .gallery-thumb:hover::after {
-    background: rgba(0, 0, 0, 0);
-  }
-
-  .gallery-thumb.active {
-    border-color: #fff;
-    transform: scale(1.05);
-  }
-
-  .gallery-thumb.active::after {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .gallery-thumb img {
-    width: 1%;
-    height: 1%;
-    object-fit: contain;
-  }
-
-  .gallery-counter {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    backdrop-filter: blur(10px);
-    z-index: 15;
-  }
-
-  .gallery-counter span {
-    color: #fff;
+  .hero-inner { position: relative; z-index: 2; max-width: 880px; }
+  .kicker {
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.74rem;
+    color: var(--cy2);
     font-weight: 600;
   }
-
-  /* CTA Section */
-  .projects-cta {
-    padding: 4rem 0;
-    background: linear-gradient(15deg, #6f7074 0%, #3fb7e9 100%);
+  .hero h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 7vw, 5.4rem);
+    line-height: 0.98;
+    letter-spacing: -2px;
+    margin: 1.3rem 0 0;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: transparent;
+    background: linear-gradient(100deg, var(--cy), var(--cy2) 60%, #bfe9fb);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  .hero-sub {
+    color: var(--muted);
+    font-weight: 300;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.75;
+    max-width: 620px;
+    margin: 1.8rem 0 2.6rem;
+  }
+  .hero-stats { display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 4vw, 3.4rem); }
+  .hero-stats div { border-left: 2px solid rgba(0, 173, 231, 0.45); padding-left: 1rem; }
+  .hero-stats b {
+    display: block;
+    font-size: 1.9rem;
+    font-weight: 800;
+    line-height: 1;
     color: #fff;
-    text-align: center;
   }
-
-  .cta-title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #fff;
-    text-transform: lowercase;
-  }
-
-  .cta-subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
+  .hero-stats span {
+    font-family: var(--mono);
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    display: block;
   }
-
-  .btn-primary {
-    background: #fff;
-    color: #1a365d;
+  .scrollcue {
+    position: absolute;
+    bottom: 1.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    color: var(--muted);
+    animation: bob 1.9s ease-in-out infinite;
   }
+  @keyframes bob { 50% { transform: translate(-50%, 7px); } }
 
-  .btn-primary:hover {
-    background: transparent;
-    color: #fff;
-    border-color: #fff;
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: #fff;
-    border-color: #fff;
-  }
-
-  .btn-secondary:hover {
-    background: #fff;
-    color: #1a365d;
-    transform: translateY(-2px);
-  }
-
-  .cta-buttons {
+  /* ===================== INDEX RAIL ===================== */
+  .rail {
+    position: fixed;
+    top: 50%;
+    right: clamp(0.8rem, 2vw, 2rem);
+    transform: translateY(-50%);
+    z-index: 40;
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.55rem;
   }
+  .rail-dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.55rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem 0;
+  }
+  .rail-no {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: rgba(157, 180, 198, 0.5);
+    transition: color 0.25s;
+  }
+  .rail-dot::after {
+    content: "";
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: rgba(157, 180, 198, 0.35);
+    transition: all 0.25s;
+  }
+  .rail-dot:hover .rail-no,
+  .rail-dot.active .rail-no { color: var(--cy2); }
+  .rail-dot:hover::after,
+  .rail-dot.active::after { background: var(--cy); width: 34px; box-shadow: 0 0 10px rgba(0, 173, 231, 0.7); }
+  .rail-tip {
+    position: absolute;
+    right: 38px;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cy2);
+    background: rgba(5, 13, 23, 0.9);
+    border: 1px solid rgba(0, 173, 231, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(6px);
+    transition: 0.2s;
+  }
+  .rail-dot:hover .rail-tip { opacity: 1; transform: translateX(0); }
 
-  .btn {
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
+  /* ===================== PROJECT PANELS ===================== */
+  .panel {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem clamp(1.5rem, 7vw, 9rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .panel.right { justify-content: flex-end; }
+  .panel-bg {
+    position: absolute;
+    inset: -8% 0;
+    z-index: -3;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.62) saturate(0.92) contrast(1.06);
+    transform: scale(1.06);
+    will-change: transform;
+  }
+  .panel-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      linear-gradient(90deg, var(--ink) 2%, rgba(5, 13, 23, 0.82) 30%, rgba(5, 13, 23, 0.2) 62%, transparent 85%),
+      linear-gradient(0deg, var(--ink), transparent 35%),
+      linear-gradient(180deg, rgba(5, 13, 23, 0.6), transparent 25%);
+  }
+  .panel.right .panel-scrim {
+    background:
+      linear-gradient(270deg, var(--ink) 2%, rgba(5, 13, 23, 0.82) 30%, rgba(5, 13, 23, 0.2) 62%, transparent 85%),
+      linear-gradient(0deg, var(--ink), transparent 35%),
+      linear-gradient(180deg, rgba(5, 13, 23, 0.6), transparent 25%);
+  }
+  .panel-lines {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: repeating-linear-gradient(rgba(255, 255, 255, 0) 0 3px, rgba(0, 0, 0, 0.07) 3px 4px);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .panel-badge {
+    position: absolute;
+    top: 2rem;
+    z-index: 3;
+    left: clamp(1.5rem, 7vw, 9rem);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 1px;
+    color: #bfe3f5;
+    text-shadow: 0 1px 4px #000;
+  }
+  .panel.right .panel-badge { left: auto; right: clamp(1.5rem, 7vw, 9rem); }
+  .panel-badge .rec {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #ff5a5a; margin-left: 0.4rem;
+    animation: blink 1.4s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0.2; } }
+
+  .panel-content { position: relative; z-index: 2; max-width: 540px; }
+  .panel.right .panel-content { text-align: right; }
+  .panel.right .p-chips { justify-content: flex-end; }
+  .panel.right .p-open { margin-left: auto; }
+
+  .p-no {
+    font-family: var(--mono);
+    font-size: 1rem;
     font-weight: 600;
-    text-transform: lowercase;
-    transition: all 0.3s ease;
-    display: inline-block;
+    color: var(--cy2);
+    letter-spacing: 1px;
   }
-
-  .btn-primary {
-    background: white;
-    color: #1a365d;
+  .p-no em { font-style: normal; color: rgba(157, 180, 198, 0.55); }
+  .p-tag {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin: 1.1rem 0 0.7rem;
   }
-
-  .btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
+  .p-title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.3rem, 5.5vw, 4.4rem);
+    line-height: 0.96;
+    letter-spacing: -1.6px;
+    margin: 0;
+    text-shadow: 0 6px 40px rgba(0, 0, 0, 0.5);
   }
-
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  .p-blurb {
+    color: #cfe0ec;
+    font-weight: 300;
+    line-height: 1.7;
+    margin: 1.4rem 0 1.6rem;
+    font-size: clamp(0.96rem, 1.2vw, 1.08rem);
   }
-
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .projects-masonry-grid {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .project-item.wide {
-      grid-column: span 1;
-    }
-
-    .gallery-modal-content {
-      width: 98%;
-      height: 92vh;
-    }
-
-    .gallery-nav {
-      width: 38px;
-      height: 38px;
-      font-size: 1.1rem;
-    }
-
-    .gallery-prev {
-      left: 12px;
-    }
-
-    .gallery-next {
-      right: 12px;
-    }
-
-    .gallery-info-overlay {
-      top: 15px;
-      left: 15px;
-      padding: 0.75rem 1rem;
-      max-width: 280px;
-    }
-
-    .gallery-info-overlay h3 {
-      font-size: 1rem;
-    }
-
-    .gallery-info-overlay p {
-      font-size: 0.8rem;
-    }
-
-    .gallery-counter {
-      bottom: 15px;
-      right: 15px;
-      font-size: 0.75rem;
-      padding: 0.3rem 0.6rem;
-    }
+  .p-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+  .p-chips span {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    color: #dff4fc;
+    background: rgba(0, 173, 231, 0.13);
+    border: 1px solid rgba(0, 173, 231, 0.4);
+    backdrop-filter: blur(4px);
   }
+  .p-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.85rem 1.4rem;
+    background: linear-gradient(120deg, var(--cy), var(--cy2));
+    color: #04121d;
+    border: none;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.22s, box-shadow 0.22s;
+    box-shadow: 0 8px 30px rgba(0, 173, 231, 0.32);
+  }
+  .p-open:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0, 173, 231, 0.5); }
+  .p-open-n {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    padding: 0.18rem 0.5rem;
+    border-radius: 5px;
+    background: rgba(4, 18, 29, 0.18);
+  }
+  .p-open svg { width: 18px; height: 18px; fill: none; stroke: #04121d; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.22s; }
+  .p-open:hover svg { transform: translateX(4px); }
 
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 3rem;
-    }
+  /* ----- scroll-reveal staging ----- */
+  .panel-content > * {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .panel.in .panel-content > * { opacity: 1; transform: none; }
+  .panel.in .p-tag { transition-delay: 0.06s; }
+  .panel.in .p-title { transition-delay: 0.12s; }
+  .panel.in .p-blurb { transition-delay: 0.2s; }
+  .panel.in .p-chips { transition-delay: 0.28s; }
+  .panel.in .p-open { transition-delay: 0.36s; }
+  .panel.in .panel-bg { animation: kenburns 14s ease-out forwards; }
+  @keyframes kenburns { to { transform: scale(1.14); } }
 
-    .projects-masonry-grid {
-      grid-template-columns: 1fr;
-      grid-auto-rows: 250px;
-    }
+  /* ===================== LIGHTBOX ===================== */
+  .lb { position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; padding: 2.5vh 2vw; }
+  .lb.open { display: flex; }
+  .lb-scrim { position: absolute; inset: 0; background: rgba(2, 7, 13, 0.92); backdrop-filter: blur(7px); }
+  .lb-panel {
+    position: relative; z-index: 2; width: min(1120px, 96vw); max-height: 95vh;
+    display: flex; flex-direction: column; background: #060f1a;
+    border: 1px solid rgba(0, 173, 231, 0.3); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7);
+    animation: lbpop 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+  @keyframes lbpop { from { opacity: 0; transform: scale(0.96) translateY(10px); } }
+  .lb-head { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.1rem 1.3rem; border-bottom: 1px solid rgba(0, 173, 231, 0.18); }
+  .lb-code { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 1px; color: #06121f; background: linear-gradient(120deg, var(--cy), var(--cy2)); padding: 0.22rem 0.55rem; border-radius: 5px; font-weight: 600; }
+  .lb-titles h3 { font-family: "Poppins", sans-serif; font-size: 1.4rem; font-weight: 700; margin-top: 0.55rem; letter-spacing: -0.4px; color: #fff; }
+  .lb-titles p { font-family: var(--mono); font-size: 0.7rem; color: #8fb6cf; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.2rem; }
+  .lb-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-left: auto; align-self: center; }
+  .lb-chips :global(span) { font-family: var(--mono); font-size: 0.7rem; padding: 0.3rem 0.7rem; border-radius: 6px; color: #dff4fc; background: rgba(0, 173, 231, 0.14); border: 1px solid rgba(0, 173, 231, 0.35); }
+  .lb-x { flex: 0 0 auto; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); color: #cfe9f6; width: 38px; height: 38px; border-radius: 9px; font-size: 1rem; cursor: pointer; transition: 0.2s; }
+  .lb-x:hover { background: var(--cy); color: #06121f; border-color: var(--cy); }
+  .lb-stage { position: relative; flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; gap: 0.4rem; background: #03080e; padding: 0.6rem; }
+  .lb-imgwrap { position: relative; max-width: 100%; max-height: 64vh; display: flex; }
+  .lb-imgwrap img { max-width: 100%; max-height: 64vh; object-fit: contain; border-radius: 6px; display: block; }
+  .lb-rec { position: absolute; top: 0.7rem; left: 0.7rem; display: flex; align-items: center; gap: 0.3rem; font-family: var(--mono); font-size: 0.66rem; color: #ff6868; text-shadow: 0 1px 4px #000; }
+  .lb-rec i { width: 7px; height: 7px; border-radius: 50%; background: #ff6868; animation: blink 1.4s steps(1) infinite; }
+  .lb-count { position: absolute; bottom: 0.7rem; right: 0.7rem; font-family: var(--mono); font-size: 0.68rem; color: #bfe3f5; background: rgba(4, 10, 18, 0.7); padding: 0.2rem 0.5rem; border-radius: 5px; }
+  .lb-nav { flex: 0 0 auto; background: rgba(0, 173, 231, 0.12); border: 1px solid rgba(0, 173, 231, 0.3); color: #dff4fc; width: 46px; height: 46px; border-radius: 50%; font-size: 1.6rem; line-height: 1; cursor: pointer; transition: 0.2s; }
+  .lb-nav:hover { background: var(--cy); color: #06121f; }
+  .lb-thumbs { display: flex; gap: 8px; padding: 0.9rem 1.1rem; overflow-x: auto; border-top: 1px solid rgba(0, 173, 231, 0.18); }
+  .lb-thumbs :global(img) { height: 56px; width: 84px; object-fit: cover; border-radius: 5px; cursor: pointer; opacity: 0.5; border: 1px solid transparent; transition: 0.18s; flex: 0 0 auto; }
+  .lb-thumbs :global(img:hover) { opacity: 0.85; }
+  .lb-thumbs :global(img.active) { opacity: 1; border-color: var(--cy); box-shadow: 0 0 12px rgba(0, 173, 231, 0.5); }
 
-    .project-item.large,
-    .project-item.tall {
-      grid-row: span 1;
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 760px) {
+    .rail { display: none; }
+    .panel { padding: 5rem 1.5rem; align-items: flex-end; }
+    .panel.right { justify-content: flex-start; }
+    .panel.right .panel-content { text-align: left; }
+    .panel.right .p-chips { justify-content: flex-start; }
+    .panel.right .p-open { margin-left: 0; }
+    .panel.right .panel-badge { left: 1.5rem; right: auto; }
+    .panel-scrim,
+    .panel.right .panel-scrim {
+      background:
+        linear-gradient(0deg, var(--ink) 6%, rgba(5, 13, 23, 0.55) 45%, rgba(5, 13, 23, 0.25) 100%);
     }
-
-    .project-info {
-      padding: 1.3rem 1.3rem 1.2rem;
-    }
-
-    .projects-description {
-      font-size: 1rem;
-      padding: 0 1rem;
-    }
-
-    .cta-title {
-      font-size: 2rem;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .gallery-info-overlay {
-      top: 10px;
-      left: 10px;
-      padding: 0.6rem 0.8rem;
-      max-width: 240px;
-    }
-
-    .gallery-info-overlay h3 {
-      font-size: 0.9rem;
-    }
-
-    .gallery-info-overlay p {
-      font-size: 0.75rem;
-    }
-
-    .gallery-thumbnails {
-      padding: 0.5rem 0.6rem;
-      height: 75px;
-    }
-
-    .gallery-counter {
-      bottom: 10px;
-      right: 10px;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.5rem;
-    }
-
-    .gallery-close {
-      top: 10px;
-      right: 10px;
-      width: 35px;
-      height: 35px;
-      font-size: 1rem;
-    }
+    .hero-stats div { border-left: none; border-top: 2px solid rgba(0, 173, 231, 0.45); padding: 0.8rem 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .panel-content > * { opacity: 1; transform: none; }
+    .panel.in .panel-bg, .scrollcue { animation: none; }
   }
 </style>
 
-<script define:vars={{ base }}>
-  // Gallery functionality
-  document.addEventListener("DOMContentLoaded", function () {
-    // Set base path for images
-    window.BASE_PATH = base;
+<script define:vars={{ projects }}>
+  // ---- index lookup ----
+  const byId = {};
+  projects.forEach((p) => (byId[p.id] = p));
 
-    const projectItems = document.querySelectorAll(".project-item");
-    const galleryModal = document.getElementById("gallery-modal");
-    const galleryClose = document.querySelector(".gallery-close");
-    const galleryTitle = document.getElementById("gallery-title");
-    const gallerySubtitle = document.getElementById("gallery-subtitle");
-    const galleryImage = document.getElementById("gallery-image");
-    const galleryThumbs = document.getElementById("gallery-thumbs");
-    const galleryPrev = document.querySelector(".gallery-prev");
-    const galleryNext = document.querySelector(".gallery-next");
-    const galleryCurrent = document.getElementById("gallery-current");
-    const galleryTotal = document.getElementById("gallery-total");
+  // ---- scroll reveal + parallax + active rail ----
+  const panels = [...document.querySelectorAll(".panel")];
+  const dots = [...document.querySelectorAll(".rail-dot")];
 
-    let currentProject = null;
-    let currentImageIndex = 0;
-    let projectImages = [];
-
-    // Project data with image arrays
-    const projects = {
-      kkia: {
-        title: "King Khalid International Airport",
-        subtitle: "Terminal 1 — Fire & Safety, Structured Cabling",
-        folder: "King Khalid International Airport - Terminal 1 - Pic",
-        // Heavily curated from 87 raw site photos down to the strongest shots
-        // (terminal architecture + clean cabling work). cover is AI-upscaled.
-        images: [
-          "cover.jpeg",
-          "WhatsApp Image 2023-10-12 at 18.06.20.jpeg",
-          "WhatsApp Image 2023-10-12 at 18.06.41.jpeg",
-          "WhatsApp Image 2023-10-12 at 18.06.42.jpeg",
-          "KKIA 2.jpg",
-          "0005.jpg",
-        ],
-      },
-      "learning-oasis": {
-        title: "Learning Oasis National School",
-        subtitle: "Comprehensive Security System",
-        folder: "Learning Oasis National International School - Pic",
-        images: [
-          "5_000.jpg",
-          "6_004.jpg",
-          "6_280.jpg",
-          "WhatsApp Video 2023-10-23 at 12.03.21_114.jpg",
-          "WhatsApp Video 2023-10-23 at 12.03.21_119.jpg",
-          "WhatsApp Video 2023-10-23 at 12.03.21_130.jpg",
-          "WhatsApp Video 2023-10-23 at 12.03.21_175.jpg",
-          "WhatsApp Video 2023-10-23 at 12.03.21_210.jpg",
-          "WhatsApp Video 2023-10-23 at 12.03.21_253.jpg",
-          "WhatsApp Video 2023-10-23 at 12.03.21_299.jpg",
-        ],
-      },
-      citadines: {
-        title: "Citadines Culture Village Dubai",
-        subtitle: "Hospitality Security Solution",
-        folder: "Citadines Culture Village Dubai - Pic",
-        images: [
-          "WhatsApp Image 2023-10-23 at 12.05.09.jpeg",
-          "WhatsApp Image 2023-10-23 at 12.05.19.jpeg",
-          "WhatsApp Image 2023-10-23 at 12.05.28.jpeg",
-          "WhatsApp Image 2023-10-23 at 12.05.37.jpeg",
-          "WhatsApp Image 2023-10-23 at 12.05.52.jpeg",
-          "WhatsApp Image 2023-10-23 at 12.06.03.jpeg",
-          "WhatsApp Image 2023-10-23 at 12.06.13.jpeg",
-          "WhatsApp Image 2023-10-23 at 12.06.34.jpeg",
-        ],
-      },
-      dallah: {
-        title: "Dallah Rafa Clinic",
-        subtitle: "Basement Parking Renovation",
-        folder: "Dallah Rafa Clinic Basement Parking Renovation - Pic",
-        images: [
-          "WhatsApp Image 2023-10-23 at 12.00.22.jpeg",
-          "WhatsApp Image 2023-10-23 at 12.00.22 (1).jpeg",
-          "WhatsApp Image 2023-10-23 at 12.00.22 (2).jpeg",
-          "WhatsApp Image 2023-10-23 at 12.00.22 (3).jpeg",
-          "WhatsApp Image 2023-10-23 at 12.00.22 (4).jpeg",
-          "WhatsApp Image 2023-10-23 at 12.00.22 (5).jpeg",
-          "WhatsApp Image 2023-10-23 at 12.00.22 (6).jpeg",
-        ],
-      },
-      p2p: {
-        title: "Point to Point Wireless Connection",
-        subtitle: "Long-Distance Network Bridging",
-        folder: "Point to Point Wireless Connection Project - Pic",
-        images: [
-          "P2P.jpg",
-          "2.png",
-          "3.png",
-          "4.png",
-          "5.png",
-          "6.png",
-          "IMG-20220531-WA0008.jpg",
-          "IMG-20220531-WA0017.jpg",
-          "IMG-20220531-WA0019.jpg",
-          "IMG-20220531-WA0023.jpg",
-          "IMG-20220531-WA0024.jpg",
-          "IMG-20220531-WA0028.jpg",
-        ],
-      },
-      spaces: {
-        title: "SPACES by Regus",
-        subtitle: "Riyadh Park Serviced Office",
-        folder: "Serviced Office - SPACES - by Regus at Riyadh Park - Pic",
-        images: [
-          "1.png",
-          "2.png",
-          "3.png",
-          "4.png",
-          "5.png",
-          "6.png",
-          "WhatsApp Image 2023-10-23 at 11.56.27.jpeg",
-          "WhatsApp Image 2023-10-23 at 11.56.27 (1).jpeg",
-          "WhatsApp Image 2023-10-23 at 11.56.27 (2).jpeg",
-          "WhatsApp Image 2023-10-23 at 11.56.28.jpeg",
-        ],
-      },
-    };
-
-    // Open gallery
-    function openGallery(projectId) {
-      currentProject = projects[projectId];
-      if (!currentProject) return;
-
-      currentImageIndex = 0;
-      projectImages = currentProject.images;
-
-      galleryTitle.textContent = currentProject.title;
-      gallerySubtitle.textContent = currentProject.subtitle;
-      galleryTotal.textContent = projectImages.length;
-
-      createThumbnails();
-      showImage(0);
-      galleryModal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
-
-    // Close gallery
-    function closeGallery() {
-      galleryModal.classList.remove("active");
-      document.body.style.overflow = "";
-      currentProject = null;
-      currentImageIndex = 0;
-      projectImages = [];
-    }
-
-    // Resolve an image src. Names containing "/" are treated as
-    // base-relative paths (e.g. clean system/representative images),
-    // otherwise they live inside the project's photo folder.
-    function srcFor(name) {
-      return name.includes("/")
-        ? `${window.BASE_PATH}${name}`
-        : `${window.BASE_PATH}projects/${currentProject.folder}/${name}`;
-    }
-
-    // Create thumbnails
-    function createThumbnails() {
-      galleryThumbs.innerHTML = "";
-      projectImages.forEach((imageName, index) => {
-        const thumb = document.createElement("div");
-        thumb.className = "gallery-thumb";
-        if (index === 0) thumb.classList.add("active");
-
-        const img = document.createElement("img");
-        img.src = srcFor(imageName);
-        img.alt = `${currentProject.title} - Image ${index + 1}`;
-        img.style.width = "60px";
-        img.style.height = "60px";
-        img.style.objectFit = "cover";
-
-        thumb.appendChild(img);
-        thumb.addEventListener("click", () => showImage(index));
-        galleryThumbs.appendChild(thumb);
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("in");
+        const i = +e.target.dataset.panel;
+        if (e.isIntersecting && e.intersectionRatio > 0.5) {
+          dots.forEach((d, n) => d.classList.toggle("active", n === i));
+        }
       });
-    }
+    },
+    { threshold: [0.25, 0.5, 0.75] }
+  );
+  panels.forEach((p) => io.observe(p));
 
-    // Show specific image
-    function showImage(index) {
-      if (index < 0 || index >= projectImages.length) return;
+  dots.forEach((d) =>
+    d.addEventListener("click", () => {
+      const t = panels[+d.dataset.jump];
+      if (t) t.scrollIntoView({ behavior: "smooth" });
+    })
+  );
 
-      currentImageIndex = index;
-      galleryImage.src = srcFor(projectImages[index]);
-      galleryImage.alt = `${currentProject.title} - Image ${index + 1}`;
-      galleryCurrent.textContent = index + 1;
-
-      // Update active thumbnail
-      document.querySelectorAll(".gallery-thumb").forEach((thumb, i) => {
-        thumb.classList.toggle("active", i === index);
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      panels.forEach((p) => {
+        const bg = p.querySelector(".panel-bg");
+        if (!bg) return;
+        const r = p.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        const prog = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+        bg.style.transform = `scale(1.12) translateY(${prog * -36}px)`;
       });
-
-      // Update navigation buttons
-      galleryPrev.disabled = index === 0;
-      galleryNext.disabled = index === projectImages.length - 1;
-
-      // Scroll active thumbnail into view
-      const activeThumb = document.querySelector(".gallery-thumb.active");
-      if (activeThumb) {
-        activeThumb.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
-      }
-    }
-
-    // Previous image
-    function prevImage() {
-      if (currentImageIndex > 0 && !galleryPrev.disabled) {
-        showImage(currentImageIndex - 1);
-      }
-    }
-
-    // Next image
-    function nextImage() {
-      if (
-        currentImageIndex < projectImages.length - 1 &&
-        !galleryNext.disabled
-      ) {
-        showImage(currentImageIndex + 1);
-      }
-    }
-
-    // Event listeners
-    projectItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const projectId = item.getAttribute("data-project");
-        openGallery(projectId);
-      });
+      ticking = false;
     });
+  });
 
-    galleryClose.addEventListener("click", closeGallery);
-    galleryPrev.addEventListener("click", prevImage);
-    galleryNext.addEventListener("click", nextImage);
+  // ---- lightbox ----
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lbImg");
+  const lbThumbs = document.getElementById("lbThumbs");
+  let cur = null, idx = 0;
 
-    // Close on outside click
-    galleryModal.addEventListener("click", (e) => {
-      if (e.target === galleryModal) {
-        closeGallery();
-      }
+  function show(i) {
+    const g = byId[cur].images;
+    idx = (i + g.length) % g.length;
+    lbImg.src = g[idx];
+    document.getElementById("lbCount").textContent = idx + 1 + " / " + g.length;
+    [...lbThumbs.children].forEach((t, n) => t.classList.toggle("active", n === idx));
+    const a = lbThumbs.children[idx];
+    if (a) a.scrollIntoView({ block: "nearest", inline: "center" });
+  }
+  function open(key) {
+    cur = key;
+    const p = byId[key];
+    document.getElementById("lbCode").textContent = "CAM · " + p.code;
+    document.getElementById("lbTitle").textContent = p.title.replace(/<[^>]+>/g, " ").trim();
+    document.getElementById("lbMeta").textContent = p.sector + " · " + p.location;
+    document.getElementById("lbScope").innerHTML = p.scope.map((s) => "<span>" + s + "</span>").join("");
+    lbThumbs.innerHTML = "";
+    p.images.forEach((src, n) => {
+      const im = document.createElement("img");
+      im.src = src;
+      im.loading = "lazy";
+      im.addEventListener("click", () => show(n));
+      lbThumbs.appendChild(im);
     });
+    lb.classList.add("open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    show(0);
+  }
+  function close() {
+    lb.classList.remove("open");
+    lb.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
 
-    // Keyboard navigation
-    document.addEventListener("keydown", (e) => {
-      if (!galleryModal.classList.contains("active")) return;
-
-      switch (e.key) {
-        case "Escape":
-          closeGallery();
-          break;
-        case "ArrowLeft":
-          prevImage();
-          break;
-        case "ArrowRight":
-          nextImage();
-          break;
-      }
-    });
-
-    // ---- Category filtering ----
-    const filterPills = document.querySelectorAll(".filter-pill");
-    const allItems = document.querySelectorAll(".project-item");
-    filterPills.forEach((pill) => {
-      pill.addEventListener("click", () => {
-        filterPills.forEach((p) => p.classList.remove("active"));
-        pill.classList.add("active");
-        const filter = pill.getAttribute("data-filter");
-        allItems.forEach((item) => {
-          const match =
-            filter === "all" ||
-            item.getAttribute("data-category") === filter;
-          if (match) {
-            item.style.display = "";
-            requestAnimationFrame(() => item.classList.remove("is-hidden"));
-          } else {
-            item.classList.add("is-hidden");
-            setTimeout(() => {
-              if (item.classList.contains("is-hidden")) {
-                item.style.display = "none";
-              }
-            }, 350);
-          }
-        });
-      });
-    });
+  document.querySelectorAll(".p-open[data-proj]").forEach((b) =>
+    b.addEventListener("click", () => open(b.getAttribute("data-proj")))
+  );
+  document.getElementById("lbX").addEventListener("click", close);
+  document.getElementById("lbScrim").addEventListener("click", close);
+  document.getElementById("lbPrev").addEventListener("click", () => show(idx - 1));
+  document.getElementById("lbNext").addEventListener("click", () => show(idx + 1));
+  document.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(idx - 1);
+    if (e.key === "ArrowRight") show(idx + 1);
   });
 </script>
