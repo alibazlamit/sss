@@ -242,42 +242,7 @@ const filters = [
     </div>
   </nav>
 
-  <!-- Themed Brand Bands -->
-  {
-    categories.map((cat) => (
-      <section
-        class="brand-band reveal"
-        id={cat.id}
-        data-cat={cat.id}
-        style={`--band-bg: url('${base}${cat.bg}')`}
-      >
-        <div class="band-inner">
-          <div class="band-head">
-            <h2 class="band-title">{cat.title}</h2>
-            <p class="band-blurb">{cat.blurb}</p>
-          </div>
-          <div class="chips">
-            {cat.brands.map((b, i) => (
-              <div
-                class={`chip${b.featured ? " featured" : ""}`}
-                style={`--i:${i}`}
-              >
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={`${base}${b.logo}`}
-                  alt={b.name}
-                  title={b.name}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    ))
-  }
-
-  <!-- Hospitality / GRMS Showcase -->
+  <!-- Hospitality / GRMS Showcase (lead) -->
   <section class="grms reveal" id="hospitality" data-cat="hospitality">
     <div class="grms-inner">
       <div class="grms-head">
@@ -336,6 +301,41 @@ const filters = [
       </div>
     </div>
   </section>
+
+  <!-- Themed Brand Bands -->
+  {
+    categories.map((cat) => (
+      <section
+        class="brand-band reveal"
+        id={cat.id}
+        data-cat={cat.id}
+        style={`--band-bg: url('${base}${cat.bg}')`}
+      >
+        <div class="band-inner">
+          <div class="band-head">
+            <h2 class="band-title">{cat.title}</h2>
+            <p class="band-blurb">{cat.blurb}</p>
+          </div>
+          <div class="chips">
+            {cat.brands.map((b, i) => (
+              <div
+                class={`chip${b.featured ? " featured" : ""}`}
+                style={`--i:${i}`}
+              >
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={`${base}${b.logo}`}
+                  alt={b.name}
+                  title={b.name}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
 
   <!-- Partnership Benefits -->
   <section class="partnership-benefits">
