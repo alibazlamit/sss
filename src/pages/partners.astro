@@ -165,9 +165,38 @@ const grmsFeatures = [
     label: "mobile app control",
   },
 ];
+
+// Hero stat counters (animated count-up) — numbers derived from the data.
+const totalBrands =
+  categories.reduce((n, c) => n + c.brands.length, 0) + grmsBrands.length;
+const stats = [
+  { target: totalBrands, suffix: "+", label: "leading brands" },
+  { target: categories.length + 1, suffix: "", label: "solution domains" },
+  { target: 100, suffix: "%", label: "genuine & authorized" },
+];
+
+// Sticky filter bar — jump/filter to a category.
+const filters = [
+  { id: "all", label: "all partners" },
+  { id: "av", label: "audio visual" },
+  { id: "network", label: "network" },
+  { id: "cabling", label: "cabling" },
+  { id: "cctv", label: "cctv" },
+  { id: "access", label: "access" },
+  { id: "fire", label: "fire safety" },
+  { id: "hospitality", label: "hospitality" },
+];
 ---
 
 <Layout title="Our Partners - SSS Security Solutions">
+  <script is:inline>
+    // Enable reveal-on-scroll only when motion is allowed; without this class
+    // CSS keeps everything visible (so no-JS / reduced-motion still works).
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("anim");
+    }
+  </script>
+
   <!-- Partners Hero -->
   <section class="partners-hero">
     <div class="hero-content">
@@ -176,15 +205,50 @@ const grmsFeatures = [
         collaborating with the world's leading technology manufacturers across
         audio visual, networking, surveillance, access control and life safety
       </p>
+      <div class="hero-stats">
+        {
+          stats.map((s) => (
+            <div class="stat">
+              <span
+                class="stat-num"
+                data-target={s.target}
+                data-suffix={s.suffix}
+              >
+                0{s.suffix}
+              </span>
+              <span class="stat-label">{s.label}</span>
+            </div>
+          ))
+        }
+      </div>
     </div>
+    <div class="hero-scroll" aria-hidden="true"><span /></div>
   </section>
+
+  <!-- Sticky category filter bar -->
+  <nav class="cat-bar" aria-label="filter partner categories">
+    <div class="cat-bar-inner">
+      {
+        filters.map((f) => (
+          <button
+            class={`cat-pill${f.id === "all" ? " active" : ""}`}
+            data-filter={f.id}
+            type="button"
+          >
+            {f.label}
+          </button>
+        ))
+      }
+    </div>
+  </nav>
 
   <!-- Themed Brand Bands -->
   {
     categories.map((cat) => (
       <section
-        class="brand-band"
+        class="brand-band reveal"
         id={cat.id}
+        data-cat={cat.id}
         style={`--band-bg: url('${base}${cat.bg}')`}
       >
         <div class="band-inner">
@@ -193,8 +257,11 @@ const grmsFeatures = [
             <p class="band-blurb">{cat.blurb}</p>
           </div>
           <div class="chips">
-            {cat.brands.map((b) => (
-              <div class={`chip${b.featured ? " featured" : ""}`}>
+            {cat.brands.map((b, i) => (
+              <div
+                class={`chip${b.featured ? " featured" : ""}`}
+                style={`--i:${i}`}
+              >
                 <img
                   loading="lazy"
                   decoding="async"
@@ -211,43 +278,61 @@ const grmsFeatures = [
   }
 
   <!-- Hospitality / GRMS Showcase -->
-  <section class="grms" id="hospitality">
+  <section class="grms reveal" id="hospitality" data-cat="hospitality">
     <div class="grms-inner">
       <div class="grms-head">
         <span class="grms-eyebrow">premium · hospitality</span>
         <h2 class="grms-title">guest room management systems</h2>
         <p class="grms-sub">
-          complete grms solutions engineered for 5-star hotels & luxury resorts —
-          one intelligent system controlling every guest experience
+          one intelligent system that controls the entire guest room —
+          engineered for 5-star hotels & luxury resorts
         </p>
       </div>
 
-      <div class="grms-brands">
-        {
-          grmsBrands.map((b) => (
-            <div class="grms-brand-card">
-              <img
-                loading="lazy"
-                decoding="async"
-                src={`${base}${b.logo}`}
-                alt={b.name}
-                title={b.name}
-              />
-              <span>{b.name}</span>
-            </div>
-          ))
-        }
+      <!-- Smart-room hub: a central GRMS core controlling all 9 capabilities -->
+      <div class="smartroom">
+        <div class="hub" aria-hidden="true">
+          <span class="hub-ring"></span>
+          <span class="hub-ring hub-ring-2"></span>
+          <div class="hub-core">
+            <span class="hub-icon" set:html={`${I}<path d=\"M3 11.5 12 4l9 7.5\"/><path d=\"M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9\"/><path d=\"M9.5 20v-5h5v5\"/></svg>`} />
+            <span class="hub-name">grms</span>
+            <span class="hub-tag">one system</span>
+          </div>
+        </div>
+
+        <p class="controls-label">controls every part of the room</p>
+
+        <div class="grms-grid">
+          {
+            grmsFeatures.map((f, i) => (
+              <div class="grms-feature" style={`--i:${i}`}>
+                <span class="grms-icon" set:html={f.icon} />
+                <span class="grms-label">{f.label}</span>
+              </div>
+            ))
+          }
+        </div>
       </div>
 
-      <div class="grms-grid">
-        {
-          grmsFeatures.map((f) => (
-            <div class="grms-feature">
-              <span class="grms-icon" set:html={f.icon} />
-              <span class="grms-label">{f.label}</span>
-            </div>
-          ))
-        }
+      <div class="grms-brands">
+        <span class="grms-brands-label">engineered with</span>
+        <div class="grms-brands-row">
+          {
+            grmsBrands.map((b) => (
+              <div class="grms-brand-card">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={`${base}${b.logo}`}
+                  alt={b.name}
+                  title={b.name}
+                />
+                <span>{b.name}</span>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
@@ -296,7 +381,8 @@ const grmsFeatures = [
   <style>
     /* ---------- Partners Hero ---------- */
     .partners-hero {
-      height: 58vh;
+      position: relative;
+      height: 64vh;
       background:
         linear-gradient(
           180deg,
@@ -336,6 +422,170 @@ const grmsFeatures = [
       max-width: 880px;
       line-height: 1.8;
       margin: 0 auto;
+    }
+
+    /* ---------- Hero stat counters ---------- */
+    .hero-stats {
+      display: flex;
+      gap: 3.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.6rem;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-num {
+      font-size: 2.7rem;
+      font-weight: 200;
+      color: #fff;
+      line-height: 1;
+      text-shadow: 0 2px 16px rgba(0, 173, 231, 0.55);
+    }
+
+    .stat-label {
+      margin-top: 0.55rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 1.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-scroll span {
+      display: block;
+      width: 2px;
+      height: 44px;
+      background: linear-gradient(rgba(255, 255, 255, 0), #4abdea);
+      animation: scrollPulse 1.9s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%,
+      100% {
+        opacity: 0.2;
+        transform: scaleY(0.55);
+        transform-origin: top;
+      }
+      50% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+    }
+
+    /* ---------- Sticky category filter bar ---------- */
+    .cat-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1001;
+      background: rgba(8, 20, 33, 0.92);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 173, 231, 0.18);
+    }
+
+    .cat-bar-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0.8rem 1rem;
+      display: flex;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cat-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.75);
+      font-family: inherit;
+      font-size: 0.9rem;
+      text-transform: lowercase;
+      letter-spacing: 0.3px;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .cat-pill:hover {
+      color: #fff;
+      border-color: rgba(0, 173, 231, 0.6);
+    }
+
+    .cat-pill.active {
+      background: linear-gradient(135deg, #00ade7, #3fb7e9);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(0, 173, 231, 0.4);
+    }
+
+    .cat-hidden {
+      display: none !important;
+    }
+
+    /* ---------- Scroll reveal (only active under .anim) ---------- */
+    .anim .reveal .band-head,
+    .anim .reveal .grms-head,
+    .anim .reveal .smartroom,
+    .anim .reveal .grms-brands {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+    }
+
+    .anim .reveal.is-visible .band-head,
+    .anim .reveal.is-visible .grms-head,
+    .anim .reveal.is-visible .smartroom,
+    .anim .reveal.is-visible .grms-brands {
+      opacity: 1;
+      transform: none;
+    }
+
+    .anim .reveal .chip {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .anim .reveal.is-visible .chip {
+      opacity: 1;
+      transform: none;
+      transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+      transition-delay: calc(var(--i, 0) * 45ms);
+    }
+
+    .anim .reveal.is-visible .chip:hover {
+      transform: translateY(-7px);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      transition-delay: 0s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll span,
+      .hub-ring {
+        animation: none;
+      }
     }
 
     /* ---------- Themed Brand Bands ---------- */
@@ -506,12 +756,115 @@ const grmsFeatures = [
       margin: 0 auto 3rem;
     }
 
+    /* Smart-room hub */
+    .smartroom {
+      margin: 0 auto;
+    }
+
+    .hub {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 2.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hub-core {
+      position: relative;
+      z-index: 2;
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 32% 28%, #0a4d6b, #07283a 75%);
+      border: 1px solid rgba(0, 173, 231, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      box-shadow:
+        0 0 42px rgba(0, 173, 231, 0.45),
+        inset 0 0 22px rgba(0, 173, 231, 0.18);
+    }
+
+    .hub-icon {
+      display: inline-flex;
+      color: #4abdea;
+    }
+
+    .hub-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .hub-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .hub-tag {
+      font-size: 0.6rem;
+      letter-spacing: 1.5px;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+    }
+
+    .hub-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 173, 231, 0.45);
+      animation: hubPulse 3s ease-out infinite;
+    }
+
+    .hub-ring-2 {
+      animation-delay: 1.5s;
+    }
+
+    @keyframes hubPulse {
+      0% {
+        transform: scale(0.82);
+        opacity: 0.85;
+      }
+      100% {
+        transform: scale(1.85);
+        opacity: 0;
+      }
+    }
+
+    .controls-label {
+      text-align: center;
+      text-transform: lowercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.95rem;
+      margin: 0 0 2rem;
+    }
+
     .grms-brands {
+      margin-top: 3.5rem;
+      text-align: center;
+    }
+
+    .grms-brands-label {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 1.2rem;
+    }
+
+    .grms-brands-row {
       display: flex;
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
-      margin-bottom: 3.5rem;
     }
 
     .grms-brand-card {
@@ -720,20 +1073,91 @@ const grmsFeatures = [
   </style>
 
   <script>
-    // Hide any logo that fails to load so a missing file never leaves an
-    // empty / broken chip on the page.
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Hide any logo that fails to load (no empty chips).
+      const hideBroken = (img: HTMLImageElement) => {
+        const c = img.closest(".chip, .grms-brand-card");
+        if (c) (c as HTMLElement).style.display = "none";
+      };
       document
-        .querySelectorAll(".chip img, .grms-brand-card img")
+        .querySelectorAll<HTMLImageElement>(".chip img, .grms-brand-card img")
         .forEach((img) => {
-          const el = img as HTMLImageElement;
-          el.onerror = function () {
-            const chip = (this as HTMLImageElement).closest(
-              ".chip, .grms-brand-card"
-            );
-            if (chip) (chip as HTMLElement).style.display = "none";
-          };
+          if (img.complete && img.naturalWidth === 0) hideBroken(img);
+          else img.addEventListener("error", () => hideBroken(img));
         });
+
+      // 2. Reveal sections (and their staggered chips) on scroll.
+      const reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        reveals.forEach((r) => io.observe(r));
+      } else {
+        reveals.forEach((r) => r.classList.add("is-visible"));
+      }
+
+      // 3. Count-up the hero stats when they scroll into view.
+      const runCount = (node: HTMLElement) => {
+        const target = parseInt(node.dataset.target || "0", 10);
+        const suffix = node.dataset.suffix || "";
+        const dur = 1400;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          node.textContent = Math.floor(eased * target) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+          else node.textContent = target + suffix;
+        };
+        requestAnimationFrame(tick);
+      };
+      const nums = document.querySelectorAll<HTMLElement>(".stat-num");
+      if (nums.length && "IntersectionObserver" in window) {
+        const sObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                runCount(e.target as HTMLElement);
+                sObs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.6 }
+        );
+        nums.forEach((n) => sObs.observe(n));
+      }
+
+      // 4. Category filter / jump.
+      const pills = document.querySelectorAll<HTMLElement>(".cat-pill");
+      const bands = document.querySelectorAll<HTMLElement>("[data-cat]");
+      pills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          const f = pill.dataset.filter;
+          pills.forEach((x) => x.classList.toggle("active", x === pill));
+          bands.forEach((b) => {
+            const show = f === "all" || b.dataset.cat === f;
+            b.classList.toggle("cat-hidden", !show);
+          });
+          if (f && f !== "all") {
+            const el = document.getElementById(f);
+            if (el) {
+              const y = el.getBoundingClientRect().top + window.scrollY - 64;
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }
+          } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        });
+      });
     });
   </script>
 </Layout>
