@@ -44,12 +44,12 @@ const categories = [
     bg: "images/upgrade/service-wireless.jpg",
     brands: [
       { name: "Cisco Systems", logo: "images/logos/cisco-2.svg", featured: true },
-      { name: "Juniper Networks", logo: "images/logos/juniper.svg" },
+      { name: "Juniper Networks", logo: "images/logos/juniper.png" },
       { name: "Aruba Networks", logo: "images/logos/aruba.svg", featured: true },
       { name: "Fortinet", logo: "images/logos/fortinet-logo.svg" },
       { name: "Ruckus", logo: "images/logos/ruckus-wireless5995.jpg" },
       { name: "Extreme Networks", logo: "images/logos/extreme-networks.png" },
-      { name: "Huawei Enterprise", logo: "images/logos/huawei.svg" },
+      { name: "Huawei Enterprise", logo: "images/logos/huawei.png" },
       { name: "HPE", logo: "images/logos/hpe.svg" },
       { name: "MikroTik", logo: "images/logos/mikrotik.svg" },
       { name: "Ubiquiti", logo: "images/logos/ubiquiti-networks-2016.svg" },
@@ -83,7 +83,7 @@ const categories = [
       { name: "Hikvision", logo: "images/logos/Hikvision-Logo.png", featured: true },
       { name: "Dahua Technology", logo: "images/logos/Dahua_Technology_logo.svg.png" },
       { name: "Axis Communications", logo: "images/logos/OIP.jpeg" },
-      { name: "Bosch Security", logo: "images/logos/bosch.svg" },
+      { name: "Bosch Security", logo: "images/logos/bosch.png" },
       { name: "Hanwha Vision", logo: "images/logos/hanwha-4.svg" },
       { name: "Pelco", logo: "images/logos/pelco-by-schneider-electric-vector-logo.png" },
     ],
@@ -601,9 +601,7 @@ const filters = [
         ),
         var(--band-bg);
       background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
+      background-position: center;    }
 
     /* subtle alternating tint so adjacent bands read as distinct */
     .brand-band:nth-child(even) {
@@ -664,8 +662,6 @@ const filters = [
 
     .chip {
       background: rgba(255, 255, 255, 0.94);
-      -webkit-backdrop-filter: blur(6px);
-      backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 255, 255, 0.5);
       border-radius: 14px;
       width: 168px;
@@ -718,9 +714,7 @@ const filters = [
         ),
         url("/images/upgrade/project-smarthome.jpg");
       background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
+      background-position: center;    }
 
     .grms-inner {
       max-width: 1100px;
