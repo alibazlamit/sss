@@ -6,6 +6,11 @@ const baseUrl = import.meta.env.BASE_URL;
 const base =
   baseUrl === "" ? "/" : baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
 
+// Brand logos are pre-normalized (flattened to white, auto-trimmed, sized
+// consistently) into images/logos/norm/<name>.png so every card looks uniform.
+const normLogo = (p) =>
+  "images/logos/norm/" + p.split("/").pop().replace(/\.[^.]+$/, "") + ".png";
+
 // ---------------------------------------------------------------------------
 // Brand taxonomy — single source of truth for the partners page.
 // Rendered as an interactive showcase: dark cards that light up (white -> full
@@ -271,7 +276,7 @@ const filters = [
               {cat.brands.map((b, i) => (
                 <div class={`px-card${b.featured ? " featured" : ""}`} style={`--i:${i}`}>
                   <span class="px-logo">
-                    <img loading="lazy" decoding="async" src={`${base}${b.logo}`} alt={b.name} title={b.name} />
+                    <img loading="lazy" decoding="async" src={`${base}${normLogo(b.logo)}`} alt={b.name} title={b.name} />
                   </span>
                 </div>
               ))}
@@ -514,20 +519,20 @@ const filters = [
       width: 100%;
       height: 100%;
       border-radius: 12px;
-      background: #eef1f5;
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem 1.3rem;
+      padding: 0.85rem 1.15rem;
     }
     .px-logo img {
       max-width: 100%;
-      max-height: 44px;
+      max-height: 50px;
       width: auto;
       height: auto;
       object-fit: contain;
       filter: grayscale(1);
-      opacity: 0.82;
+      opacity: 0.85;
       transition: filter 0.3s ease, opacity 0.3s ease;
     }
     .px-card.featured { border-color: rgba(0, 173, 231, 0.5); }
