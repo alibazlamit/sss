@@ -5,6 +5,166 @@ import Layout from "../layouts/Layout.astro";
 const baseUrl = import.meta.env.BASE_URL;
 const base =
   baseUrl === "" ? "/" : baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+
+// ---------------------------------------------------------------------------
+// Brand taxonomy — single source of truth for the partners page.
+// Each category renders as a full-width "themed band" (a darkened, brand-tinted
+// photo background) with the brand logos shown on frosted-glass chips on top.
+// To add / move / remove a brand later, just edit this array.
+// ---------------------------------------------------------------------------
+const categories = [
+  {
+    id: "av",
+    title: "audio visual",
+    blurb: "world-class sound, video walls & room control",
+    bg: "images/upgrade/service-centralization.jpg",
+    brands: [
+      { name: "Crestron", logo: "images/logos/crestron-logo.svg", featured: true },
+      { name: "Extron", logo: "images/logos/extron.png" },
+      { name: "AMX by HARMAN", logo: "images/logos/amx.png" },
+      { name: "Q-SYS", logo: "images/logos/qsys.svg" },
+      { name: "Biamp", logo: "images/logos/biamp.png" },
+      { name: "Shure", logo: "images/logos/shure-1.svg", featured: true },
+      { name: "Sennheiser", logo: "images/logos/sennheiser.svg" },
+      { name: "Bose Professional", logo: "images/logos/bose-professional.svg" },
+      { name: "JBL Professional", logo: "images/logos/jbl-1.svg" },
+      { name: "Yamaha Pro Audio", logo: "images/logos/yamaha-2-1.svg" },
+      { name: "Sony Professional", logo: "images/logos/sony.svg" },
+      { name: "LG Business", logo: "images/logos/lg-electronics.svg" },
+      { name: "Samsung Display", logo: "images/logos/samsung.svg" },
+      { name: "Barco", logo: "images/logos/barco.svg" },
+      { name: "Epson", logo: "images/logos/epson-2.svg" },
+      { name: "WISI", logo: "images/logos/wisi-group-logo-vector.svg" },
+    ],
+  },
+  {
+    id: "network",
+    title: "network",
+    blurb: "enterprise switching, routing & wireless backbone",
+    bg: "images/upgrade/service-wireless.jpg",
+    brands: [
+      { name: "Cisco Systems", logo: "images/logos/cisco-2.svg", featured: true },
+      { name: "Juniper Networks", logo: "images/logos/juniper.svg" },
+      { name: "Aruba Networks", logo: "images/logos/aruba.svg", featured: true },
+      { name: "Fortinet", logo: "images/logos/fortinet-logo.svg" },
+      { name: "Ruckus", logo: "images/logos/ruckus-wireless5995.jpg" },
+      { name: "Extreme Networks", logo: "images/logos/extreme-networks.png" },
+      { name: "Huawei Enterprise", logo: "images/logos/huawei.svg" },
+      { name: "HPE", logo: "images/logos/hpe.svg" },
+      { name: "MikroTik", logo: "images/logos/mikrotik.svg" },
+      { name: "Ubiquiti", logo: "images/logos/ubiquiti-networks-2016.svg" },
+      { name: "TP-Link", logo: "images/logos/tp-link.svg" },
+      { name: "Avaya", logo: "images/logos/avaya-35121.svg" },
+      { name: "Dell", logo: "images/logos/dell-2.svg" },
+      { name: "HP", logo: "images/logos/hp-1.svg" },
+    ],
+  },
+  {
+    id: "cabling",
+    title: "structured cabling & infrastructure",
+    blurb: "copper, fiber & data-center backbone systems",
+    bg: "images/upgrade/why-choose.jpg",
+    brands: [
+      { name: "CommScope", logo: "images/logos/commscope-networking-service.png", featured: true },
+      { name: "Panduit", logo: "images/logos/panduit.svg" },
+      { name: "Legrand", logo: "images/logos/legrand.svg" },
+      { name: "Belden", logo: "images/logos/belden-4.svg" },
+      { name: "Corning", logo: "images/logos/corning.svg" },
+      { name: "RDM", logo: "images/logos/rdm.svg" },
+      { name: "3M", logo: "images/logos/3m-red.svg" },
+    ],
+  },
+  {
+    id: "cctv",
+    title: "cctv & video surveillance",
+    blurb: "ai-powered cameras & video management systems",
+    bg: "images/upgrade/service-cctv.jpg",
+    brands: [
+      { name: "Hikvision", logo: "images/logos/Hikvision-Logo.png", featured: true },
+      { name: "Dahua Technology", logo: "images/logos/Dahua_Technology_logo.svg.png" },
+      { name: "Axis Communications", logo: "images/logos/OIP.jpeg" },
+      { name: "Bosch Security", logo: "images/logos/bosch.svg" },
+      { name: "Hanwha Vision", logo: "images/logos/hanwha-4.svg" },
+      { name: "Pelco", logo: "images/logos/pelco-by-schneider-electric-vector-logo.png" },
+    ],
+  },
+  {
+    id: "access",
+    title: "access control",
+    blurb: "credentials, biometrics & smart entry systems",
+    bg: "images/upgrade/service-locks.jpg",
+    brands: [
+      { name: "HID Global", logo: "images/logos/hid-global-logo.svg", featured: true },
+      { name: "LenelS2", logo: "images/logos/lenels2.png" },
+      { name: "Gallagher", logo: "images/logos/gallagher.png" },
+      { name: "Genetec", logo: "images/logos/genetec.svg", featured: true },
+      { name: "ZKTeco", logo: "images/logos/zkteco-logo-vector.svg" },
+      { name: "Tesa", logo: "images/logos/TESA Small Logo - Degrade - PNG.webp" },
+      { name: "Salto", logo: "images/logos/SALTO_inspired_access_LOGO.png" },
+      { name: "Tyco", logo: "images/logos/tyco-security-products-vector-logo.svg" },
+      { name: "FAAC", logo: "images/logos/FAAC-Logo-Black.png" },
+      { name: "Yale", logo: "images/logos/Yale_(company)_logo.png" },
+      { name: "Kwikset", logo: "images/logos/Kwikset_Logo_JPEG.5c3f58a7c1f19.avif" },
+      { name: "Safran Sagem", logo: "images/logos/safran-sagem.svg" },
+    ],
+  },
+  {
+    id: "fire",
+    title: "fire alarm & life safety",
+    blurb: "certified detection & emergency notification",
+    bg: "images/upgrade/services-hero.jpg",
+    brands: [
+      { name: "Honeywell Notifier", logo: "images/logos/honeywell-1.svg", featured: true },
+    ],
+  },
+];
+
+// Hospitality / Guest Room Management System (GRMS) showcase
+const grmsBrands = [
+  { name: "Crestron Hospitality", logo: "images/logos/crestron-logo.svg" },
+  { name: "Honeywell INNCOM", logo: "images/logos/honeywell-1.svg" },
+];
+// Uniform monoline icons (cyan) — far cleaner than emoji on the dark band.
+const I =
+  '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">';
+const grmsFeatures = [
+  {
+    icon: `${I}<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><circle cx="15.5" cy="10" r="1.5"/><line x1="6" y1="15.5" x2="10" y2="15.5"/><line x1="14" y1="15.5" x2="18" y2="15.5"/></svg>`,
+    label: "guest room controller",
+  },
+  {
+    icon: `${I}<line x1="9.5" y1="18" x2="14.5" y2="18"/><line x1="10.5" y1="21" x2="13.5" y2="21"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.6l.1.6h5.2l.1-.6c.1-.6.4-1.2.9-1.6A6 6 0 0 0 12 3z"/></svg>`,
+    label: "lighting control",
+  },
+  {
+    icon: `${I}<path d="M14 14.76V5a2 2 0 1 0-4 0v9.76a4 4 0 1 0 4 0z"/></svg>`,
+    label: "hvac control",
+  },
+  {
+    icon: `${I}<rect x="3" y="3" width="18" height="18" rx="1.5"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>`,
+    label: "curtain control",
+  },
+  {
+    icon: `${I}<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>`,
+    label: "dnd / mur panel",
+  },
+  {
+    icon: `${I}<circle cx="12" cy="12" r="1.8"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4"/><path d="M19 5a10 10 0 0 1 0 14"/><path d="M5 19A10 10 0 0 1 5 5"/></svg>`,
+    label: "occupancy sensor",
+  },
+  {
+    icon: `${I}<rect x="2.5" y="5" width="19" height="14" rx="2"/><line x1="2.5" y1="9.5" x2="21.5" y2="9.5"/><line x1="6" y1="14.5" x2="11" y2="14.5"/></svg>`,
+    label: "energy-saving key card",
+  },
+  {
+    icon: `${I}<rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><circle cx="7" cy="7.5" r="0.7"/><circle cx="7" cy="16.5" r="0.7"/></svg>`,
+    label: "pms integration",
+  },
+  {
+    icon: `${I}<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg>`,
+    label: "mobile app control",
+  },
+];
 ---
 
 <Layout title="Our Partners - SSS Security Solutions">
@@ -13,337 +173,81 @@ const base =
     <div class="hero-content">
       <h1 class="hero-title">strategic partnerships</h1>
       <p class="hero-subtitle">
-        collaborating with global technology leaders to deliver cutting-edge
-        security solutions and innovative technologies
+        collaborating with the world's leading technology manufacturers across
+        audio visual, networking, surveillance, access control and life safety
       </p>
     </div>
   </section>
 
-  <!-- Partners Showcase -->
-  <section class="partners-showcase">
-    <div class="container">
-      <!-- Technology Partners -->
-      <div class="partner-category">
-        <h2 class="category-title">technology manufacturers</h2>
-        <div class="partners-grid">
-          <div class="partner-card featured">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async"
-                src={`${base}images/logos/Hikvision-Logo.png`}
-                alt="Hikvision"
-              />
-            </div>
-            <div class="partner-info">
-              <h3 class="partner-name">hikvision</h3>
-              <p class="partner-specialty">surveillance & analytics</p>
-              <p class="partner-description">
-                global leader in video surveillance products with ai-powered
-                analytics and intelligent security solutions
-              </p>
-            </div>
+  <!-- Themed Brand Bands -->
+  {
+    categories.map((cat) => (
+      <section
+        class="brand-band"
+        id={cat.id}
+        style={`--band-bg: url('${base}${cat.bg}')`}
+      >
+        <div class="band-inner">
+          <div class="band-head">
+            <h2 class="band-title">{cat.title}</h2>
+            <p class="band-blurb">{cat.blurb}</p>
           </div>
-
-          <div class="partner-card featured">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async"
-                src={`${base}images/logos/honeywell-1.svg`}
-                alt="Honeywell"
-              />
-            </div>
-            <div class="partner-info">
-              <h3 class="partner-name">honeywell security</h3>
-              <p class="partner-specialty">access control systems</p>
-              <p class="partner-description">
-                comprehensive security and building automation solutions for
-                commercial and industrial applications
-              </p>
-            </div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async"
-                src={`${base}images/logos/OIP.jpeg`}
-                alt="Axis Communications"
-              />
-            </div>
-            <div class="partner-info">
-              <h3 class="partner-name">axis communications</h3>
-              <p class="partner-specialty">network cameras</p>
-              <p class="partner-description">
-                innovative network video solutions and intelligent analytics for
-                professional security applications
-              </p>
-            </div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async" src={`${base}images/logos/bosch.svg`} alt="Bosch Security" />
-            </div>
-            <div class="partner-info">
-              <h3 class="partner-name">bosch security systems</h3>
-              <p class="partner-specialty">integrated solutions</p>
-              <p class="partner-description">
-                comprehensive security, safety, and communications products for
-                commercial and residential markets
-              </p>
-            </div>
+          <div class="chips">
+            {cat.brands.map((b) => (
+              <div class={`chip${b.featured ? " featured" : ""}`}>
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={`${base}${b.logo}`}
+                  alt={b.name}
+                  title={b.name}
+                />
+              </div>
+            ))}
           </div>
         </div>
+      </section>
+    ))
+  }
+
+  <!-- Hospitality / GRMS Showcase -->
+  <section class="grms" id="hospitality">
+    <div class="grms-inner">
+      <div class="grms-head">
+        <span class="grms-eyebrow">premium · hospitality</span>
+        <h2 class="grms-title">guest room management systems</h2>
+        <p class="grms-sub">
+          complete grms solutions engineered for 5-star hotels & luxury resorts —
+          one intelligent system controlling every guest experience
+        </p>
       </div>
 
-      <!-- Network & Infrastructure Partners -->
-      <div class="partner-category">
-        <h2 class="category-title">network infrastructure</h2>
-        <div class="partners-grid">
-          <div class="partner-card featured">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async"
-                src={`${base}images/logos/cisco-2.svg`}
-                alt="Cisco Systems"
+      <div class="grms-brands">
+        {
+          grmsBrands.map((b) => (
+            <div class="grms-brand-card">
+              <img
+                loading="lazy"
+                decoding="async"
+                src={`${base}${b.logo}`}
+                alt={b.name}
+                title={b.name}
               />
+              <span>{b.name}</span>
             </div>
-            <div class="partner-info">
-              <h3 class="partner-name">cisco systems</h3>
-              <p class="partner-specialty">networking solutions</p>
-              <p class="partner-description">
-                enterprise networking infrastructure and cybersecurity solutions
-                for secure connectivity
-              </p>
-            </div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async"
-                src={`${base}images/logos/ubiquiti-networks-logo.jpg`}
-                alt="Ubiquiti"
-              />
-            </div>
-            <div class="partner-info">
-              <h3 class="partner-name">ubiquiti networks</h3>
-              <p class="partner-specialty">wireless networks</p>
-              <p class="partner-description">
-                high-performance wireless networking products for enterprise and
-                service provider markets
-              </p>
-            </div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async" src={`${base}images/logos/tp-link.svg`} alt="TP-Link" />
-            </div>
-            <div class="partner-info">
-              <h3 class="partner-name">tp-link</h3>
-              <p class="partner-specialty">routing & switching</p>
-              <p class="partner-description">
-                innovative networking equipment and software solutions for
-                internet connectivity worldwide
-              </p>
-            </div>
-          </div>
-        </div>
+          ))
+        }
       </div>
 
-      <!-- Automation Partners -->
-      <div class="partner-category">
-        <h2 class="category-title">automation & control</h2>
-        <div class="partners-grid">
-          <div class="partner-card featured">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async"
-                src={`${base}images/logos/pelco-by-schneider-electric-vector-logo.png`}
-                alt="Schneider Electric"
-              />
+      <div class="grms-grid">
+        {
+          grmsFeatures.map((f) => (
+            <div class="grms-feature">
+              <span class="grms-icon" set:html={f.icon} />
+              <span class="grms-label">{f.label}</span>
             </div>
-            <div class="partner-info">
-              <h3 class="partner-name">schneider electric</h3>
-              <p class="partner-specialty">building automation</p>
-              <p class="partner-description">
-                energy management and automation solutions for efficient and
-                sustainable operations
-              </p>
-            </div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async"
-                src={`${base}images/logos/dell-2.svg`}
-                alt="Dell Technologies"
-              />
-            </div>
-            <div class="partner-info">
-              <h3 class="partner-name">dell technologies</h3>
-              <p class="partner-specialty">smart buildings</p>
-              <p class="partner-description">
-                integrated building technologies and solutions for smart,
-                healthy, and sustainable environments
-              </p>
-            </div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo">
-              <img loading="lazy" decoding="async" src={`${base}images/logos/hp-1.svg`} alt="HP" />
-            </div>
-            <div class="partner-info">
-              <h3 class="partner-name">hewlett packard</h3>
-              <p class="partner-specialty">access solutions</p>
-              <p class="partner-description">
-                comprehensive access control and security solutions for doors,
-                gates, and building entry points
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- All Partners Grid -->
-  <section class="all-partners">
-    <div class="container">
-      <h2 class="section-title">our complete partner network</h2>
-      <p class="section-subtitle">
-        Collaborating with over 60 global technology leaders and manufacturers
-      </p>
-
-      <div class="partners-logos-grid">
-        <!-- Technology Manufacturers Row 1 -->
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/Hikvision-Logo.png`} alt="Hikvision" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/honeywell-1.svg`} alt="Honeywell" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/OIP.jpeg`} alt="Axis" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/bosch.svg`} alt="Bosch" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/cisco-2.svg`} alt="Cisco" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/ubiquiti-networks-logo.jpg`}
-            alt="Ubiquiti"
-          />
-        </div>
-
-        <!-- Technology Manufacturers Row 2 -->
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/avaya-35121.svg`} alt="Avaya" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/belden-4.svg`} alt="Belden" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/commscope-networking-service.png`}
-            alt="CommScope"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/crestron-logo.svg`} alt="Crestron" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/dell-2.svg`} alt="Dell" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/epson-2.svg`} alt="Epson" />
-        </div>
-
-        <!-- Network & Audio Equipment -->
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/fortinet-logo.svg`} alt="Fortinet" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/hid-global-logo.svg`}
-            alt="HID Global"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/hp-1.svg`} alt="HP" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/lg-electronics.svg`}
-            alt="LG Electronics"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/jbl-1.svg`} alt="JBL" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/shure-1.svg`} alt="Shure" />
-        </div>
-
-        <!-- Security & Access Control -->
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/yamaha-2-1.svg`} alt="Yamaha" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/tp-link.svg`} alt="TP-Link" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/tyco-security-products-vector-logo.svg`}
-            alt="Tyco Security"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/zkteco-logo-vector.svg`}
-            alt="ZKTeco"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/SALTO_inspired_access_LOGO.png`}
-            alt="SALTO"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/FAAC-Logo-Black.png`} alt="FAAC" />
-        </div>
-
-        <!-- Additional Partners -->
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/Yale_(company)_logo.png`} alt="Yale" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/Kwikset_Logo_JPEG.5c3f58a7c1f19.avif`}
-            alt="Kwikset"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/safran-sagem.svg`}
-            alt="Safran Sagem"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/wisi-group-logo-vector.svg`}
-            alt="WISI Group"
-          />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async" src={`${base}images/logos/3m-red.svg`} alt="3M" />
-        </div>
-        <div class="partner-logo-item">
-          <img loading="lazy" decoding="async"
-            src={`${base}images/logos/Ruckus Wireless.svg`}
-            alt="Ruckus Wireless"
-          />
-        </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -354,50 +258,31 @@ const base =
       <h2 class="section-title">partnership advantages</h2>
       <div class="benefits-grid">
         <div class="benefit-card">
-          <div class="benefit-icon">
-            <div class="icon-circle">
-              <span class="icon">🏆</span>
-            </div>
-          </div>
+          <div class="icon-circle"><span class="icon">🏆</span></div>
           <h3 class="benefit-title">certified expertise</h3>
           <p class="benefit-description">
             factory-trained technicians and certified professionals ensuring
             optimal system performance and reliability
           </p>
         </div>
-
         <div class="benefit-card">
-          <div class="benefit-icon">
-            <div class="icon-circle">
-              <span class="icon">🔧</span>
-            </div>
-          </div>
+          <div class="icon-circle"><span class="icon">🔧</span></div>
           <h3 class="benefit-title">genuine products</h3>
           <p class="benefit-description">
             authorized distribution of authentic products with full manufacturer
             warranties and technical support
           </p>
         </div>
-
         <div class="benefit-card">
-          <div class="benefit-icon">
-            <div class="icon-circle">
-              <span class="icon">⚡</span>
-            </div>
-          </div>
+          <div class="icon-circle"><span class="icon">⚡</span></div>
           <h3 class="benefit-title">latest technology</h3>
           <p class="benefit-description">
             access to cutting-edge innovations and early adoption of new
             technologies in security solutions
           </p>
         </div>
-
         <div class="benefit-card">
-          <div class="benefit-icon">
-            <div class="icon-circle">
-              <span class="icon">🛠️</span>
-            </div>
-          </div>
+          <div class="icon-circle"><span class="icon">🛠️</span></div>
           <h3 class="benefit-title">comprehensive support</h3>
           <p class="benefit-description">
             dedicated technical support, training programs, and ongoing
@@ -409,9 +294,9 @@ const base =
   </section>
 
   <style>
-    /* Partners Hero */
+    /* ---------- Partners Hero ---------- */
     .partners-hero {
-      height: 60vh;
+      height: 58vh;
       background:
         linear-gradient(
           180deg,
@@ -435,7 +320,7 @@ const base =
       font-size: 4rem;
       font-weight: 200;
       color: #fff;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       text-transform: lowercase;
       letter-spacing: -1px;
       line-height: 1.1;
@@ -443,216 +328,296 @@ const base =
     }
 
     .hero-subtitle {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.72);
       text-transform: lowercase;
       letter-spacing: 0.5px;
-      max-width: 900px;
+      max-width: 880px;
       line-height: 1.8;
+      margin: 0 auto;
     }
 
-    /* Partners Showcase */
-    .partners-showcase {
-      background-color: #f8fafc;
-      padding: 6rem 0;
+    /* ---------- Themed Brand Bands ---------- */
+    .brand-band {
+      position: relative;
+      padding: 5rem 2rem;
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(11, 31, 51, 0.93) 0%,
+          rgba(8, 46, 71, 0.84) 55%,
+          rgba(0, 80, 115, 0.8) 100%
+        ),
+        var(--band-bg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
-    .partner-category {
-      margin-bottom: 6rem;
+    /* subtle alternating tint so adjacent bands read as distinct */
+    .brand-band:nth-child(even) {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(8, 46, 71, 0.86) 0%,
+          rgba(11, 31, 51, 0.93) 55%,
+          rgba(26, 54, 93, 0.84) 100%
+        ),
+        var(--band-bg);
     }
 
-    .category-title {
+    .band-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .band-head {
+      margin-bottom: 2.5rem;
+    }
+
+    .band-title {
       font-size: 2.2rem;
       font-weight: 300;
-      color: #00ade7;
+      color: #fff;
       text-transform: lowercase;
       letter-spacing: -0.5px;
-      margin-bottom: 3rem;
-      text-align: center;
+      margin: 0 0 0.5rem;
       position: relative;
+      display: inline-block;
     }
 
-    .category-title::after {
+    .band-title::after {
       content: "";
       position: absolute;
-      bottom: -1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
+      bottom: -0.7rem;
+      left: 0;
+      width: 64px;
       height: 2px;
       background: linear-gradient(90deg, #00ade7, #4abdea);
     }
 
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2.5rem;
-      max-width: 1400px;
-      margin: 0 auto;
+    .band-blurb {
+      margin: 1.2rem 0 0;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.62);
+      text-transform: lowercase;
+      letter-spacing: 0.3px;
     }
 
-    .partner-card {
-      background: #fff;
-      border: 1px solid #9e9a99;
-      border-radius: 16px;
-      padding: 3rem;
-      transition: all 0.4s ease;
+    .chips {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      flex-wrap: wrap;
+      gap: 1.1rem;
     }
 
-    .partner-card.featured {
-      background: #e6f8fd;
-      border-color: #00ade7;
-      transform: scale(1.02);
-    }
-
-    .partner-card:hover {
-      background: #f4fbfe;
-      border-color: #00ade7;
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 173, 231, 0.1);
-    }
-
-    .partner-card.featured:hover {
-      transform: translateY(-8px) scale(1.04);
-      background: #d2f1fa;
-    }
-
-    .partner-logo {
-      background: #f8fafc;
-      border-radius: 16px;
+    .chip {
+      background: rgba(255, 255, 255, 0.94);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 14px;
+      width: 168px;
+      height: 96px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 2rem;
-      padding: 0.5rem;
-      border: 1px solid #e2e8f0;
+      padding: 1rem 1.4rem;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
-    .partner-logo img {
-      max-height: 100%;
+    .chip img {
       max-width: 100%;
-      object-fit: contain;
+      max-height: 56px;
       width: auto;
       height: auto;
+      object-fit: contain;
       display: block;
-      filter: brightness(1.05) grayscale(20%);
-      transition: filter 0.3s ease;
     }
 
-    .partner-card:hover .partner-logo img {
-      filter: brightness(1.2) grayscale(0%);
+    .chip:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 38px rgba(0, 173, 231, 0.4);
     }
 
-    .partner-info {
-      flex: 1;
+    .chip.featured {
+      box-shadow:
+        0 0 0 2px #00ade7,
+        0 10px 26px rgba(0, 0, 0, 0.28);
     }
 
-    .partner-name {
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: #00ade7;
-      text-transform: lowercase;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.5rem;
+    .chip.featured:hover {
+      box-shadow:
+        0 0 0 2px #00ade7,
+        0 18px 38px rgba(0, 173, 231, 0.45);
     }
 
-    .partner-specialty {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #6f7074;
+    /* ---------- Hospitality / GRMS ---------- */
+    .grms {
+      position: relative;
+      padding: 6rem 2rem;
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(7, 18, 31, 0.95) 0%,
+          rgba(11, 31, 51, 0.9) 100%
+        ),
+        url("/images/upgrade/project-smarthome.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .grms-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .grms-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1.5rem;
-    }
-
-    .partner-description {
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.7;
-      color: #3d3d3d;
-      text-transform: lowercase;
-    }
-
-    /* All Partners Grid */
-    .all-partners {
-      background: #fff;
-      padding: 6rem 0;
-    }
-
-    .all-partners .section-title {
-      color: #00ade7;
+      color: #4abdea;
       margin-bottom: 1rem;
     }
 
-    .section-subtitle {
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: #6f7074;
-      text-align: center;
-      margin-bottom: 4rem;
+    .grms-title {
+      font-size: 2.6rem;
+      font-weight: 200;
+      color: #fff;
       text-transform: lowercase;
+      letter-spacing: -0.5px;
+      margin: 0 0 1rem;
     }
 
-    .partners-logos-grid {
+    .grms-sub {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.68);
+      text-transform: lowercase;
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 auto 3rem;
+    }
+
+    .grms-brands {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .grms-brand-card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 16px;
+      padding: 1.6rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      min-width: 220px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(0, 173, 231, 0.35);
+    }
+
+    .grms-brand-card img {
+      max-height: 48px;
+      max-width: 170px;
+      object-fit: contain;
+    }
+
+    .grms-brand-card span {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1a365d;
+      font-weight: 500;
+    }
+
+    .grms-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      max-width: 1400px;
+      gap: 1.2rem;
+      max-width: 980px;
       margin: 0 auto;
     }
 
-    .partner-logo-item {
-      background: #f8fafc;
-      padding: 2rem;
+    .grms-feature {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 12px;
+      padding: 1.4rem 1rem;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 120px;
-      box-shadow: 0 5px 20px rgba(0, 173, 231, 0.08);
-      transition: all 0.3s ease;
-      border: 1px solid #9e9a99;
+      gap: 0.7rem;
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
     }
 
-    .partner-logo-item:hover {
+    .grms-feature:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 173, 231, 0.12);
-      border-color: #00ade7;
+      background: rgba(0, 173, 231, 0.12);
+      border-color: rgba(0, 173, 231, 0.5);
     }
 
-    .partner-logo-item img {
-      max-width: 140px;
-      max-height: 80px;
-      object-fit: contain;
-      filter: grayscale(100%) opacity(0.7);
-      transition: filter 0.3s ease;
+    .grms-icon {
+      display: inline-flex;
+      color: #4abdea;
     }
 
-    .partner-logo-item:hover img {
-      filter: grayscale(0%) opacity(1);
+    .grms-icon svg {
+      width: 30px;
+      height: 30px;
     }
 
-    /* Partnership Benefits */
+    .grms-feature:hover .grms-icon {
+      color: #00ade7;
+    }
+
+    .grms-label {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.85);
+      text-transform: lowercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* ---------- Partnership Benefits ---------- */
     .partnership-benefits {
       background: linear-gradient(135deg, #e6f8fd 0%, #fff 100%);
       padding: 6rem 0;
     }
 
-    .partnership-benefits .section-title {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 300;
       color: #00ade7;
+      text-transform: lowercase;
+      letter-spacing: -1px;
+      text-align: center;
       margin-bottom: 4rem;
     }
 
     .benefits-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -669,40 +634,30 @@ const base =
 
     .benefit-card:hover {
       background: #f4fbfe;
-      border-color: #0090b8;
       transform: translateY(-5px);
       box-shadow: 0 15px 35px rgba(0, 173, 231, 0.1);
     }
 
-    .benefit-icon {
-      margin-bottom: 2rem;
-    }
-
     .icon-circle {
-      width: 80px;
-      height: 80px;
+      width: 76px;
+      height: 76px;
       background: linear-gradient(135deg, #4abdea, #3fb7e9);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto;
+      margin: 0 auto 1.6rem;
       box-shadow: 0 2px 8px rgba(0, 173, 231, 0.1);
     }
 
     .icon {
-      font-size: 2rem;
-      color: #0090b8;
-      filter: none;
-      text-shadow:
-        0 1px 2px #fff,
-        0 2px 8px #e6f8fd;
+      font-size: 1.9rem;
     }
 
     .benefit-title {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 700;
-      color: #222 !important;
+      color: #222;
       text-transform: lowercase;
       letter-spacing: -0.5px;
       margin-bottom: 1rem;
@@ -712,303 +667,73 @@ const base =
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.7;
-      color: #444 !important;
+      color: #444;
       text-transform: lowercase;
     }
 
-    /* Responsive Design */
+    /* ---------- Responsive ---------- */
     @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.5rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1.1rem;
-      }
-
-      .partners-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .partner-card {
-        padding: 2rem;
-      }
-
-      .partner-logo {
-        width: 100px;
-        height: 100px;
-      }
-
-      .partner-logo img {
-        max-height: 70px;
-      }
-
-      .carousel-container {
-        height: 280px;
-      }
-
-      .carousel-row {
-        padding: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        min-height: 65px;
-      }
-
-      .partner-logo-item {
-        flex: 0 0 calc(50% - 0.5rem);
-        padding: 0.5rem;
-      }
-
-      .partner-logo-item img {
-        max-width: 80px;
-        max-height: 40px;
-      }
-
-      .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .benefit-card {
-        padding: 2rem;
-      }
-    }
-
-    .section-title {
-      font-size: 3rem;
-      font-weight: 300;
-      color: #fff;
-      text-transform: lowercase;
-      letter-spacing: -1px;
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .benefit-card {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .benefit-icon {
-      margin-bottom: 2rem;
-    }
-
-    .icon-circle {
-      width: 80px;
-      height: 80px;
-      background: rgba(0, 122, 204, 0.1);
-      border: 2px solid rgba(0, 122, 204, 0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      transition: all 0.3s ease;
-    }
-
-    .benefit-card:hover .icon-circle {
-      background: rgba(0, 122, 204, 0.2);
-      border-color: rgba(0, 122, 204, 0.5);
-      transform: scale(1.1);
-    }
-
-    .icon {
-      font-size: 2rem;
-      filter: grayscale(100%);
-      transition: filter 0.3s ease;
-    }
-
-    .benefit-card:hover .icon {
-      filter: grayscale(0%);
-    }
-
-    /* Removed duplicate/legacy white text rules for benefit-title and benefit-description to ensure dark text on light background */
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .partners-grid {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-      }
-
-      .partner-card {
-        padding: 2.5rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.5rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1.1rem;
-      }
-
       .partners-hero {
-        height: 60vh;
+        height: 52vh;
       }
-
-      .partners-showcase,
-      .partnership-benefits {
-        padding: 4rem 0;
+      .hero-title {
+        font-size: 2.5rem;
       }
-
-      .partner-category {
-        margin-bottom: 4rem;
+      .hero-subtitle {
+        font-size: 1.1rem;
       }
-
-      .category-title {
+      .brand-band,
+      .grms {
+        padding: 4rem 1.25rem;
+        background-attachment: scroll;
+      }
+      .band-title {
         font-size: 1.8rem;
       }
-
-      .partners-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+      .chips {
+        gap: 0.8rem;
       }
-
-      .partner-card {
-        padding: 2rem;
+      .chip {
+        width: calc(50% - 0.4rem);
+        height: 84px;
+        padding: 0.9rem 1rem;
       }
-
-      .partner-logo {
-        width: 100px;
-        height: 100px;
+      .chip img {
+        max-height: 46px;
       }
-
-      .partner-logo img {
-        max-height: 70px;
-      }
-
-      .benefits-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-      }
-
-      .section-title {
+      .grms-title {
         font-size: 2rem;
       }
-
-      .icon-circle {
-        width: 70px;
-        height: 70px;
-      }
-
-      .icon {
-        font-size: 1.5rem;
+      .section-title {
+        font-size: 2rem;
       }
     }
 
     @media (max-width: 480px) {
-      .hero-title {
-        font-size: 2rem;
+      .chip {
+        height: 76px;
       }
-
-      .partners-hero {
-        height: 50vh;
-      }
-
-      .partner-card {
-        padding: 1.5rem;
-      }
-
-      .partner-logo {
-        width: 80px;
-        height: 80px;
-      }
-
-      .partner-logo img {
-        max-height: 60px;
-      }
-
-      .benefits-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .benefit-card {
-        padding: 1.5rem;
+      .chip img {
+        max-height: 40px;
       }
     }
   </style>
 
   <script>
-    // Carousel functionality
-    let currentSlide = 0;
-    const totalSlides = 2; // We have 2 sets of 4 rows each
-
-    function updateCarousel() {
-      const track = document.querySelector(".carousel-track") as HTMLElement;
-      const indicators = document.querySelectorAll(".indicator");
-
-      if (track) {
-        track.style.transform = `translateX(-${currentSlide * 50}%)`;
-      }
-
-      indicators.forEach((indicator, index) => {
-        indicator.classList.toggle("active", index === currentSlide);
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateCarousel();
-    }
-
-    function prevSlide() {
-      currentSlide = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
-      updateCarousel();
-    }
-
-    function goToSlide(index: number) {
-      currentSlide = index;
-      updateCarousel();
-    }
-
-    // Initialize carousel when page loads
+    // Hide any logo that fails to load so a missing file never leaves an
+    // empty / broken chip on the page.
     document.addEventListener("DOMContentLoaded", function () {
-      // Set up button listeners
-      const prevBtn = document.querySelector(".carousel-btn.prev");
-      const nextBtn = document.querySelector(".carousel-btn.next");
-
-      if (prevBtn) prevBtn.addEventListener("click", prevSlide);
-      if (nextBtn) nextBtn.addEventListener("click", nextSlide);
-
-      // Set up indicator listeners
-      document.querySelectorAll(".indicator").forEach((indicator, index) => {
-        indicator.addEventListener("click", () => goToSlide(index));
-      });
-
-      // Auto-play carousel
-      setInterval(nextSlide, 4000);
-
-      // Hide broken images
       document
-        .querySelectorAll(".partner-logo-item img, .partner-logo img")
+        .querySelectorAll(".chip img, .grms-brand-card img")
         .forEach((img) => {
-          const imgElement = img as HTMLImageElement;
-          imgElement.onerror = function () {
-            (this as HTMLImageElement).style.display = "none";
-            if (this.parentElement) {
-              (this.parentElement as HTMLElement).style.display = "none";
-            }
+          const el = img as HTMLImageElement;
+          el.onerror = function () {
+            const chip = (this as HTMLImageElement).closest(
+              ".chip, .grms-brand-card"
+            );
+            if (chip) (chip as HTMLElement).style.display = "none";
           };
         });
-
-      // Initialize
-      updateCarousel();
     });
-  </script>
-  <script>
-    // No carousel functionality needed - clean grid layout
   </script>
 </Layout>

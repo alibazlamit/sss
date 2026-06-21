@@ -103,6 +103,12 @@ Save to `public/images/logos/` as SVG where available, else PNG. Prefer transpar
 backgrounds. Any logo that can't be sourced at acceptable quality is listed back to the
 client to supply.
 
+## Reversibility (client request)
+
+Preserve the current design as `src/pages/partners-classic.astro` (live at
+`/partners-classic`, not linked in the nav) before rebuilding `partners.astro`. Combined
+with the `partners-redesign` git branch, this gives two independent ways to revert.
+
 ## Out of scope
 
 - The maintenance **ticket system** (Track A) — parked pending client confirmation of
